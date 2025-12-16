@@ -1,7 +1,7 @@
-@import "variables";
-@import "base";
-@import "layout";
-@import "components";
-@import "mixins";
+@use "variables";
+@use "base";
+@use "layout/globalLayout";
+@use "components";
+@use "mixins";
 
-//sass src/styles/main.scss src/styles/main.css --watch in terminal compiles to sass
+//main sass file, use command run npm sass in terminal to compile changes to main.scss

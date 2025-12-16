@@ -1,0 +1,24 @@
+{
+  "name": "kino-page",
+  "version": "1.0.0",
+  "description": "Grupparbeta KINO grupp B",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch src/styles/main.scss src/styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReposByHussam/kino-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReposByHussam/kino-page/issues"
+  },
+  "homepage": "https://github.com/ReposByHussam/kino-page#readme",
+  "devDependencies": {
+    "sass": "^1.97.0"
+  }
+}
