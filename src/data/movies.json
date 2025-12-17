@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "example",
+    "description": "description",
+    "poster": "picture that we insert later",
+    "duration": 120,
+    "genres": ["drama", "comedy"],
+    "ageLimit": 11,
+    "premiere": "2025-01-07"
+  }
+]
