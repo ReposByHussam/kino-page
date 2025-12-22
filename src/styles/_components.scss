@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use "variables" as var;
 
 .btn {
@@ -71,3 +72,74 @@
     }
   }
 }
+=======
+@use 'variables' as var;
+
+.btn {
+    width: 17rem;
+    height: 5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin: 2rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &--secondary {
+        border: solid 3px var.$color-red-heading;
+        background-color: transparent;
+        color: var.$color-red-heading;
+        box-shadow: 0 0 10px rgba(213, 111, 251, 0.4);
+
+        &:hover {
+            border-color: var.$color-btn-green;
+            color: var.$color-btn-green;
+        }
+    }
+
+    &--primary {
+        background-color: var.$color-background-dark;
+        color: var.$color-red-heading;
+        box-shadow: 0 0 10px rgba(74, 35, 35, 0.8);
+
+
+        &:hover {
+            color: var.$color-btn-green;
+        }
+    }
+}
+
+.btn-menu {
+    width: 10rem;
+    height: 4rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &--one {
+        background-color: var.$color-btn-menu;
+        color: var.$color-background-light;
+
+        &:hover {
+            background-color: var.$color-btn-menu-hover;
+        }
+    }
+
+    &--two {
+        background-color: var.$color-btn-green;
+        color: var.$color-background-dark;
+
+        &:hover {
+            background-color: var.$color-btn-green-hover;
+        }
+    }
+}
+>>>>>>> fc3a8d1 (boiletplate html and connect to mainpage button)
