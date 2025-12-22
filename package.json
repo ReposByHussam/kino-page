@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:main": "sass --watch src/styles/main.scss src/styles/main.css",
-    "sass:contact": "sass --watch src/styles/contact.scss src/styles/contact.css",
-    "sass": "concurrently \"npm run sass:main\" \"npm run sass:contact\""
+    "sass:contact": "sass --watch src/styles/contact.scss src/styles/contact.css"
   },
   "repository": {
     "type": "git",
