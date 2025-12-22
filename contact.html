@@ -18,5 +18,89 @@
     />
     <script type="module" src="./src/scripts/main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <button class="btn-menu btn-menu--one" data-route="./index.html">
+        Start
+      </button>
+      <button class="btn-menu btn-menu--one" data-route="./index.html#filmer">
+        Filmer idag
+      </button>
+      <button class="btn-menu btn-menu--two" data-route="./contact.html">
+        Kontakta Oss
+      </button>
+    </header>
+    <main class="main main--contact">
+      <section class="contact">
+        <h2 class="contact__title">Kontakta Kino</h2>
+        <p class="contact__subtitle">
+          Här kan du hitta våra kontaktuppgifter och skicka ett meddelande till
+          oss
+        </p>
+        <div class="contact__grid">
+          <div class="contact__info">
+            <h3 class="contact__info-title">Kontaktuppgifter</h3>
+            <div class="contact__info-block">
+              <p class="contact__info-label">Adress</p>
+              <p class="contact__info-value">Falska Uppsalagatan 16B</p>
+            </div>
+            <div class="contact__info-block">
+              <p class="contact__info-label">E-post</p>
+              <p class="contact__info-value">kino.falskepost@kino.se</p>
+            </div>
+            <div class="contact__info-block">
+              <p class="contact__info-label">Telefon</p>
+              <p class="contact__info-value">0730000007</p>
+            </div>
+            <div class="contact__info-block">
+              <p class="contact__info-label">Öppettider</p>
+              <p class="contact__info-value">
+                Mån-Fre: 10-18<br />
+                lör-sön: 12-18
+              </p>
+            </div>
+          </div>
+          <div class="contact__formwrap">
+            <h3 class="contact__form-title">Skicka ett meddelande till oss</h3>
+            <form class="contact__form" action="#" method="post" novalidate>
+              <div class="contact__field">
+                <label for="fullName" class="contact__label">Namn</label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  class="contact__input"
+                  placeholder="Ex: John Smith"
+                />
+                <p class="contact__error" data-error-for="fullName"></p>
+              </div>
+              <div class="contact__field">
+                <label for="email" class="contact__label">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="contact__input"
+                  placeholder="Ex: johnsmith@email.com "
+                />
+                <p class="contact__error" data-error-for="email"></p>
+              </div>
+              <div class="contact__field contact__field--full">
+                <label for="message" class="contact__label">Meddelande</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="contact__textarea"
+                  rows="5"
+                  placeholder="Skriv ditt meddelande här... "
+                ></textarea>
+                <p class="contact__error" data-error-for="message"></p>
+              </div>
+              <button type="submit" class="contact__submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
