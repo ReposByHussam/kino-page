@@ -1,0 +1,124 @@
+@use "variables" as var;
+
+.main.main--contact {
+  background: var.$color-background-dark;
+  color: var.$color-background-light;
+  font-size: 1.5rem;
+  min-height: calc(100vh - 18rem);
+}
+.contact {
+  padding: 2.5rem 1rem 4rem;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  &__title {
+    margin: 0.5rem 0 0.75rem;
+    text-align: center;
+    color: var.$color-red-heading;
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    margin: 0 auto 2rem;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 48.5rem;
+    color: var.$color-background-light;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+  &__info,
+  &__formwrap {
+    background: var.$color-background-dark;
+    color: var.$color-background-light;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 3.5px 7px 7px hsla(0, 0%, 19%, 0.39);
+  }
+  &__info-title,
+  &__form-title {
+    margin: 0 0 1rem;
+    color: var.$color-red-heading;
+    text-transform: uppercase;
+  }
+  &__info-block {
+    margin: 0 0 1rem;
+  }
+  &__info-label {
+    margin: 0 0 0.25rem;
+    font-weight: 700;
+    color: var.$color-btn-green;
+  }
+  &__info-value {
+    margin: 0;
+    line-height: 1.4;
+  }
+  &__link {
+    color: var.$color-background-light;
+    text-decoration: underline;
+    &:hover {
+      color: var.$color-btn-green;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  &__label {
+    font-weight: 700;
+    color: var.$color-btn-green;
+  }
+  &__input,
+  &__textarea {
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+    padding: 0.85rem 0.9rem;
+    font-family: var.$font-main;
+    font-size: 1rem;
+    outline: none;
+    &:focus-visible {
+      border-color: var.$color-btn-green;
+    }
+  }
+  &__textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+  &__submit {
+    margin-top: 0.25rem;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: var.$color-btn-green;
+    font-weight: 501;
+    font-size: 1.25rem;
+    font-family: var.$font-main;
+  }
+  &__error {
+    margin: 0;
+    min-height: 1.2rem;
+    font-size: 1rem;
+    color: var.$color-red-heading;
+  }
+  &__success {
+    margin: 0.75rem 0 0;
+    color: var.$color-btn-green;
+    font-weight: 700;
+  }
+  @media screen and (min-width: var.$bp-medium) {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+}
