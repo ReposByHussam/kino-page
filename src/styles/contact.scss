@@ -115,6 +115,10 @@
     color: var.$color-btn-green;
     font-weight: 700;
   }
+  &__input--invalid,
+  &__textarea--invalid {
+    border-color: var.$color-red-heading;
+  }
   @media screen and (min-width: var.$bp-medium) {
     &__grid {
       grid-template-columns: 1fr 1fr;
