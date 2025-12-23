@@ -10,9 +10,10 @@ function setupRouting() {
 function setupContactForm() {
   const form = document.querySelector(".contact__form");
   if (!form) return;
-  const successEl = form.querySelector(".contact__sucess");
+  const successEl = form.querySelector(".contact__success");
   const setError = (fieldName, message) => {
-    const errorEl = form.querySelector('[data-error-for="${fieldName}"]');
+    const errorEl = form.querySelector(`[data-error-for="${fieldName}"]`);
+
     if (errorEl) errorEl.textContent = message;
   };
   const clearErrors = () => {
