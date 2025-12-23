@@ -58,3 +58,27 @@
     }
   }
 }
+
+// 4. Shared container styles
+.bistro_section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+// 5. Opening hours
+.bistro_info {
+  @extend .bistro_section;
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    line-height: 1.6;
+    font-size: 1rem;
+    white-space: pre-line; 
+  }
+}
