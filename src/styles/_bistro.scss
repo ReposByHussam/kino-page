@@ -1,6 +1,28 @@
 @use 'variables' as var;
 @use 'components';
 
+.body {
+  margin: 0;
+}
+
+.bistro_buttons {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem; 
+      font-size: 0.85rem;  
+    
+
+    .btn--bistro-primary {
+      font-size: 1rem;
+      height: 3rem;
+      width: 10rem;
+      padding: 0;
+      margin: .5rem;
+      
+    }
+  }
 // MOBILE-FIRST
 
 .bistro_hero {
@@ -12,14 +34,15 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem 1rem; 
-  color: #ffffff;
+  color: var.$color-background-light;
 
-  // Hero image full width 
+   
   & > img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
     object-fit: cover;
     filter: brightness(0.4);
     z-index: 0;
@@ -29,25 +52,20 @@
   .bistro_hero-content {
     position: relative;
     z-index: 1;
-    max-width: 90%;
+    margin: 0 10% 0 0;
+    max-width: 100%;
     text-align: center;
+    justify-self: center;
 
     h1 {
       font-family: var.$font-main;
-      font-size: 1.75rem; 
+      font-size: 1.55rem; 
       margin-bottom: 1rem;
+      text-align: center;
       color: var.$color-red-heading;
     }
 
-    .bistro_hero-buttons {
-      display: flex;
-      flex-direction: column; 
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.5rem 1rem; 
-      font-size: 0.85rem;  
-      
-    }
+    
   }
 
   // Tablet+
@@ -63,7 +81,7 @@
       }
 
       .bistro_hero-buttons {
-        flex-direction: row; // Horizontal on tablet+
+        flex-direction: row; 
         flex-wrap: wrap;
         gap: 1rem;
       }
@@ -81,21 +99,21 @@
   }
 }
 
-// Shared container (mobile-first)
+// Shared container 
 .bistro_section {
-  max-width: 100%; // Mobile full width
+  max-width: 100%; 
   margin: 2rem auto;
-  padding: 0 1rem; // Smaller mobile padding
+  padding: 0 1rem; 
   text-align: center;
 }
 
-// Opening hours (mobile-first)
+// Opening hours 
 .bistro_info {
   @extend .bistro_section;
 
   h2 {
     font-family: var.$font-main;
-    font-size: 1.4rem; // Mobile base
+    font-size: 1.4rem; 
     margin-bottom: 0.75rem;
     color: var.$color-red-heading;
   }
@@ -126,12 +144,12 @@
   }
 }
 
-// Description section (mobile-first)
+
 .bistro_description {
   @extend .bistro_section;
   max-width: 100%;
 
-  // Mobile: stacked layout
+ 
   .bistro_description-grid {
     display: flex;
     flex-direction: column;
@@ -139,16 +157,16 @@
     margin-bottom: 1.5rem;
   }
 
-  // Image (mobile-first)
+ 
   .bistro_img {
     width: 100%;
-    height: 220px; // Fixed mobile height
+    height: 220px; 
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
-  // Content (mobile-first)
+ 
   .bistro_description-content {
     display: flex;
     flex-direction: column;
@@ -158,7 +176,7 @@
 
     h1 {
       font-family: var.$font-main;
-      font-size: 1.6rem; // Mobile base
+      font-size: 1.6rem; 
       margin: 0 0 0.75rem 0;
       color: var.$color-red-heading;
       line-height: 1.2;
@@ -167,14 +185,14 @@
     p {
       margin: 0;
       line-height: 1.7;
-      color: #e0e0e0;
+      color: #000000;
       font-size: 0.95rem;
     }
   }
 
-  // Buttons (mobile-first: vertical)
+  
   .bistro_description-buttons {
-    display: flex;
+   
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
@@ -184,11 +202,12 @@
 
   // Tablet+
   @media (min-width: var.$bp-medium) {
-    max-width: 800px;
+     display: flex;
+     max-width: 800px;
     padding: 0 1.5rem;
 
     .bistro_description-grid {
-      grid-template-columns: 1fr 1fr; // Side-by-side
+      grid-template-columns: 1fr 1fr; 
       gap: 2rem;
     }
 
@@ -211,7 +230,7 @@
     }
 
     .bistro_description-buttons {
-      flex-direction: row; // Horizontal buttons
+      flex-direction: row;
       justify-content: center;
       gap: 1rem;
       max-width: none;
