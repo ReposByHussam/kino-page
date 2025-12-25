@@ -222,5 +222,49 @@
     }
   }
 */
- 
 }
+
+.bistro_gallery {
+  @extend .bistro_section;
+
+  .bistro_gallery-title {
+    font-family: var.$font-main;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var.$color-red-heading;
+  }
+
+  .bistro_gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 0.75rem;
+
+    @media (min-width: var.$bp-medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  .bistro_gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #000;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.05);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: brightness(0.8);
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      transform: scale(2);         
+      filter: brightness(1);  
+    }
+  }}
