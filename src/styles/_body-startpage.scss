@@ -46,7 +46,7 @@ h2 {
         }
 
         @media screen and (min-width: var.$bp-desktop) {
-            max-height: 20rem;
+            max-height: 30rem;
         }
     }
 
@@ -54,6 +54,98 @@ h2 {
         width: 100%;
     }
 
+    //Movie-card
+    .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        max-width: 300px;
+        background-color: var.$color-background-light;
+        border: solid grey 1px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        margin: 1rem;
+        box-shadow: 0 0.2rem 0.5rem rgba(74, 35, 35, 0.8);
+        font-family: var.$font-main;
+        box-sizing: border-box;
+        padding: 0.5em;
+
+        @media screen and (min-width: var.$bp-medium) {
+            max-width: 380px;
+        }
+    }
+
+    .movieCard {
+        &__title {
+            color: var.$color-btn-menu;
+            text-align: center;
+            margin: 0.5rem;
+        }
+
+        &__item {
+            color: var.$color-background-dark;
+            padding: 0.5rem;
+            margin: 0;
+        }
+
+        &__img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin: 1em auto;
+        }
+
+        &__button {
+            align-self: center;
+            width: 50%;
+            height: 2.5em;
+            margin-block: 0.5em;
+        }
+    }
+
+
+    //Movie cards containers
+    &__filmsToday,
+    &__filmsUpcoming {
+        display: flex;
+        flex-direction: column;
+
+        & h2,
+        a {
+            align-self: center;
+        }
+
+    }
+
+    &__filmsContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+        width: 100vw;
+        user-select: none;
+        overflow-x: scroll;
+        cursor: grab;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &:active {
+            cursor: grabbing;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 0 0 2rem;
+        }
+    }
 
 
     //WELCOME-section with greeting, moto and 4 picutres
