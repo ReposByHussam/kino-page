@@ -8,7 +8,9 @@
   padding: 0.5rem;
   box-sizing: border-box;
   margin: 2rem 1rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border-radius: 1rem;
   cursor: pointer;
