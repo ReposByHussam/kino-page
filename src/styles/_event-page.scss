@@ -1,16 +1,12 @@
+/* THIS FILE IS FOR STYLING OF THE EVENTS-PAGE */
+
 @use 'variables' as var;
 @use 'components';
 
-.events__toStartPage {
-  text-decoration: none;
-  color: #cf9696;
-  cursor: pointer;
-  font-family: var.$font-main;
-  font-size: 1rem;
-}
+/* THIS IS STYLING FOR THE HEADING PICTURE */
 
 .events {
-  background-color: #151313;
+  background-color: #fbfbfa;
   display: flex;
   flex-direction: column;
 
@@ -26,14 +22,14 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-
     }
   }
 
   &__hero-text {
     position: absolute;
-    color: #cf9696;
+    color: #f3543b;
     text-shadow: 2px 2px 2px black;
+    text-transform: uppercase;
     font-family: var.$font-main;
     font-size: 2.5rem;
     top: 5%;
@@ -43,6 +39,8 @@
   }
 }
 
+/* THIS IS STYLING FOR THE POPULAR EVENTS-SECTION */
+
 .events__popular {
   display: flex;
   flex-direction: column;
@@ -51,7 +49,7 @@
     font-size: 2rem;
     font-family: var.$font-main;
     font-weight: bold;
-    color: #cf9696;
+    color: #821818;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -70,6 +68,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* STYLING FOR THE EVENT CARDS, BOTH POPULAR & UPCOMING */
 .event-card {
   display: flex;
   flex: 0 0 100%;
@@ -82,7 +81,7 @@
 
   &__headline {
     font-family: var.$font-main;
-    color: #cf9696;
+    color: #821818;
     text-align: center;
     padding: 0px;
     margin: 1rem 0 0 0;
@@ -120,18 +119,14 @@
 }
 
 .events__moreBtn {
-  text-decoration: none;
-  color: #f3543b;
-  border: 3px solid #f3543b;
-  border-radius: 10px;
-  width: 6rem;
-  padding: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 0;
   text-align: center;
-  cursor: pointer;
-  margin-left: 1.5rem;
-  font-size: 1.5rem;
 }
 
+/* THIS IS STYLING FOR THE UPCOMING-EVENTS SECTION */
 .events__upcoming {
   display: flex;
   flex-direction: column;
@@ -140,7 +135,7 @@
     font-size: 2rem;
     font-family: var.$font-main;
     font-weight: bold;
-    color: #cf9696;
+    color: #821818;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -159,6 +154,8 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* THIS IS BREAKPOINTS FOR TABLET AND DESKTOP */
+
 @media screen and (min-width: var.$bp-desktop) {
 
   .events__popular-list,
@@ -174,10 +171,7 @@
   }
 
   .events__moreBtn {
-    display: block;
-    width: 7rem;
     margin: 1rem auto 0;
-
   }
 
 }
