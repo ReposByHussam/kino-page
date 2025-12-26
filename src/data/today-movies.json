@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Kallt Ljus",
+    "genre": "Drama",
+    "duration": 112,
+    "rating": 7.6,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 11,
+    "tags": ["svensk", "drama", "indie"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. En stillsam berättelse om mod och val.",
+    "image": "kallt-ljus.jpg"
+  },
+  {
+    "title": "Midnatt på Fyrisån",
+    "genre": "Mystery",
+    "duration": 104,
+    "rating": 7.2,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 15,
+    "tags": ["mystery", "thriller", "natt"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. Något händer i skuggorna – och ingen vill prata om det.",
+    "image": "midnatt-fyrisan.jpg"
+  },
+  {
+    "title": "Popcorn & Poesi",
+    "genre": "Romantik",
+    "duration": 96,
+    "rating": 6.9,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 7,
+    "tags": ["romantik", "feelgood", "bio"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. Två främlingar möts i en biosalong och allt förändras.",
+    "image": "popcorn-poesi.jpg"
+  },
+  {
+    "title": "Stål & Snö",
+    "genre": "Action",
+    "duration": 121,
+    "rating": 7.8,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 15,
+    "tags": ["action", "katastrof", "tempo"],
+    "language": "EN",
+    "description": "Lorem ipsum dolor sit amet. Ett race mot tiden när staden fryser till is.",
+    "image": "stal-sno.jpg"
+  },
+  {
+    "title": "Lilla Stjärnresan",
+    "genre": "Familj",
+    "duration": 88,
+    "rating": 7.1,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 7,
+    "tags": ["family", "animation", "jul"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. En varm film om vänskap, mod och en väldigt liten stjärna.",
+    "image": "lilla-stjarnresan.jpg"
+  },
+  {
+    "title": "Kodnamn: Eko",
+    "genre": "Thriller",
+    "duration": 109,
+    "rating": 7.4,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 15,
+    "tags": ["thriller", "spion", "teknik"],
+    "language": "EN",
+    "description": "Lorem ipsum dolor sit amet. Ett läckta meddelande startar en kedja av farliga beslut.",
+    "image": "kodnamn-eko.jpg"
+  },
+  {
+    "title": "Bistrons Hemlighet",
+    "genre": "Komedi",
+    "duration": 101,
+    "rating": 6.8,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 7,
+    "tags": ["komedi", "mat", "ensemble"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. När en kock försvinner måste alla spela med i en galen plan.",
+    "image": "bistrons-hemlighet.jpg"
+  },
+  {
+    "title": "Efter Regnet",
+    "genre": "Drama",
+    "duration": 118,
+    "rating": 8.1,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 11,
+    "tags": ["drama", "relationer", "stark"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. En historia om försoning och att börja om.",
+    "image": "efter-regnet.jpg"
+  },
+  {
+    "title": "Neonhjärtan",
+    "genre": "Sci-Fi",
+    "duration": 124,
+    "rating": 7.9,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 11,
+    "tags": ["sci-fi", "framtid", "cyber"],
+    "language": "EN",
+    "description": "Lorem ipsum dolor sit amet. En stad av ljus – och en hemlighet som kan släcka allt.",
+    "image": "neonhjartan.jpg"
+  },
+  {
+    "title": "Uppsala Udda",
+    "genre": "Dokumentär",
+    "duration": 90,
+    "rating": 7.0,
+    "releaseDate": "2025-12-24",
+    "ageLimit": 7,
+    "tags": ["dokumentar", "lokalt", "kultur"],
+    "language": "SV",
+    "description": "Lorem ipsum dolor sit amet. En charmig dokumentär om de små historierna i en stor stad.",
+    "image": "uppsala-udda.jpg"
+  }
+]
