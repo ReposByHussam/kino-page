@@ -1,0 +1,147 @@
+@use 'variables' as *;
+@use 'components';
+
+.about {
+
+    &__hero {
+        position: relative;
+    }
+
+    &__hero-img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &__hero-title {
+        position: absolute;
+        transform: translateY(-70px);
+        padding-left: 1em;
+        color: white;
+        font-size: 1.8rem;
+
+        @media (min-width: $bp-medium) {
+            font-size: 2.5rem;
+            transform: translateY(-100px);
+        }
+    }
+
+    &__intro {
+        background-color: $color-background-light;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__intro-title {
+        font-size: 2rem;
+        text-align: center;
+        padding-top: 0.8rem;
+
+        @media (min-width: $bp-medium) {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+        }
+    }
+
+    &__intro-text {
+        text-align: center;
+        font-size: 0.8rem;
+        margin: 0 2rem;
+        padding-bottom: 3rem;
+
+        @media (min-width: $bp-medium) {
+            font-size: 1em;
+            padding-bottom: 5rem;
+        }
+
+
+        @media (min-width: $bp-desktop) {
+            max-width: 70%;
+        }
+    }
+
+    &__opening-grid {
+        @media (min-width: $bp-medium) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            justify-content: center;
+        }
+    }
+
+    &__opening-hours {
+        background-color: $color-background-dark;
+        padding: 4rem 2rem;
+    }
+
+    &__hours-title {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 4rem;
+        text-align: center;
+
+        @media (min-width: $bp-medium) {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+
+    &__cinema-title,
+    &__bistro-title {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &__cinema-hours-list {
+        color: white;
+        list-style: none;
+        padding: 0 0 4rem;
+        line-height: 1.7;
+    }
+
+    &__bistro-hours-list {
+        color: white;
+        list-style: none;
+        padding: 0;
+        line-height: 1.7;
+    }
+
+    &__cinema-img,
+    &__bistro-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    .about__faq {
+        padding: 2rem 2rem;
+        background-color: $color-background-light;
+    }
+
+    .about__faq-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about__faq-item {
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .about__faq-question {
+        cursor: pointer;
+        font-weight: bold;
+        list-style: none;
+    }
+
+    .about__faq-answer {
+        margin-top: 1rem;
+        line-height: 1.6;
+    }
+
+}
