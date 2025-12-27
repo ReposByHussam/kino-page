@@ -1,5 +1,6 @@
 [
   {
+    "id": "future-frostens-katedral",
     "title": "Frostens Katedral",
     "genre": "Fantasy",
     "duration": 136,
@@ -9,9 +10,10 @@
     "tags": ["fantasy", "epic", "premiere"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. En uråldrig plats vaknar och kräver ett offer.",
-    "image": "frostens-katedral.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-sista-sparvagnen",
     "title": "Sista Spårvagnen",
     "genre": "Drama",
     "duration": 107,
@@ -21,9 +23,10 @@
     "tags": ["drama", "stad", "svensk"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En kvällstur blir början på en ny riktning i livet.",
-    "image": "sista-sparvagnen.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-rymdposten",
     "title": "Rymdposten",
     "genre": "Familj",
     "duration": 92,
@@ -33,9 +36,10 @@
     "tags": ["family", "adventure", "animation"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. Ett litet paket på villovägar hamnar i galaxens mitt.",
-    "image": "rymdposten.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-bronsnatten",
     "title": "Bronsnatten",
     "genre": "Thriller",
     "duration": 115,
@@ -45,9 +49,10 @@
     "tags": ["thriller", "crime", "mystery"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. Ett fall som aldrig löstes – förrän nu.",
-    "image": "bronsnatten.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-ljudet-av-tystnad",
     "title": "Ljudet av Tystnad",
     "genre": "Drama",
     "duration": 123,
@@ -57,9 +62,10 @@
     "tags": ["drama", "musik", "indie"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. När musiken försvinner måste du hitta en ny röst.",
-    "image": "ljudet-av-tystnad.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-operation-biosalong",
     "title": "Operation Biosalong",
     "genre": "Komedi",
     "duration": 99,
@@ -69,9 +75,10 @@
     "tags": ["komedi", "bio", "ensemble"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En misslyckad premiär blir årets roligaste kväll.",
-    "image": "operation-biosalong.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-jarnvagens-barn",
     "title": "Järnvägens Barn",
     "genre": "Äventyr",
     "duration": 110,
@@ -81,9 +88,10 @@
     "tags": ["adventure", "family", "friendship"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. Två vänner följer spåren mot ett glömt löfte.",
-    "image": "jarnvagens-barn.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-kraschlandning-i-kvarteret",
     "title": "Kraschlandning i Kvarteret",
     "genre": "Sci-Fi",
     "duration": 128,
@@ -93,9 +101,10 @@
     "tags": ["sci-fi", "comedy", "aliens"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. När en farkost landar fel måste grannarna samarbeta.",
-    "image": "kraschlandning-kvarteret.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-skymningsarkivet",
     "title": "Skymningsarkivet",
     "genre": "Mystery",
     "duration": 103,
@@ -105,9 +114,10 @@
     "tags": ["mystery", "dark", "investigation"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. Dokument som inte borde finnas börjar dyka upp.",
-    "image": "skymningsarkivet.jpg"
+    "image": "placeholder.webp"
   },
   {
+    "id": "future-sommarens-sista-scen",
     "title": "Sommarens Sista Scen",
     "genre": "Romantik",
     "duration": 105,
@@ -117,6 +127,6 @@
     "tags": ["romantik", "feelgood", "summer"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En sommarflirt får en andra chans – precis när allt tar slut.",
-    "image": "sommarens-sista-scen.jpg"
+    "image": "placeholder.webp"
   }
 ]
