@@ -1,0 +1,271 @@
+@use 'variables' as var;
+@use 'components';
+
+body {
+  margin: 0;
+}
+
+.bistro_buttons {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem; 
+      font-size: 0.85rem; 
+      @media (min-width: var.$bp-medium) {
+        gap: 1rem;
+        flex-direction: row;        
+      }
+    
+
+    .btn--bistro-primary {
+      font-size: 1rem;
+      border-color: var.$color-red-heading;
+      height: 3rem;
+      width: 10rem;
+      padding: 0;
+      margin: .5rem;
+      @media (min-width: var.$bp-medium) {
+        gap: 1rem; 
+        font-size: 1.5rem;
+        height: 5rem;
+        width: 17rem;       
+      }
+    }
+  }
+// MOBILE-FIRST
+
+.bistro_hero {
+  position: relative;
+  width: 100%;
+  min-height: 50vh; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem; 
+  color: var.$color-background-light;
+
+   
+  & > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    filter: brightness(0.4);
+    z-index: 0;
+  }
+
+  // Content overlay 
+  .bistro_hero-content {
+    position: relative;
+    z-index: 1;
+    margin: 0 10% 0 0;
+    max-width: 100%;
+    text-align: center;
+    justify-self: center;
+
+    h1 {
+      font-family: var.$font-main;
+      font-size: 1.55rem; 
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var.$color-red-heading;
+      @media (min-width: var.$bp-medium){
+        font-size: 2.5rem;
+      }
+    }   
+  }
+
+  
+  @media (min-width: var.$bp-medium) {
+    min-height: 60vh;
+    padding: 2rem 1.5rem;
+
+    .bistro_hero-content {
+      max-width: 700px;
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      .bistro_hero-buttons {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+// Shared container 
+.bistro_section {
+  max-width: 100%; 
+  margin: 2rem auto;
+  padding: 0 1rem; 
+  text-align: center;
+}
+
+// Opening hours 
+.bistro_info {
+  @extend .bistro_section;
+
+  h2 {
+    font-family: var.$font-main;
+    font-size: 1.4rem; 
+    margin-bottom: 0.75rem;
+    color: var.$color-red-heading;
+  }
+
+  p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    white-space: pre-line;
+  }
+
+  // big screen
+  @media (min-width: var.$bp-medium) {
+    max-width: 600px;
+    padding: 0 1.5rem;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+.bistro_description {
+  @extend .bistro_section;
+  max-width: 100%;
+
+ 
+  .bistro_description-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  
+
+ 
+  & img {
+    width: 100%;
+    height: 50vh; 
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }}
+
+ 
+  .bistro_description-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+
+    h1 {
+      font-family: var.$font-main;
+      font-size: 1.6rem; 
+      margin: 0 0 0.75rem 0;
+      color: var.$color-red-heading;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.7;
+      color: #000000;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* 
+  @media (min-width: var.$bp-medium) {
+     display: flex;
+     max-width: 800px;
+    padding: 0 1.5rem;
+
+    .bistro_description-grid {
+      grid-template-columns: 1fr 1fr; 
+      gap: 2rem;
+    }
+
+    .bistro_img {
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .bistro_description-content {
+      padding: 1rem;
+      text-align: left;
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+      }
+    } 
+
+    .bistro_description-buttons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+      max-width: none;
+    }
+  }
+*/
+}
+
+.bistro_gallery {
+  @extend .bistro_section;
+
+  .bistro_gallery-title {
+    font-family: var.$font-main;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var.$color-red-heading;
+  }
+
+  .bistro_gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 0.75rem;
+
+    @media (min-width: var.$bp-medium) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  .bistro_gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #000;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.05);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: brightness(0.8);
+    }
+
+    &:hover img,
+    &:focus-visible img {
+      transform: scale(2);         
+      filter: brightness(1);  
+    }
+  }}
