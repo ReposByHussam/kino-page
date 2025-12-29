@@ -39,7 +39,6 @@
         padding-top: 0.8rem;
 
         @media (min-width: $bp-medium) {
-            font-size: 2rem;
             margin-bottom: 1rem;
             padding-top: 1rem;
         }
@@ -117,29 +116,29 @@
         margin-bottom: 1.5rem;
     }
 
-    .about__faq {
+    &__faq {
         padding: 2rem 2rem;
         background-color: $color-background-light;
     }
 
-    .about__faq-title {
+    &__faq-title {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
 
-    .about__faq-item {
+    &__faq-item {
         border: 1px solid #ccc;
         margin-bottom: 1rem;
         padding: 1rem;
     }
 
-    .about__faq-question {
+    &__faq-question {
         cursor: pointer;
         font-weight: bold;
         list-style: none;
     }
 
-    .about__faq-answer {
+    &__faq-answer {
         margin-top: 1rem;
         line-height: 1.6;
     }

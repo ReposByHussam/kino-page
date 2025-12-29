@@ -568,7 +568,6 @@ h2 {
 }
 @media (min-width: 768px) {
   .about__intro-title {
-    font-size: 2rem;
     margin-bottom: 1rem;
     padding-top: 1rem;
   }
@@ -637,25 +636,25 @@ h2 {
   display: block;
   margin-bottom: 1.5rem;
 }
-.about .about__faq {
+.about__faq {
   padding: 2rem 2rem;
   background-color: #fbfbfa;
 }
-.about .about__faq-title {
+.about__faq-title {
   font-size: 2rem;
   margin-bottom: 2rem;
 }
-.about .about__faq-item {
+.about__faq-item {
   border: 1px solid #ccc;
   margin-bottom: 1rem;
   padding: 1rem;
 }
-.about .about__faq-question {
+.about__faq-question {
   cursor: pointer;
   font-weight: bold;
   list-style: none;
 }
-.about .about__faq-answer {
+.about__faq-answer {
   margin-top: 1rem;
   line-height: 1.6;
 }
