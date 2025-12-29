@@ -2,10 +2,14 @@
   padding: 2rem;
 }
 
+/* Gemensam färg för rubrik + boka-knapp */
+$lectures-accent-color: #8b0000;
+
 .lectures__headline {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: $lectures-accent-color;
 }
 
 .lectures__list {
@@ -33,4 +37,22 @@
 .lecture-card__description {
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+/* Boka-knappen */
+.lecture-card__button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  background-color: $lectures-accent-color;
+  border: 2px solid $lectures-accent-color;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lecture-card__button:hover {
+  background-color: transparent;
+  color: $lectures-accent-color;
 }
