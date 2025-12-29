@@ -139,6 +139,7 @@ body {
     &__grid {
       grid-template-columns: 1fr 1fr;
       align-items: start;
+      gap: 1.5rem;
     }
     &__info,
     &__formwrap {
@@ -149,21 +150,22 @@ body {
       font-size: 1.05rem;
     }
   }
-  @media screen and (min-wdith: var.$bp-desktop) {
+  @media screen and (min-width: var.$bp-desktop) {
     max-width: 80rem;
-  }
-  &__grid {
-    gap: 2.5rem;
-  }
-  &__title {
-    font-size: 2.5rem;
-  }
-  &__subtitle {
-    font-size: 1.25rem;
-  }
-  &__submit,
-  &__btn {
-    height: 3rem;
-    font-size: 1.35rem;
+
+    &__grid {
+      gap: 2.5rem;
+    }
+    &__title {
+      font-size: 2.5rem;
+    }
+    &__subtitle {
+      font-size: 1.25rem;
+    }
+    &__submit,
+    &__btn {
+      height: 3rem;
+      font-size: 1.35rem;
+    }
   }
 }
