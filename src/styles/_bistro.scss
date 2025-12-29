@@ -25,11 +25,9 @@ body {
 
     .btn--bistro-primary {
       font-size: 1rem;
-      border-color: var.$color-red-heading;
       height: 3rem;
       width: 10rem;
       border: 2px solid var.$color-red-heading;
-      background-color: var.$color-background-light;
       padding: 0;
       margin: .5rem;
       @media (min-width: var.$bp-medium) {
@@ -191,44 +189,6 @@ body {
       font-size: 0.95rem;
     }
   }
-
-  /* 
-  @media (min-width: var.$bp-medium) {
-     display: flex;
-     max-width: 800px;
-    padding: 0 1.5rem;
-
-    .bistro_description-grid {
-      grid-template-columns: 1fr 1fr; 
-      gap: 2rem;
-    }
-
-    .bistro_img {
-      height: 100%;
-      border-radius: 16px;
-    }
-
-    .bistro_description-content {
-      padding: 1rem;
-      text-align: left;
-
-      h1 {
-        font-size: 1.9rem;
-      }
-
-      p {
-        font-size: 1.05rem;
-      }
-    } 
-
-    .bistro_description-buttons {
-      flex-direction: row;
-      justify-content: center;
-      gap: 1rem;
-      max-width: none;
-    }
-  }
-*/
 }
 
 .bistro_gallery {
@@ -277,7 +237,7 @@ body {
   }}
 
   .bistro_menu {
-  @extend .bistro_section; // if you already use this pattern
+  @extend .bistro_section; 
   text-align: left;
 
   &__title {
