@@ -1,8 +1,13 @@
 @use "variables" as var;
-
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var.$color-background-dark;
+}
 .main.main--contact {
   background: var.$color-background-light;
-  color: var.$color-background-light;
+  color: var.$color-background-dark;
   font-size: 1.5rem;
   min-height: calc(100vh - 18rem);
 }
@@ -22,7 +27,7 @@
     text-align: center;
     line-height: 1.5;
     max-width: 48.5rem;
-    color: var.$color-background-light;
+    color: var.$color-background-dark;
   }
   &__grid {
     display: grid;
@@ -129,6 +134,7 @@
   &__textarea--invalid {
     border-color: var.$color-red-heading;
   }
+
   @media screen and (min-width: var.$bp-medium) {
     &__grid {
       grid-template-columns: 1fr 1fr;
