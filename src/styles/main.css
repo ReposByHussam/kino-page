@@ -411,9 +411,19 @@ h2 {
     margin: 1rem auto 0;
   }
 }
-.main.main--contact {
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.page--contact {
   background: #151313;
-  color: #fbfbfa;
+}
+
+.main.main--contact {
+  background: #fbfbfa;
+  color: #151313;
   font-size: 1.5rem;
   min-height: calc(100vh - 18rem);
 }
@@ -434,12 +444,12 @@ h2 {
   text-align: center;
   line-height: 1.5;
   max-width: 48.5rem;
-  color: #fbfbfa;
+  color: #151313;
 }
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1.15rem;
   align-items: start;
 }
 .contact__info, .contact__formwrap {
@@ -501,17 +511,24 @@ h2 {
   resize: vertical;
   min-height: 8rem;
 }
-.contact__submit {
+.contact__submit, .contact__btn {
   margin-top: 0.25rem;
   width: 100%;
   height: 2.5rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  background-color: #9cc177;
+  border: solid 3px #f3543b;
+  background-color: transparent;
+  color: #f3543b;
+  box-shadow: 0 0 10px rgba(213, 111, 251, 0.4);
   font-weight: 501;
   font-size: 1.25rem;
   font-family: "Roboto", sans-serif;
+}
+.contact__submit:hover, .contact__btn:hover {
+  border-color: #9cc177;
+  color: #9cc177;
 }
 .contact__error {
   margin: 0;
@@ -531,6 +548,31 @@ h2 {
   .contact__grid {
     grid-template-columns: 1fr 1fr;
     align-items: start;
+    gap: 1.5rem;
+  }
+  .contact__info, .contact__formwrap {
+    padding: 2rem;
+  }
+  .contact__input, .contact__textarea {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .contact {
+    max-width: 80rem;
+  }
+  .contact__grid {
+    gap: 2.5rem;
+  }
+  .contact__title {
+    font-size: 2.5rem;
+  }
+  .contact__subtitle {
+    font-size: 1.25rem;
+  }
+  .contact__submit, .contact__btn {
+    height: 3rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -753,6 +795,10 @@ h2 {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
 }
@@ -774,9 +820,9 @@ body {
 }
 .bistro_buttons .btn--bistro-primary {
   font-size: 1rem;
-  border-color: #f3543b;
   height: 3rem;
   width: 10rem;
+  border: 2px solid #f3543b;
   padding: 0;
   margin: 0.5rem;
 }
@@ -848,7 +894,7 @@ body {
   }
 }
 
-.bistro_section, .bistro_gallery, .bistro_description, .bistro_info {
+.bistro_section, .bistro_menu, .bistro_gallery, .bistro_description, .bistro_info {
   max-width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -916,7 +962,6 @@ body {
   font-size: 0.95rem;
 }
 
-
 .bistro_gallery .bistro_gallery-title {
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
@@ -954,7 +999,59 @@ body {
   transform: scale(2);
   filter: brightness(1);
 }
+
+.bistro_menu {
+  text-align: left;
+}
+.bistro_menu__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #f3543b;
+  text-align: center;
+}
+.bistro_menu__category {
+  margin-bottom: 2rem;
+}
+.bistro_menu__category-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #821818;
+}
+.bistro_menu__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .bistro_menu__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 }
+.bistro_menu__item {
+  background-color: #fbfbfa;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+}
+.bistro_menu__item-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #151313;
+}
+.bistro_menu__item-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  color: #555;
+}
+.bistro_menu__item-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #821818;
+}
+ 
 
 /*# sourceMappingURL=main.css.map */

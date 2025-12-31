@@ -30,17 +30,21 @@
         <div class="bistro_hero-content">
             <h1>Välkommen till Kinos Bistro i Uppsala</h1>
             <div class="bistro_buttons">
-                <button class="btn btn--primary btn--bistro-primary">Visa menyn</button>
-                <button class="btn btn--primary btn--bistro-primary">Boka bord</button>
+                <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
+                <a href="" class="btn btn--primary btn--bistro-primary">Boka bord</a>
             </div>
         </div>  
     </section>
+
+<!-- Öppetider -->
 
     <section class="bistro_info">
         <h2 class="">Öppetider</h2>
         <p class="">Köket stänger halv timme innan bistro stänger.</p>
         <p class="">Mån - Tis11.30 - 21:00 <br>Ons - Fre11.30 - 20.30 <br>Lör12.00 - 00:00 <br>Sön12.00 - 20.00</p>
     </section>
+
+<!-- Description -->
 
 <section class="bistro_description">
     <div class="bistro_description-grid">
@@ -56,11 +60,13 @@
     </div>
 
     <div class="bistro_buttons">
-        <button class="btn btn--primary btn--bistro-primary">Visa menyn</button>
-        <button class="btn btn--primary btn--bistro-primary">Boka bord</button>
+        <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
+        <a href="" class="btn btn--primary btn--bistro-primary">Boka bord</a>
     </div>
   </div>
 </section>
+
+<!-- Gallery -->
 
 <section class="bistro_gallery">
   <h2 class="bistro_gallery-title">Galleri</h2>
@@ -86,10 +92,105 @@
     </a>
   </div>
   <div class="bistro_buttons">
-        <button class="btn btn--primary btn--bistro-primary">Visa menyn</button>
-        <button class="btn btn--primary btn--bistro-primary">Boka bord</button>
+        <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
+        <a href="" class="btn btn--primary btn--bistro-primary">Boka bord</a>
     </div>
 </section>
+
+<!-- MENU only hard coded-->
+
+<section id="bistro_viewmenu" class="bistro_menu">
+  <h2 class="bistro_menu__title">Meny</h2>  
+  <section class="bistro_menu__category">
+    <h3 class="bistro_menu__category-title">Snacks</h3>
+    <div class="bistro_menu__grid">
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Krispiga Nachos</h4>
+        <p class="bistro_menu__item-desc">
+          Nachos med ost och salsa, perfekt att dela före filmen.
+        </p>
+        <p class="bistro_menu__item-price">69 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Trüffelpoppis</h4>
+        <p class="bistro_menu__item-desc">
+          Popcorn med tryffelolja och parmesan för extra lyxkänsla.
+        </p>
+        <p class="bistro_menu__item-price">59 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Filmklubbens Chips</h4>
+        <p class="bistro_menu__item-desc">
+          Tunnskivade potatischips med havssalt och gräddfilsdip.
+        </p>
+        <p class="bistro_menu__item-price">49 kr</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Food -->
+  <section class="bistro_menu__category">
+    <h3 class="bistro_menu__category-title">Mat</h3>
+    <div class="bistro_menu__grid">
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Regissörens Burgare</h4>
+        <p class="bistro_menu__item-desc">
+          Nötburgare med cheddar, picklad lök och vår signatursås.
+        </p>
+        <p class="bistro_menu__item-price">179 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Premiärpasta</h4>
+        <p class="bistro_menu__item-desc">
+          Krämig pasta med svamp, vitlök och riven hårdost på toppen.
+        </p>
+        <p class="bistro_menu__item-price">169 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Matinépizza</h4>
+        <p class="bistro_menu__item-desc">
+          Tunn pizzabotten med tomat, mozzarella och färsk basilika.
+        </p>
+        <p class="bistro_menu__item-price">159 kr</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Drinks -->
+  <section class="bistro_menu__category">
+    <h3 class="bistro_menu__category-title">Dryck</h3>
+    <div class="bistro_menu__grid">
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Kinos Läsk</h4>
+        <p class="bistro_menu__item-desc">
+          Kolsyreläsk i flera smaker, serveras väl kyld med is.
+        </p>
+        <p class="bistro_menu__item-price">39 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Husets Lemonad</h4>
+        <p class="bistro_menu__item-desc">
+          Frisk citronlemonad med mynta, gjord på plats i bistron.
+        </p>
+        <p class="bistro_menu__item-price">49 kr</p>
+      </article>
+
+      <article class="bistro_menu__item">
+        <h4 class="bistro_menu__item-name">Kvällens Vin</h4>
+        <p class="bistro_menu__item-desc">
+          Glas rött eller vitt vin noga utvalt till kvällens filmer.
+        </p>
+        <p class="bistro_menu__item-price">89 kr</p>
+      </article>
+    </div>
+  </section>
+</section>
+
 </main>
 
 <footer class="footer">

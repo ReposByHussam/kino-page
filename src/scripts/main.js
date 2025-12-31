@@ -32,8 +32,8 @@ function setupContactForm() {
 
     let ok = true;
 
-    if (fullName.length < 2) {
-      setError("fullName", "Skriv in ditt namn igen, minst 2 tecken");
+    if (fullName.length < 3) {
+      setError("fullName", "Skriv in ditt namn igen, minst 3 tecken");
       ok = false;
     }
     if (!isvalidEmail(email)) {

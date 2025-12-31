@@ -1,6 +1,10 @@
 @use 'variables' as var;
 @use 'components';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
 }
@@ -21,9 +25,9 @@ body {
 
     .btn--bistro-primary {
       font-size: 1rem;
-      border-color: var.$color-red-heading;
       height: 3rem;
       width: 10rem;
+      border: 2px solid var.$color-red-heading;
       padding: 0;
       margin: .5rem;
       @media (min-width: var.$bp-medium) {
@@ -185,44 +189,6 @@ body {
       font-size: 0.95rem;
     }
   }
-
-  /* 
-  @media (min-width: var.$bp-medium) {
-     display: flex;
-     max-width: 800px;
-    padding: 0 1.5rem;
-
-    .bistro_description-grid {
-      grid-template-columns: 1fr 1fr; 
-      gap: 2rem;
-    }
-
-    .bistro_img {
-      height: 100%;
-      border-radius: 16px;
-    }
-
-    .bistro_description-content {
-      padding: 1rem;
-      text-align: left;
-
-      h1 {
-        font-size: 1.9rem;
-      }
-
-      p {
-        font-size: 1.05rem;
-      }
-    } 
-
-    .bistro_description-buttons {
-      flex-direction: row;
-      justify-content: center;
-      gap: 1rem;
-      max-width: none;
-    }
-  }
-*/
 }
 
 .bistro_gallery {
@@ -269,3 +235,66 @@ body {
       filter: brightness(1);  
     }
   }}
+
+  .bistro_menu {
+  @extend .bistro_section; 
+  text-align: left;
+
+  &__title {
+    font-family: var.$font-main;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: var.$color-red-heading;
+    text-align: center;
+  }
+
+  &__category {
+    margin-bottom: 2rem;
+  }
+
+  &__category-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var.$color-btn-menu;
+  }
+
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+
+    @media (min-width: var.$bp-medium) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); 
+      gap: 1rem;
+    }
+
+  }
+
+  &__item {
+    background-color: var.$color-background-light;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+  }
+
+  &__item-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var.$color-background-dark;
+  }
+
+  &__item-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+    color: #555;
+  }
+
+  &__item-price {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var.$color-btn-menu;
+  }
+}
