@@ -411,9 +411,19 @@ h2 {
     margin: 1rem auto 0;
   }
 }
-.main.main--contact {
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.page--contact {
   background: #151313;
-  color: #fbfbfa;
+}
+
+.main.main--contact {
+  background: #fbfbfa;
+  color: #151313;
   font-size: 1.5rem;
   min-height: calc(100vh - 18rem);
 }
@@ -434,12 +444,12 @@ h2 {
   text-align: center;
   line-height: 1.5;
   max-width: 48.5rem;
-  color: #fbfbfa;
+  color: #151313;
 }
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1.15rem;
   align-items: start;
 }
 .contact__info, .contact__formwrap {
@@ -501,17 +511,24 @@ h2 {
   resize: vertical;
   min-height: 8rem;
 }
-.contact__submit {
+.contact__submit, .contact__btn {
   margin-top: 0.25rem;
   width: 100%;
   height: 2.5rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  background-color: #9cc177;
+  border: solid 3px #f3543b;
+  background-color: transparent;
+  color: #f3543b;
+  box-shadow: 0 0 10px rgba(213, 111, 251, 0.4);
   font-weight: 501;
   font-size: 1.25rem;
   font-family: "Roboto", sans-serif;
+}
+.contact__submit:hover, .contact__btn:hover {
+  border-color: #9cc177;
+  color: #9cc177;
 }
 .contact__error {
   margin: 0;
@@ -531,6 +548,31 @@ h2 {
   .contact__grid {
     grid-template-columns: 1fr 1fr;
     align-items: start;
+    gap: 1.5rem;
+  }
+  .contact__info, .contact__formwrap {
+    padding: 2rem;
+  }
+  .contact__input, .contact__textarea {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .contact {
+    max-width: 80rem;
+  }
+  .contact__grid {
+    gap: 2.5rem;
+  }
+  .contact__title {
+    font-size: 2.5rem;
+  }
+  .contact__subtitle {
+    font-size: 1.25rem;
+  }
+  .contact__submit, .contact__btn {
+    height: 3rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -802,5 +844,264 @@ h2 {
     align-self: center;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.bistro_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+@media (min-width: 768px) {
+  .bistro_buttons {
+    gap: 1rem;
+    flex-direction: row;
+  }
+}
+.bistro_buttons .btn--bistro-primary {
+  font-size: 1rem;
+  height: 3rem;
+  width: 10rem;
+  border: 2px solid #f3543b;
+  padding: 0;
+  margin: 0.5rem;
+}
+@media (min-width: 768px) {
+  .bistro_buttons .btn--bistro-primary {
+    gap: 1rem;
+    font-size: 1.5rem;
+    height: 5rem;
+    width: 17rem;
+  }
+}
+
+.bistro_hero {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  color: #fbfbfa;
+}
+.bistro_hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  filter: brightness(0.4);
+  z-index: 0;
+}
+.bistro_hero .bistro_hero-content {
+  position: relative;
+  z-index: 1;
+  margin: 0 10% 0 0;
+  max-width: 100%;
+  text-align: center;
+  justify-self: center;
+}
+.bistro_hero .bistro_hero-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.55rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #f3543b;
+}
+@media (min-width: 768px) {
+  .bistro_hero .bistro_hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .bistro_hero {
+    min-height: 60vh;
+    padding: 2rem 1.5rem;
+  }
+  .bistro_hero .bistro_hero-content {
+    max-width: 700px;
+  }
+  .bistro_hero .bistro_hero-content h1 {
+    font-size: 2.25rem;
+  }
+  .bistro_hero .bistro_hero-content .bistro_hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+.bistro_section, .bistro_menu, .bistro_gallery, .bistro_description, .bistro_info {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.bistro_info h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: #f3543b;
+}
+.bistro_info p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+@media (min-width: 768px) {
+  .bistro_info {
+    max-width: 600px;
+    padding: 0 1.5rem;
+  }
+  .bistro_info h2 {
+    font-size: 2.5rem;
+  }
+  .bistro_info p {
+    font-size: 1rem;
+  }
+}
+
+.bistro_description {
+  max-width: 100%;
+}
+.bistro_description .bistro_description-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.bistro_description .bistro_description-grid img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.bistro_description .bistro_description-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  text-align: center;
+}
+.bistro_description .bistro_description-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem 0;
+  color: #f3543b;
+  line-height: 1.2;
+}
+.bistro_description .bistro_description-content p {
+  margin: 0;
+  line-height: 1.7;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.bistro_gallery .bistro_gallery-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #f3543b;
+}
+.bistro_gallery .bistro_gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .bistro_gallery .bistro_gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+.bistro_gallery .bistro_gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #000;
+  cursor: pointer;
+}
+.bistro_gallery .bistro_gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.8);
+}
+.bistro_gallery .bistro_gallery-item:hover img, .bistro_gallery .bistro_gallery-item:focus-visible img {
+  transform: scale(2);
+  filter: brightness(1);
+}
+
+.bistro_menu {
+  text-align: left;
+}
+.bistro_menu__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #f3543b;
+  text-align: center;
+}
+.bistro_menu__category {
+  margin-bottom: 2rem;
+}
+.bistro_menu__category-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #821818;
+}
+.bistro_menu__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .bistro_menu__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+.bistro_menu__item {
+  background-color: #fbfbfa;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+}
+.bistro_menu__item-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #151313;
+}
+.bistro_menu__item-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+  color: #555;
+}
+.bistro_menu__item-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #821818;
+}
+ 
 
 /*# sourceMappingURL=main.css.map */
