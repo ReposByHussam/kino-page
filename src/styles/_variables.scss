@@ -1,15 +1,30 @@
-$bg: #fbf7f1;
-$surface: #ffffff;
+$color-red-heading: #f3543b;
+$color-background-dark: #151313;
+$color-background-light: #fbfbfa;
+$color-btn-menu: #821818;
+$color-btn-menu-hover: #b67272;
+$color-btn-green: #9cc177;
+$color-btn-green-hover: #c5f198;
+
+$font-main: "Roboto", sans-serif;
+
+$bp-tablet-small: 600px;
+$bp-medium: 768px;
+$bp-desktop: 900px;
+$bp-desktop-l: 1090px;
+$bp-desktop-xl: 1280px;
+$bp-desktop-full-menu: 1460px;
+$bp-desktop-full-menu2: 1620px;
+
+$bg: $color-background-light;
 $text: #1a1a1a;
 $muted: #5a504b;
 
-$accent: #7a0d0d;
-$accent-soft: rgba(122, 13, 13, 0.18);
+$accent: $color-btn-menu;
+$accent-soft: rgba(130, 24, 24, 0.18);
 
 $border: rgba(0, 0, 0, 0.12);
-$shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.10);
+$shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.1);
 
 $radius: 14px;
-$radius-sm: 10px;
-
 $container: 960px;

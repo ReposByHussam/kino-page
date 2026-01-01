@@ -1,2 +1,10 @@
-@use "./variables";
-@use "./sections/lectures";
+@use "variables";
+@use "components";
+@use "body-startpage";
+@use "event-page";
+@use "sections/lectures";
+@use "contact";
+@use "about-us";
+@use "footer";
+@use "bistro";
+@use "header";

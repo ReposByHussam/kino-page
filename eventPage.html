@@ -1,192 +1,233 @@
-<!-- THIS HTML-FILE IS FOR THE EVENT-PAGE! -->
-
 <!DOCTYPE html>
 <html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Evenemang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./src/styles/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <script type="module" src="./src/scripts/main.js"></script>
+  </head>
 
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Evenemang</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='./src/styles/main.css'>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script type="module" src="./src/scripts/main.js"></script>
-</head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <ul class="header__menu-list">
+          <li class="header__menu-item menu-desktop movies">
+            <button class="btn-menu btn-menu--one">Filmer idag</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
 
-<body>
-  <!-- THE FOLLOWING SECTION IS FOR THE HEADER AND WAS COPIED FROM index.html -->
-  <header class="header">
-    <!--HEADER MENU SECTION-->
-    <button class="btn-menu btn-menu--one">Filmer idag</button>
-    <button class="btn-menu btn-menu--one" data-route="./contact.html">
-      Kontakta Oss
-    </button>
-    <button class="btn-menu btn-menu--two">Logga in</button>
-  </header>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">Kommende</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
 
-  <!-- THE FOLLOWING SECTION IS FOR THE HEADER-PICTURE -->
-  <main class="main events">
-    <section class="events__hero">
-      <img src="src/pics/KINO-event.png" alt="man sitting in theatre holding the head of a skeleton">
-      <h1 class="events__hero-text">Evenemang</h1>
-    </section>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">På bio</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="./bistro.html">Bistro och mat</a></li>
+              <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
+            </ul>
+          </li>
 
-    <!--THE FOLLOWING SECTION IS FOR THE POPULAR EVENTS AND ITS BELONGING CARDS -->
-    <section class="events__popular">
-      <h2 class="events__popular-headline">Populära</h2>
-      <div class="events__popular-list">
-        <article class="event-card">
-          <h3 class="event-card__headline">Hamlet</h3>
-          <img src="src/pics/KINO-event.png" class="event-card__image"
-            alt="man sitting in theatre holding the head of a skeleton">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
+          <li class="header__menu-item menu-desktop-xlarge">
+            <button class="btn-menu btn-menu--one">Mer...</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="./about-us.html">Om oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Boka salen</a></li>
+              <li class="header__dropdown-item"><a href="#">Jobba hos oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Köpa presentkort</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop menu-contact">
+            <a class="btn-menu btn-menu--two" href="./contact.html">Kontakta Oss</a>
+          </li>
+
+          <li class="header__menu-item menu-desktop menu-login">
+            <button class="btn-menu btn-menu--two">Logga in</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main events">
+      <section class="events__hero">
+        <img src="src/pics/KINO-event.png" alt="man sitting in theatre holding the head of a skeleton" />
+        <h1 class="events__hero-text">Evenemang</h1>
+      </section>
+
+      <section class="events__popular">
+        <h2 class="events__popular-headline">Populära</h2>
+        <div class="events__popular-list">
+          <article class="event-card">
+            <h3 class="event-card__headline">Hamlet</h3>
+            <img
+              src="src/pics/KINO-event.png"
+              class="event-card__image"
+              alt="man sitting in theatre holding the head of a skeleton"
+            />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <h3 class="event-card__headline">Hamlet</h3>
+            <img
+              src="src/pics/KINO-event.png"
+              class="event-card__image"
+              alt="man sitting in theatre holding the head of a skeleton"
+            />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <h3 class="event-card__headline">Hamlet</h3>
+            <img
+              src="src/pics/KINO-event.png"
+              class="event-card__image"
+              alt="man sitting in theatre holding the head of a skeleton"
+            />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+        </div>
+        <a href="#" class="events__moreBtn btn btn--primary">Se mer</a>
+      </section>
+
+      <section class="events__upcoming">
+        <h2 class="events__upcoming-headline">Kommande</h2>
+        <div class="events__upcoming-list">
+          <article class="event-card">
+            <h3 class="event-card__headline">Fira in hösten</h3>
+            <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie" />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <h3 class="event-card__headline">Fira in hösten</h3>
+            <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie" />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <h3 class="event-card__headline">Fira in hösten</h3>
+            <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie" />
+            <div class="event-card__footer">
+              <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino" />
+              <button class="btn event-card__button">Boka</button>
+            </div>
+          </article>
+        </div>
+        <a href="#" class="events__moreBtn btn btn--primary">Se mer</a>
+      </section>
+
+      <section class="lectures" aria-labelledby="lectures-title">
+        <h2 id="lectures-title" class="lectures__headline">Föreläsningar & Talks</h2>
+
+        <div class="lectures__list">
+          <article class="lecture-card">
+            <h3 class="lecture-card__title">Film och filosofi</h3>
+            <p class="lecture-card__description">Ons 15 jan • 18:00</p>
+            <p class="lecture-card__description">Plats: Salong 2</p>
+            <button class="btn lecture-card__button">Boka</button>
+          </article>
+
+          <article class="lecture-card">
+            <h3 class="lecture-card__title">Regissörssamtal</h3>
+            <p class="lecture-card__description">Fre 24 jan • 19:00</p>
+            <p class="lecture-card__description">Plats: Bistro</p>
+            <button class="btn lecture-card__button">Boka</button>
+          </article>
+
+          <article class="lecture-card">
+            <h3 class="lecture-card__title">Bakom kulisserna</h3>
+            <p class="lecture-card__description">Tis 4 feb • 17:30</p>
+            <p class="lecture-card__description">Plats: Foajé</p>
+            <button class="btn lecture-card__button">Boka</button>
+          </article>
+        </div>
+      </section>
+
+      <div class="main__welcome">
+        <h2 class="main__welcome__title">Välkommenn till KINO i Uppsala!</h2>
+        <p class="main__welcome__moto">Av filmälskare - för film älskare</p>
+
+        <div class="main__welcome__container">
+          <div class="main__welcome__item">
+            <img class="main__welcome__img" src="src/pics/KINO-arc.webp" alt="Kino lysande båge" />
+            <a href="#"><button class="btn btn--secondary">Mer om oss</button></a>
           </div>
-        </article>
 
-        <article class="event-card">
-          <h3 class="event-card__headline">Hamlet</h3>
-          <img src="src/pics/KINO-event.png" class="event-card__image"
-            alt="man sitting in theatre holding the head of a skeleton">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
+          <div class="main__welcome__item">
+            <img class="main__welcome__img" src="src/pics/KINO-bistro.webp" alt="Kino bistro" />
+            <a href="#"><button class="btn btn--secondary">Till bistro</button></a>
           </div>
-        </article>
 
-        <article class="event-card">
-          <h3 class="event-card__headline">Hamlet</h3>
-          <img src="src/pics/KINO-event.png" class="event-card__image"
-            alt="man sitting in theatre holding the head of a skeleton">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
+          <div class="main__welcome__item">
+            <img class="main__welcome__img" src="src/pics/KINO-cinemahall-seats.webp" alt="Kino biograf sal med bord" />
+            <a href="#"><button class="btn btn--secondary">Boka salen</button></a>
           </div>
-        </article>
+
+          <div class="main__welcome__item">
+            <img class="main__welcome__img" src="src/pics/KINO-street.webp" alt="Kino utsikt från gatan" />
+            <a href="#"><button class="btn btn--secondary">Evenemang hos oss</button></a>
+          </div>
+        </div>
       </div>
-      <a href="#" class="events__moreBtn btn btn--primary">Se mer</a>
-    </section>
+    </main>
 
-    <!-- THE FOLLOWING SECTION IS FOR THE UPCOMING EVENTS AND ITS BELONGING CARDS -->
-    <section class="events__upcoming">
-      <h2 class="events__upcoming-headline">Kommande</h2>
-      <div class="events__upcoming-list">
-        <article class="event-card">
-          <h3 class="event-card__headline">Fira in hösten</h3>
-          <!--<p class="event-card__time">15:00</p> -->
-          <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
-          </div>
-        </article>
-
-        <article class="event-card">
-          <h3 class="event-card__headline">Fira in hösten</h3>
-          <!--<p class="event-card__time">15:00</p>-->
-          <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
-          </div>
-        </article>
-
-        <article class="event-card">
-          <h3 class="event-card__headline">Fira in hösten</h3>
-          <!--<p class="event-card__time">17:00</p> -->
-          <img src="src/pics/KINO-movie-poster2.png" class="event-card__image" alt="A poster of a childrens movie">
-          <div class="event-card__footer">
-            <img src="src/pics/KINO-klassiker.png" class="event-card__logo" alt="logotype for classics in Kino">
-            <button class="btn event-card__button">Boka</button>
-          </div>
-        </article>
-      </div>
-      <a href="#" class="events__moreBtn btn btn--primary">Se mer</a>
-    </section>
-
-    <!-- Insert HTML for culture-days here! -->
-
-    <!-- Insert HTML for Opera here! -->
-
-    <!-- LECTURES & TALKS SECTION (#66) -->
-    <section class="lectures" aria-labelledby="lectures-title">
-      <h2 id="lectures-title" class="lectures__headline">Föreläsningar & Talks</h2>
-
-      <div class="lectures__list">
-        <article class="lecture-card">
-          <h3 class="lecture-card__title">Film och filosofi</h3>
-          <p class="lecture-card__description">Ons 15 jan • 18:00</p>
-          <p class="lecture-card__description">Plats: Salong 2</p>
-          <button class="btn lecture-card__button">Boka</button>
-        </article>
-
-        <article class="lecture-card">
-          <h3 class="lecture-card__title">Regissörssamtal</h3>
-          <p class="lecture-card__description">Fre 24 jan • 19:00</p>
-          <p class="lecture-card__description">Plats: Bistro</p>
-          <button class="btn lecture-card__button">Boka</button>
-        </article>
-
-        <article class="lecture-card">
-          <h3 class="lecture-card__title">Bakom kulisserna</h3>
-          <p class="lecture-card__description">Tis 4 feb • 17:30</p>
-          <p class="lecture-card__description">Plats: Foajé</p>
-          <button class="btn lecture-card__button">Boka</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- THE FOLLOWING SECTION IS FOR THE WELCOME SECTION AND WAS COPIED FROM index.html -->
-    <div class="main__welcome">
-      <h2 class="main__welcome__title">Välkommenn till KINO i Uppsala!</h2>
-      <p class="main__welcome__moto">Av filmälskare - för film älskare</p>
-
-      <div class="main__welcome__container">
-        <div class="main__welcome__item">
-          <img class="main__welcome__img" src="src/pics/KINO-arc.webp" alt="Kino lysande båge">
-          <a href="#" class="" target="" title=""><button class="btn btn--secondary">Mer om oss</button></a>
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__contact">
+          <p class="footer__contact-item"><a href="mailto:email@example.com" class="footer__link">Kontakt</a></p>
+          <p class="footer__contact-item">Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a></p>
+          <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
         </div>
 
-        <div class="main__welcome__item">
-          <img class="main__welcome__img" src="src/pics/KINO-bistro.webp" alt="Kino bistro">
-          <a href="#" class="" target="" title=""><button class="btn btn--secondary">Till bistro</button></a>
-        </div>
-
-        <div class="main__welcome__item">
-          <img class="main__welcome__img" src="src/pics/KINO-cinemahall-seats.webp" alt="Kino biograf sal med bord">
-          <a href="#" class="" target="" title=""><button class="btn btn--secondary">Boka salen</button></a>
-        </div>
-
-        <div class="main__welcome__item">
-          <img class="main__welcome__img" src="src/pics/KINO-street.webp" alt="Kino utsikt från gatan">
-          <a href="#" class="" target="" title=""><button class="btn btn--secondary">Evenemang hos oss</button></a>
+        <div class="footer__social-media">
+          <p class="footer__social-text">Följ oss:</p>
+          <a class="footer__social-icon" href="#" aria-label="Follow us on Instagram">
+            <img
+              src="src/pics/instagram-brands-solid-full.svg"
+              alt="Instagram Icon"
+              class="footer__social-icon-img"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a class="footer__social-icon" href="#" aria-label="Follow us on Twitter">
+            <img
+              src="src/pics/x-twitter-brands-solid-full.svg"
+              alt="Twitter Icon"
+              class="footer__social-icon-img"
+              width="40"
+              height="40"
+            />
+          </a>
         </div>
       </div>
-    </div>
-  </main>
-
-  <!-- THE FOLLOWING SECTION IS FOR THE FOOTER SECTION AND WAS COPIED FROM index.html -->
-  <footer class="footer">
-    <div class="footer__content">
-      <div class="footer__contact">
-        <p class="footer__contact-item"><a href="mailto:email@example.com" class="footer__link">Kontakt</a></p>
-        <p class="footer__contact-item">Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a></p>
-        <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
-      </div>
-      <div class="footer__social-media">
-        <p class="footer__social-text">Följ oss:</p>
-        <a class="footer__social-icon" href="#" aria-label="Follow us on Instagram">
-          <img src="src/pics/instagram-brands-solid-full.svg" alt="Instagram Icon" class="footer__social-icon-img"
-            width="40" height="40">
-        </a>
-        <a class="footer__social-icon" href="#" aria-label="Follow us on Twitter">
-          <img src="src/pics/x-twitter-brands-solid-full.svg" alt="Twitter Icon" class="footer__social-icon-img"
-            width="40" height="40">
-        </a>
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

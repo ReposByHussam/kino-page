@@ -1,26 +1,438 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kino - Uppsala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Kino - Uppsala</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='./src/styles/main.css'>
-  <script type="module" src="./src/scripts/main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!--Roboto Google font-->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="src/styles/main.css">
+  <script type="module" src="./src/scripts/main.js"></script>
 </head>
 
 <body>
-  <header>
+  <header class="header">
+    <!--HEADER MENU SECTION-->
+    <div class="header__content">
+      <a href="./index.html">
+        <img class="header__img" src="src/pics/KINO-logo.png" alt="Logo" />
+      </a>
+      <nav class="header__nav">
+        <ul class="header__menu-list">
+          <li class="header__menu-item menu-desktop movies">
+            <button class="btn-menu btn-menu--one">Filmer idag</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">Kommande</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">På bio</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Bistro och mat</a></li>
+              <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop-xlarge">
+            <button class="btn-menu btn-menu--one">Mer...</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Om oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Boka salen</a></li>
+              <li class="header__dropdown-item"><a href="#">Jobba hos oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Köpa presentkort</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop menu-contact">
+            <button class="btn-menu btn-menu--one" data-route="./contact.html">
+              Kontakta Oss
+            </button>
+          </li>
+          <li class="header__menu-item menu-medium login">
+            <button class="btn-menu btn-menu--two">Logga in</button>
+          </li>
+          <li class="header__menu-item menu-hide-medium">
+            <button class="btn-menu btn-menu--two">Bli medlem</button>
+          </li>
+          <li class="header__menu-item menu-medium language">
+            <button class="btn-menu btn-menu--language">Språk</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Svenska</a></li>
+              <li class="header__dropdown-item"><a href="#">Engelska</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-  </main>
+  <main class="main">
+    <!--MAIN img-->
+    <!-- <img class="main__img" src="src/pics/KINO-screen-main.webp" alt="Kino biograf sal"> -->
+    <section class="main__video">
+      <div class="main__video__container">
+        <video class="main__img" loop autoplay muted playsinline poster="src/pics/KINO_hall_preview.jpg"
+          onclick="this.paused ? this.play() : this.pause();">
+          <source src="src/pics/videoKINO_cinema_hall.webm" type="video/webm">
+          <source src="src/pics/videoKINO_empty_cinema_hall.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
 
-  <footer>
-  </footer>
+    <!--FILMS TODAY SECTION FOR CARDS-->
+    <section class="main__filmsToday">
+      <h2 class="main__filmsContainer__heading">Filmer idag</h2>
 
-</body>
+      <div class="main__filmsContainer">
+        <article class="card movieCard">
+          <h3 class="movieCard__title">Film namn</h3>
+          <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+          <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+          <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+          <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
+          <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Assumenda, iure.</p>
+          <img src="src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
+          <button class="btn btn--secondary movieCard__button">Läs mer</button>
+          <button class="btn btn-menu--one movieCard__button">Boka</button>
+        </article>
 
+        <article class="card movieCard">
+          <h3 class="movieCard__title">Film namn</h3>
+          <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+          <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+          <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+          <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
+          <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Assumenda, iure.</p>
+          <img src="src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
+          <button class="btn btn--secondary movieCard__button">Läs mer</button>
+          <button class="btn btn-menu--one movieCard__button">Boka</button>
+        </article>
+
+        <article class="card movieCard">
+          <h3 class="movieCard__title">Film namn</h3>
+          <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+          <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+          <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+          <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
+          <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Assumenda, iure.</p>
+          <img src="src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
+          <button class="btn btn--secondary movieCard__button">Läs mer</button>
+          <button class="btn btn-menu--one movieCard__button">Boka</button>
+        </article>
+      </div>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="src/styles/main.css"
+    />
+    <script type="module" src="./src/scripts/main.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <!--HEADER MENU SECTION-->
+      <button class="btn-menu btn-menu--one">Filmer idag</button>
+      <button class="btn-menu btn-menu--one" data-route="./contact.html">
+        Kontakta Oss
+      </button>
+      <button class="btn-menu btn-menu--two">Logga in</button>
+    </header>
+
+    <main class="main">
+      <!--MAIN img-->
+      <!-- <img class="main__img" src="src/pics/KINO-screen-main.webp" alt="Kino biograf sal"> -->
+      <section class="main__video">
+        <div class="main__video__container">
+          <video
+            class="main__img"
+            loop
+            autoplay
+            muted
+            playsinline
+            poster="src/pics/KINO_hall_preview.jpg"
+            onclick="this.paused ? this.play() : this.pause();"
+          >
+            <source
+              src="src/pics/videoKINO_cinema_hall.webm"
+              type="video/webm"
+            />
+            <source
+              src="src/pics/videoKINO_empty_cinema_hall.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </section>
+
+      <!--FILMS TODAY SECTION FOR CARDS-->
+      <section class="main__filmsToday">
+        <h2 class="main__filmsContainer__heading">Filmer idag</h2>
+
+        <div class="main__filmsContainer">
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+            <p class="movieCard__item">
+              <strong>När:</strong> 3 februari - 20 maj
+            </p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+            <p class="movieCard__item">
+              <strong>När:</strong> 3 februari - 20 maj
+            </p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
+            <p class="movieCard__item">
+              <strong>När:</strong> 3 februari - 20 maj
+            </p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+        </div>
+
+        <a href="#" class="btn btn--primary" title="Alla aktuella filmer"
+          >Alla aktuella filmer</a
+        >
+      </section>
+
+      <!--WELCOME SECTION-->
+      <div class="main__welcome">
+        <h2 class="main__welcome__title">Välkommenn till KINO i Uppsala!</h2>
+        <p class="main__welcome__moto">Av filmälskare - för film älskare</p>
+
+        <div class="main__welcome__container">
+          <div class="main__welcome__item">
+            <img
+              class="main__welcome__img"
+              src="src/pics/KINO-arc.webp"
+              alt="Kino lysande båge"
+            />
+            <a href="#" class="btn btn--secondary" title="Mer om oss"
+              >Mer om oss</a
+            >
+          </div>
+
+          <div class="main__welcome__item">
+            <img
+              class="main__welcome__img"
+              src="src/pics/KINO-bistro.webp"
+              alt="Kino bistro"
+            />
+            <a href="#" class="btn btn--secondary" title="Till bistro"
+              >Till bistro</a
+            >
+          </div>
+
+          <div class="main__welcome__item">
+            <img
+              class="main__welcome__img"
+              src="src/pics/KINO-cinemahall-seats.webp"
+              alt="Kino biograf sal med bord"
+            />
+            <a href="#" class="btn btn--secondary" title="Boka salen"
+              >Boka salen</a
+            >
+          </div>
+
+          <div class="main__welcome__item">
+            <img
+              class="main__welcome__img"
+              src="src/pics/KINO-street.webp"
+              alt="Kino utsikt från gatan"
+            />
+            <a href="eventPage.html" class="btn btn--secondary" title="Evenemang hos oss"
+              >Evenemang hos oss</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!--UPCOMING FILMS SECTION FOR CARDS-->
+      <section class="main__filmsUpcoming">
+        <h2 class="main__filmsUpcoming__heading">Kommande filmer</h2>
+
+        <div class="main__filmsContainer">
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 120 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 11 år +</p>
+            <p class="movieCard__item"><strong>Premiär:</strong> 1 februari</p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 120 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 11 år +</p>
+            <p class="movieCard__item"><strong>Premiär:</strong> 1 februari</p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+
+          <article class="card movieCard">
+            <h3 class="movieCard__title">Film namn</h3>
+            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
+            <p class="movieCard__item"><strong>Tid:</strong> 120 min</p>
+            <p class="movieCard__item"><strong>Åldersgräns:</strong> 11 år +</p>
+            <p class="movieCard__item"><strong>Premiär:</strong> 1 februari</p>
+            <p class="movieCard__item">
+              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, iure.
+            </p>
+            <img
+              src="src/pics/KINO-movie-poster.webp"
+              class="movieCard__img"
+              alt="film poster"
+            />
+            <button class="btn btn--secondary movieCard__button">
+              Läs mer
+            </button>
+            <button class="btn btn-menu--one movieCard__button">Boka</button>
+          </article>
+        </div>
+
+        <a href="#" class="btn btn--primary" title="Alla kommande filmer"
+          >Alla kommande filmer</a
+        >
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__contact">
+          <p class="footer__contact-item">
+            <a href="contact.html" class="footer__link">Kontakta oss</a>
+          </p>
+          <p class="footer__contact-item">
+            Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a>
+          </p>
+          <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
+        </div>
+        <div class="footer__social-media">
+          <p class="footer__social-text">Följ oss:</p>
+          <a
+            class="footer__social-icon"
+            href="#"
+            aria-label="Follow us on Instagram"
+          >
+            <img
+              src="src/pics/instagram-brands-solid-full.svg"
+              alt="Instagram Icon"
+              class="footer__social-icon-img"
+              width="40"
+              height="40"
+            />
+          </a>
+          <a
+            class="footer__social-icon"
+            href="#"
+            aria-label="Follow us on Twitter"
+          >
+            <img
+              src="src/pics/x-twitter-brands-solid-full.svg"
+              alt="Twitter Icon"
+              class="footer__social-icon-img"
+              width="40"
+              height="40"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
