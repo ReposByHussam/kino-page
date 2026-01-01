@@ -53,7 +53,7 @@
   color: #fbfbfa;
 }
 .btn-menu--one:hover {
-  background-color: #B67272;
+  background-color: #b67272;
 }
 .btn-menu--two {
   background-color: #9cc177;
@@ -411,6 +411,91 @@ h2 {
     margin: 1rem auto 0;
   }
 }
+.lectures {
+  padding: 3rem 1rem;
+  background: #fbfbfa;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.lectures .lectures__headline,
+h2.lectures__headline {
+  margin: 0 0 1.25rem;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: #821818;
+}
+
+.lectures__list {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 48rem) {
+  .lectures__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+.lecture-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.lecture-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 14px 0 0 14px;
+  background: #821818;
+  opacity: 0.9;
+}
+
+.lecture-card:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.1);
+  border-color: rgba(130, 24, 24, 0.18);
+}
+
+.lecture-card__title {
+  margin: 0 0 0.75rem;
+  padding-left: 0.25rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.lecture-card__description {
+  margin: 0 0 0.35rem;
+  color: #5a504b;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.lecture-card__description:last-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.lectures .btn.lecture-card__button {
+  width: 100%;
+  background-color: #821818;
+  border-color: #821818;
+  color: #fff;
+}
+
+.lectures .btn.lecture-card__button:hover {
+  background-color: #b67272;
+  border-color: #b67272;
+}
+
 html,
 body {
   margin: 0;
@@ -1052,6 +1137,152 @@ body {
   font-size: 0.95rem;
   color: #821818;
 }
- 
 
-/*# sourceMappingURL=main.css.map */
+.header__nav {
+  display: none;
+  padding-block: 1rem;
+  background-color: #151313;
+  border-radius: 1rem;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.header__img {
+  max-width: 12rem;
+  height: auto;
+  margin-right: 2rem;
+}
+
+.header__dropdown-item a {
+  padding: 0;
+  font-size: 0.875rem;
+  color: #f3543b;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  .header__img {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .header__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .header__nav {
+    display: block;
+    position: fixed;
+  }
+  .header__menu-list {
+    display: flex;
+    flex-direction: row;
+  }
+  .header__menu-item {
+    display: none;
+  }
+  .movies {
+    display: block;
+  }
+  .menu-contact {
+    display: block;
+  }
+  .login {
+    display: block;
+  }
+  .header__dropdown {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-hide-medium {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+  }
+  .header__nav {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    left: auto;
+    z-index: 1000;
+    top: 1.5rem;
+  }
+  .header__menu-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .header__menu-item {
+    display: none;
+    position: relative;
+  }
+  .menu-medium {
+    display: block;
+  }
+  .login {
+    display: block;
+  }
+}
+@media screen and (min-width: 900px) {
+  .header__nav {
+    left: 14rem;
+    right: auto;
+    top: 3rem;
+  }
+  .header__menu-list {
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+  .header__menu-item {
+    display: none;
+  }
+  .menu-desktop {
+    display: block;
+  }
+}
+@media screen and (min-width: 1090px) {
+  .login {
+    display: block;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .menu-desktop-xlarge {
+    display: block;
+  }
+}
+@media screen and (min-width: 1460px) {
+  .header {
+    height: 12rem;
+    align-items: center;
+  }
+  .header__nav {
+    right: auto;
+    top: 4.3rem;
+  }
+  .header__menu-item {
+    display: block;
+  }
+  .language {
+    display: none;
+  }
+}
+@media screen and (min-width: 1620px) {
+  .language {
+    display: block;
+  }
+}

@@ -8,7 +8,8 @@
   margin: 0 auto;
 }
 
-.lectures__headline {
+.lectures .lectures__headline,
+h2.lectures__headline {
   margin: 0 0 1.25rem;
   font-size: 2rem;
   letter-spacing: -0.02em;
@@ -74,14 +75,14 @@
   margin-bottom: 0.9rem;
 }
 
-.lectures .lecture-card__button {
+.lectures .btn.lecture-card__button {
   width: 100%;
-  background: v.$accent;
+  background-color: v.$accent;
+  border-color: v.$accent;
   color: #fff;
-  border: 1px solid v.$accent;
 }
 
-.lectures .lecture-card__button:hover {
-  background: v.$color-btn-menu-hover;
+.lectures .btn.lecture-card__button:hover {
+  background-color: v.$color-btn-menu-hover;
   border-color: v.$color-btn-menu-hover;
 }
