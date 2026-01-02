@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Kino - Uppsala</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Kino - Uppsala</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta property="og:title" content="Kino - Uppsala" >
+    <meta property="og:type" content="website" >
+    <meta property="og:site_name" content="Kino" >
+    <meta
+      property="og:description"
+      content="Kino biograf i Uppsala - filmer idag,kommande filmer, bistro och evenemang, Av filmälskare för filmälskare"
+      >
+    <meta property="og:locale" content="sv_SE" >
+    <meta property="og:url" content="https://reposbyhussam.github.io/kino-page/" >
+    <meta property="og:image" content="https://reposbyhussam.github.io/kino-page/src/pics/KINO-arc.webp" >
+    <meta property="og:image:alt" content="Kino-entré med upplyst KINO-skylt.">
   <!--Roboto Google font-->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -45,7 +50,7 @@
           <li class="header__menu-item menu-desktop">
             <button class="btn-menu btn-menu--one">På bio</button>
             <ul class="header__dropdown">
-              <li class="header__dropdown-item"><a href="#">Bistro och mat</a></li>
+              <li class="header__dropdown-item"><a href="./bistro.html" data-route="./bistro.html">Bistro och mat</a></li>
               <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
             </ul>
           </li>
@@ -139,132 +144,7 @@
           <button class="btn btn-menu--one movieCard__button">Boka</button>
         </article>
       </div>
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="src/styles/main.css"
-    />
-    <script type="module" src="./src/scripts/main.js"></script>
-  </head>
-
-  <body>
-    <header class="header">
-      <!--HEADER MENU SECTION-->
-      <button class="btn-menu btn-menu--one">Filmer idag</button>
-      <button class="btn-menu btn-menu--one" data-route="./contact.html">
-        Kontakta Oss
-      </button>
-      <button class="btn-menu btn-menu--two">Logga in</button>
-    </header>
-
-    <main class="main">
-      <!--MAIN img-->
-      <!-- <img class="main__img" src="src/pics/KINO-screen-main.webp" alt="Kino biograf sal"> -->
-      <section class="main__video">
-        <div class="main__video__container">
-          <video
-            class="main__img"
-            loop
-            autoplay
-            muted
-            playsinline
-            poster="src/pics/KINO_hall_preview.jpg"
-            onclick="this.paused ? this.play() : this.pause();"
-          >
-            <source
-              src="src/pics/videoKINO_cinema_hall.webm"
-              type="video/webm"
-            />
-            <source
-              src="src/pics/videoKINO_empty_cinema_hall.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-      </section>
-
-      <!--FILMS TODAY SECTION FOR CARDS-->
-      <section class="main__filmsToday">
-        <h2 class="main__filmsContainer__heading">Filmer idag</h2>
-
-        <div class="main__filmsContainer">
-          <article class="card movieCard">
-            <h3 class="movieCard__title">Film namn</h3>
-            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-            <p class="movieCard__item">
-              <strong>När:</strong> 3 februari - 20 maj
-            </p>
-            <p class="movieCard__item">
-              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Assumenda, iure.
-            </p>
-            <img
-              src="src/pics/KINO-movie-poster.webp"
-              class="movieCard__img"
-              alt="film poster"
-            />
-            <button class="btn btn--secondary movieCard__button">
-              Läs mer
-            </button>
-            <button class="btn btn-menu--one movieCard__button">Boka</button>
-          </article>
-
-          <article class="card movieCard">
-            <h3 class="movieCard__title">Film namn</h3>
-            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-            <p class="movieCard__item">
-              <strong>När:</strong> 3 februari - 20 maj
-            </p>
-            <p class="movieCard__item">
-              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Assumenda, iure.
-            </p>
-            <img
-              src="src/pics/KINO-movie-poster.webp"
-              class="movieCard__img"
-              alt="film poster"
-            />
-            <button class="btn btn--secondary movieCard__button">
-              Läs mer
-            </button>
-            <button class="btn btn-menu--one movieCard__button">Boka</button>
-          </article>
-
-          <article class="card movieCard">
-            <h3 class="movieCard__title">Film namn</h3>
-            <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-            <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-            <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-            <p class="movieCard__item">
-              <strong>När:</strong> 3 februari - 20 maj
-            </p>
-            <p class="movieCard__item">
-              <strong>Beskrivning:</strong> Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Assumenda, iure.
-            </p>
-            <img
-              src="src/pics/KINO-movie-poster.webp"
-              class="movieCard__img"
-              alt="film poster"
-            />
-            <button class="btn btn--secondary movieCard__button">
-              Läs mer
-            </button>
-            <button class="btn btn-menu--one movieCard__button">Boka</button>
-          </article>
-        </div>
-
-        <a href="#" class="btn btn--primary" title="Alla aktuella filmer"
-          >Alla aktuella filmer</a
-        >
-      </section>
-
+     
       <!--WELCOME SECTION-->
       <div class="main__welcome">
         <h2 class="main__welcome__title">Välkommenn till KINO i Uppsala!</h2>
@@ -282,7 +162,7 @@
               src="src/pics/KINO-bistro.webp"
               alt="Kino bistro"
             />
-            <a href="#" class="btn btn--secondary" title="Till bistro"
+            <a href="./bistro.html" data-route="./bistro.html" class="btn btn--secondary" title="Till bistro"
               >Till bistro</a
             >
           </div>
