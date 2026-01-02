@@ -116,6 +116,61 @@
         margin-bottom: 1.5rem;
     }
 
+    &__bistro {
+        background-color: $color-background-light;
+    }
+
+    &__bistro-section-title {
+        font-size: 2rem;
+        text-align: center;
+        color: #821818;
+        font-weight: bold;
+        padding: 2rem 0 1rem;
+    }
+
+    &__bistro-img {
+        width: 100%;
+        height: auto;
+
+        @media (min-width: $bp-medium) {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__bistro-text {
+        text-align: center;
+        padding: 0 2rem;
+
+        @media (min-width: $bp-medium) {
+            max-width: 60%;
+            margin: 0 auto;
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    &__btn-section {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 2rem 4rem;
+    }
+
+    &__se-meny,
+    &__boka-bord {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 2.5rem;
+        width: 6rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 0.5rem;
+        text-decoration: none;
+    }
+
     &__faq {
         padding: 2rem 2rem;
         background-color: $color-background-light;

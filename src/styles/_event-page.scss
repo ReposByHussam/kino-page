@@ -1,5 +1,4 @@
 /* THIS FILE IS FOR STYLING OF THE EVENTS-PAGE */
-
 @use 'variables' as var;
 @use 'components';
 
@@ -154,6 +153,96 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* THIS IS THE SECTION FOR UPCOMING EVENTS */
+.happenings__section {
+  padding: 3rem 1rem;
+  background: var.$bg;
+
+  max-width: var.$container;
+  margin: 0 auto;
+}
+
+.happening__headline {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: var.$accent;
+}
+
+.happenings__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .happenings__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.happenings__card {
+  background: var.$surface;
+  border: 1px solid var.$border;
+  border-radius: var.$radius;
+  padding: 1.25rem 1.25rem 1.1rem;
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.happenings__card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: var.$radius 0 0 var.$radius;
+  background: var.$accent;
+  opacity: 0.9;
+}
+
+.happenings__card:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: var.$shadow;
+  border-color: var.$accent-soft;
+}
+
+.happenings-card__title {
+  margin: 0 0 0.75rem;
+  padding-left: 0.25rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: var.$text;
+}
+
+.happenings-card__description {
+  margin: 0 0 0.35rem;
+  color: var.$muted;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.happenings-card__description:last-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.happenings-card__button {
+  width: 100%;
+  background-color: var.$accent;
+  border-color: var.$accent;
+  color: #fff;
+}
+
+.happenings-card__button:hover {
+  background-color: var.$color-btn-menu-hover;
+  border-color: var.$color-btn-menu-hover;
+}
+
 /* THIS IS BREAKPOINTS FOR TABLET AND DESKTOP */
 
 @media screen and (min-width: var.$bp-desktop) {
@@ -173,5 +262,4 @@
   .events__moreBtn {
     margin: 1rem auto 0;
   }
-
 }
