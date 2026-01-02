@@ -395,6 +395,94 @@ h2 {
   -webkit-overflow-scrolling: touch;
 }
 
+/* THIS IS THE SECTION FOR UPCOMING EVENTS */
+.happenings__section {
+  padding: 3rem 1rem;
+  background: #fbfbfa;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.happening__headline {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: #821818;
+}
+
+.happenings__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .happenings__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+.happenings__card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.happenings__card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 14px 0 0 14px;
+  background: #821818;
+  opacity: 0.9;
+}
+
+.happenings__card:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.1);
+  border-color: rgba(130, 24, 24, 0.18);
+}
+
+.happenings-card__title {
+  margin: 0 0 0.75rem;
+  padding-left: 0.25rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.happenings-card__description {
+  margin: 0 0 0.35rem;
+  color: #5a504b;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.happenings-card__description:last-of-type {
+  margin-bottom: 0.9rem;
+}
+
+.happenings-card__button {
+  width: 100%;
+  background-color: #821818;
+  border-color: #821818;
+  color: #fff;
+}
+
+.happenings-card__button:hover {
+  background-color: #b67272;
+  border-color: #b67272;
+}
+
 /* THIS IS BREAKPOINTS FOR TABLET AND DESKTOP */
 @media screen and (min-width: 900px) {
   .events__popular-list,
@@ -411,91 +499,6 @@ h2 {
     margin: 1rem auto 0;
   }
 }
-.lectures {
-  padding: 3rem 1rem;
-  background: #fbfbfa;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.lectures .lectures__headline,
-h2.lectures__headline {
-  margin: 0 0 1.25rem;
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-  color: #821818;
-}
-
-.lectures__list {
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 48rem) {
-  .lectures__list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
-}
-.lecture-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 14px;
-  padding: 1.25rem 1.25rem 1.1rem;
-  position: relative;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.lecture-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  border-radius: 14px 0 0 14px;
-  background: #821818;
-  opacity: 0.9;
-}
-
-.lecture-card:hover {
-  transform: translateY(-0.15rem);
-  box-shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.1);
-  border-color: rgba(130, 24, 24, 0.18);
-}
-
-.lecture-card__title {
-  margin: 0 0 0.75rem;
-  padding-left: 0.25rem;
-  font-size: 1.2rem;
-  line-height: 1.35;
-  font-weight: 800;
-  color: #1a1a1a;
-}
-
-.lecture-card__description {
-  margin: 0 0 0.35rem;
-  color: #5a504b;
-  line-height: 1.65;
-  font-weight: 600;
-}
-
-.lecture-card__description:last-of-type {
-  margin-bottom: 0.9rem;
-}
-
-.lectures .btn.lecture-card__button {
-  width: 100%;
-  background-color: #821818;
-  border-color: #821818;
-  color: #fff;
-}
-
-.lectures .btn.lecture-card__button:hover {
-  background-color: #b67272;
-  border-color: #b67272;
-}
-
 html,
 body {
   margin: 0;
@@ -1290,6 +1293,29 @@ body {
   font-size: 0.875rem;
   color: #f3543b;
   text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.header__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #151313;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  min-width: 12rem;
+  list-style: none;
+  z-index: 1001;
+}
+
+.header__menu-item:hover .header__dropdown,
+.header__menu-item:focus-within .header__dropdown {
+  display: block;
 }
 
 @media screen and (min-width: 600px) and (max-width: 767px) {
@@ -1316,6 +1342,7 @@ body {
   }
   .header__menu-item {
     display: none;
+    position: relative;
   }
   .movies {
     display: block;
@@ -1325,9 +1352,6 @@ body {
   }
   .login {
     display: block;
-  }
-  .header__dropdown {
-    display: none;
   }
 }
 @media screen and (min-width: 768px) {
