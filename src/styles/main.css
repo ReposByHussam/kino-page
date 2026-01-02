@@ -763,6 +763,56 @@ body.page--contact {
   display: block;
   margin-bottom: 1.5rem;
 }
+.about__bistro {
+  background-color: #fbfbfa;
+}
+.about__bistro-section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #821818;
+  font-weight: bold;
+  padding: 2rem 0 1rem;
+}
+.about__bistro-img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .about__bistro-img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+}
+.about__bistro-text {
+  text-align: center;
+  padding: 0 2rem;
+}
+@media (min-width: 768px) {
+  .about__bistro-text {
+    max-width: 60%;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+  }
+}
+.about__btn-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem 4rem;
+}
+.about__se-meny, .about__boka-bord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
 .about__faq {
   padding: 2rem 2rem;
   background-color: #fbfbfa;
