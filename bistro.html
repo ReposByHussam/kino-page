@@ -29,7 +29,7 @@
         <h1>Välkommen till Kinos Bistro i Uppsala</h1>
         <div class="bistro_buttons">
           <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
-          <a href="#bistro_book-table" class="btn btn--primary btn--bistro-primary">Boka bord</a>
+          <button type="button" class="btn btn--primary btn--bistro-primary" data-book-table>Boka bord</button>
         </div>
       </div>
     </section>
@@ -55,17 +55,15 @@
 
       <div class="bistro_buttons">
         <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
-        <a href="#bistro_book-table" class="btn btn--primary btn--bistro-primary">Boka bord</a>
+        <button type="button" class="btn btn--primary btn--bistro-primary" data-book-table>Boka bord</button>
       </div>
     </section>
 
     <section id="bistro_book-table" class="bistro_book-table">
       <h2>Boka bord</h2>
-      <p>
-        Säkra din plats i bistron innan filmen. Klicka på knappen för att boka bord.
-      </p>
+      <p>Säkra din plats i bistron innan filmen. Klicka på knappen för att boka bord.</p>
       <div class="bistro_book-table__actions">
-        <button type="button" class="bistro_book-table__btn">Boka bord</button>
+        <button type="button" class="bistro_book-table__btn" data-book-table>Boka bord</button>
       </div>
     </section>
 
@@ -95,7 +93,7 @@
 
       <div class="bistro_buttons">
         <a href="#bistro_viewmenu" class="btn btn--primary btn--bistro-primary">Visa menyn</a>
-        <a href="#bistro_book-table" class="btn btn--primary btn--bistro-primary">Boka bord</a>
+        <button type="button" class="btn btn--primary btn--bistro-primary" data-book-table>Boka bord</button>
       </div>
     </section>
 
@@ -189,6 +187,68 @@
         </div>
       </section>
     </section>
+
+    <dialog id="bookTableModal" class="book-table-modal" aria-labelledby="bookTableTitle">
+      <div class="book-table-modal__header">
+        <h2 id="bookTableTitle" class="book-table-modal__title">Boka bord</h2>
+        <button type="button" class="book-table-modal__close" data-modal-close aria-label="Stäng">×</button>
+      </div>
+
+      <form class="book-table-form" novalidate>
+        <p class="book-table-form__confirmation" hidden aria-live="polite">
+          Tack! Din bokning är mottagen. Vi återkommer med bekräftelse.
+        </p>
+
+        <div class="book-table-form__step" data-step="1">
+          <div class="book-table-form__grid">
+            <div class="book-table-form__field">
+              <label for="bookingDate">Datum</label>
+              <input id="bookingDate" name="date" type="date" required>
+            </div>
+
+            <div class="book-table-form__field">
+              <label for="bookingTime">Tid</label>
+              <input id="bookingTime" name="time" type="time" required>
+            </div>
+
+            <div class="book-table-form__field">
+              <label for="bookingPeople">Antal personer</label>
+              <input id="bookingPeople" name="people" type="number" min="1" max="12" value="2" required>
+            </div>
+          </div>
+
+          <div class="book-table-form__actions">
+            <button type="button" class="book-table-form__btn" data-modal-close>Stäng</button>
+            <button type="button" class="book-table-form__btn book-table-form__btn--primary" data-modal-next>Nästa</button>
+          </div>
+        </div>
+
+        <div class="book-table-form__step" data-step="2" hidden>
+          <div class="book-table-form__grid">
+            <div class="book-table-form__field">
+              <label for="guestName">Namn</label>
+              <input id="guestName" name="name" type="text" minlength="2" required>
+            </div>
+
+            <div class="book-table-form__field">
+              <label for="guestEmail">E-post</label>
+              <input id="guestEmail" name="email" type="email" required>
+            </div>
+
+            <div class="book-table-form__field">
+              <label for="guestPhone">Telefon</label>
+              <input id="guestPhone" name="phone" type="tel" inputmode="tel" minlength="6" required>
+            </div>
+          </div>
+
+          <div class="book-table-form__actions">
+            <button type="button" class="book-table-form__btn" data-modal-back>Tillbaka</button>
+            <button type="submit" class="book-table-form__btn book-table-form__btn--primary">Skicka bokning</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
   </main>
 
   <footer class="footer">
@@ -215,9 +275,3 @@
 </body>
 
 </html>
-
-
-
-
-
-

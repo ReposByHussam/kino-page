@@ -1264,6 +1264,111 @@ body {
   color: #821818;
 }
 
+.book-table-modal {
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  width: min(92vw, 640px);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+}
+
+.book-table-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.book-table-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.book-table-modal__title {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: #f3543b;
+  font-size: 1.4rem;
+}
+@media (min-width: 768px) {
+  .book-table-modal__title {
+    font-size: 1.8rem;
+  }
+}
+
+.book-table-modal__close {
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.book-table-form {
+  padding: 0.75rem 1rem 1rem 1rem;
+}
+
+.book-table-form__confirmation {
+  margin: 0 0 1rem 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: #fbfbfa;
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+  text-align: left;
+}
+
+.book-table-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .book-table-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.book-table-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+}
+
+.book-table-form__field label {
+  font-weight: 700;
+}
+
+.book-table-form__field input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+}
+
+.book-table-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.book-table-form__btn {
+  border: 2px solid #f3543b;
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.book-table-form__btn--primary {
+  background: #f3543b;
+  color: #fbfbfa;
+  border-color: #f3543b;
+}
+
 .header__nav {
   display: none;
   padding-block: 1rem;
