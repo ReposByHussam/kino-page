@@ -7,21 +7,27 @@ function setupRouting() {
     window.location.href = route;
   });
 }
+
 function setupContactForm() {
   const form = document.querySelector(".contact__form");
   if (!form) return;
+
   const successEl = form.querySelector(".contact__success");
+
   const setError = (fieldName, message) => {
     const errorEl = form.querySelector(`[data-error-for="${fieldName}"]`);
     if (errorEl) errorEl.textContent = message;
   };
+
   const clearErrors = () => {
     ["fullName", "email", "message"].forEach((name) => setError(name, ""));
     if (successEl) successEl.hidden = true;
   };
+
   const isvalidEmail = (value) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     clearErrors();
@@ -45,10 +51,34 @@ function setupContactForm() {
       ok = false;
     }
     if (!ok) return;
+
     if (successEl) successEl.hidden = false;
     form.reset();
   });
 }
 
+function setupBookTable() {
+  const btn = document.querySelector("[data-book-table]");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    const dialog = document.querySelector("dialog");
+
+    if (dialog && typeof dialog.showModal === "function") {
+      dialog.showModal();
+      return;
+    }
+
+    alert("Bokningsmodal saknas just nu.");
+  });
+}
+
 setupRouting();
 setupContactForm();
+setupBookTable();
+
+
+
+
+
+
