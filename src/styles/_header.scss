@@ -34,20 +34,20 @@
     text-decoration: none;
 }
 
-  .header__dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  background-color: var.$color-background-dark;
-  padding: 0.5rem 0;
-  border-radius: 0.25rem;
-  min-width: 12rem;
-
-  list-style: none;
-  z-index: 1001;
+.header__dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      
+      background-color: var.$color-background-dark;
+      padding: 0.5rem 0;
+      border-radius: 0.25rem;
+      min-width: 12rem;
+    
+      list-style: none;
+      z-index: 1001;
   }
 
   .header__dropdown-item a {
