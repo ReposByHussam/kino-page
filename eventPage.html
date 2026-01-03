@@ -1,92 +1,97 @@
 <!DOCTYPE html>
 <html lang="sv" prefix="og: https://ogp.me/ns#">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-    <title>Evenemang - Kino Uppsala</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <meta property="og:title" content="Evenemang - Kino Uppsala" >
-    <meta property="og:type" content="website" >
-    <meta property="og:site_name" content="Kino" >
-    <meta property="og:locale" content="sv_SE" >
-    <meta
-      property="og:description"
-      content="Upptäck kommande evenemang på Kino i Uppsala. Föreläsningar, opera och talks. Se vad som händer och boka din plats."
-    >
-    <meta
-      property="og:url"
-      content="https://reposbyhussam.github.io/kino-page/eventPage.html"
-    >
-    <meta
-      property="og:image"
-      content="https://reposbyhussam.github.io/kino-page/src/pics/KINO-event.png"
-    >
-    <meta 
-        property="og:image:alt" 
-        content="En person i en biosalong som håller i en dödskalle."
-    >
-    <link rel="stylesheet" type="text/css" media="screen" href="./src/styles/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-   
-    <script type="module" src="./src/scripts/main.js"></script>
-  </head>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Evenemang - Kino Uppsala</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Evenemang - Kino Uppsala">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kino">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:description"
+    content="Upptäck kommande evenemang på Kino i Uppsala. Föreläsningar, opera och talks. Se vad som händer och boka din plats.">
+  <meta property="og:url" content="https://reposbyhussam.github.io/kino-page/eventPage.html">
+  <meta property="og:image" content="https://reposbyhussam.github.io/kino-page/src/pics/KINO-event.png">
+  <meta property="og:image:alt" content="En person i en biosalong som håller i en dödskalle.">
+  <link rel="stylesheet" type="text/css" media="screen" href="./src/styles/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script type="module" src="./src/scripts/main.js"></script>
+</head>
 
 <body>
   <!-- This is the header section, copied from index.html -->
   <header class="header">
-    <nav class="header__nav">
-      <ul class="header__menu-list">
-        <li class="header__menu-item menu-desktop movies">
-          <button class="btn-menu btn-menu--one">Filmer idag</button>
-          <ul class="header__dropdown">
-            <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
-            <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
-          </ul>
-        </li>
+    <div class="header__content">
+      <a href="./index.html">
+        <img class="header__img" src="src/pics/KINO-logo.png" alt="Logo" />
+      </a>
+      <nav class="header__nav">
+        <ul class="header__menu-list">
+          <li class="header__menu-item menu-desktop movies">
+            <button class="btn-menu btn-menu--one">Filmer idag</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">Kommande</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one">På bio</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="./bistro.html" data-route="./bistro.html">Bistro och mat</a>
+              </li>
+              <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
+            </ul>
+          </li>
 
-        <li class="header__menu-item menu-desktop">
-          <button class="btn-menu btn-menu--one">Kommende</button>
-          <ul class="header__dropdown">
-            <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
-            <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
-          </ul>
-        </li>
-
-        <li class="header__menu-item menu-desktop">
-          <button class="btn-menu btn-menu--one">På bio</button>
-          <ul class="header__dropdown">
-            <li class="header__dropdown-item"><a href="./bistro.html">Bistro och mat</a></li>
-            <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
-          </ul>
-        </li>
-
-        <li class="header__menu-item menu-desktop-xlarge">
-          <button class="btn-menu btn-menu--one">Mer...</button>
-          <ul class="header__dropdown">
-            <li class="header__dropdown-item"><a href="./about-us.html">Om oss</a></li>
-            <li class="header__dropdown-item"><a href="#">Boka salen</a></li>
-            <li class="header__dropdown-item"><a href="#">Jobba hos oss</a></li>
-            <li class="header__dropdown-item"><a href="#">Köpa presentkort</a></li>
-          </ul>
-        </li>
-
-        <li class="header__menu-item menu-desktop menu-contact">
-          <a class="btn-menu btn-menu--two" href="./contact.html">Kontakta Oss</a>
-        </li>
-
-        <li class="header__menu-item menu-desktop menu-login">
-          <button class="btn-menu btn-menu--two">Logga in</button>
-        </li>
-      </ul>
-    </nav>
+          <li class="header__menu-item menu-desktop-xlarge">
+            <button class="btn-menu btn-menu--one">Mer...</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="about-us.html">Om oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Boka salen</a></li>
+              <li class="header__dropdown-item"><a href="#">Jobba hos oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Köpa presentkort</a></li>
+            </ul>
+          </li>
+          <li class="header__menu-item menu-desktop menu-contact">
+            <button class="btn-menu btn-menu--one" data-route="./contact.html">
+              Kontakta Oss
+            </button>
+          </li>
+          <li class="header__menu-item menu-medium login">
+            <button class="btn-menu btn-menu--two">Logga in</button>
+          </li>
+          <li class="header__menu-item menu-hide-medium">
+            <button class="btn-menu btn-menu--two">Bli medlem</button>
+          </li>
+          <li class="header__menu-item menu-medium language">
+            <button class="btn-menu btn-menu--language">Språk</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Svenska</a></li>
+              <li class="header__dropdown-item"><a href="#">Engelska</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- This is the section for the picture/popular events/upcoming events -->
   <main class="main events">
     <section class="events__hero">
       <img src="src/pics/KINO-event.png" alt="man sitting in theatre holding the head of a skeleton" />
-      <h1 class="events__hero-text">Evenemang</h1>
     </section>
+    <h1 class="events__hero-text">Evenemang</h1>
+
 
     <section class="events__popular">
       <h2 class="events__popular-headline">Populära</h2>
@@ -157,90 +162,6 @@
       <a href="#" class="events__moreBtn btn btn--primary">Se mer</a>
     </section>
 
-    <!-- Lectures section -->
-    <section class="lectures happenings__section" aria-labelledby="lectures-title">
-      <h2 id="lectures-title" class="lectures__headline happening__headline">Föreläsningar & Talks</h2>
-
-      <div class="lectures__list happenings__list">
-        <article class="lecture-card happenings__card">
-          <h3 class="lecture-card__title happenings-card__title">Film och filosofi</h3>
-          <p class="lecture-card__description happenings-card__description">Ons 15 jan • 18:00</p>
-          <p class="lecture-card__description happenings-card__description">Plats: Salong 2</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="lecture-card happenings__card">
-          <h3 class="lecture-card__title happenings-card__title">Regissörssamtal</h3>
-          <p class="lecture-card__description happenings-card__description">Fre 24 jan • 19:00</p>
-          <p class="lecture-card__description happenings-card__description">Plats: Bistro</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="lecture-card happenings__card">
-          <h3 class="lecture-card__title happenings-card__title">Bakom kulisserna</h3>
-          <p class="lecture-card__description happenings-card__description">Tis 4 feb • 17:30</p>
-          <p class="lecture-card__description happenings-card__description">Plats: Foajé</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- Opera section -->
-    <section class="opera happenings__section" aria-labelledby="opera-title">
-      <h2 id="opera-title" class="opera__headline happening__headline">Opera på Kino</h2>
-
-      <div class="opera__list happenings__list">
-        <article class="opera-card happenings__card">
-          <h3 class="opera-card__title happenings-card__title">Trollflöjten</h3>
-          <p class="opera-card__description happenings-card__description">Ons 15 jan • 20:00</p>
-          <p class="opera-card__description happenings-card__description">Plats: Salong 3</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="opera-card happenings__card">
-          <h3 class="opera-card__title happenings-card__title">Carmen</h3>
-          <p class="opera-card__description happenings-card__description">Ons 14 jan • 18:00</p>
-          <p class="opera-card__description happenings-card__description">Plats: Salong 2</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="opera-card happenings__card">
-          <h3 class="opera-card__title happenings-card__title">Madama Butterfly</h3>
-          <p class="opera-card__description happenings-card__description">Ons 18 jan • 18:00</p>
-          <p class="opera-card__description happenings-card__description">Plats: Salong 2</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- culture-days section -->
-    <section class="culture-days happenings__section" aria-labelledby="culture-days-title">
-      <h2 id="culture-days" class="culture-days happening__headline">Kulturdagar på Kino</h2>
-
-      <div class="culture-days__list happenings__list">
-        <article class="culture-days__card happenings__card">
-          <h3 class="culture-days__title happenings-card__title">Stora biodagen</h3>
-          <p class="culture-days__description happenings-card__description">ons 19 jan • 20:00</p>
-          <p class="culture-days__description happenings-card__description">Plats: Salong 3</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="culture-days__card happenings__card">
-          <h3 class="culture-days__title happenings-card__title">Vinterbio</h3>
-          <p class="culture-days__description happenings-card__description">ons 22 jan • 18:00</p>
-          <p class="culture-days__description happenings-card__description">Plats: Salong 2</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-
-        <article class="culture-days__card happenings__card">
-          <h3 class="culture-days__title happenings-card__title">Gamla klassiker</h3>
-          <p class="culture-days__description happenings-card__description">ons 18 jan • 18:00</p>
-          <p class="culture-days__description happenings-card__description">Plats: Salong 2</p>
-          <button class="btn happenings-card__button">Boka</button>
-        </article>
-      </div>
-    </section>
-
     <!-- This is the welcome-section, copied from index.html -->
     <div class="main__welcome">
       <h2 class="main__welcome__title">Välkommenn till KINO i Uppsala!</h2>
@@ -249,12 +170,12 @@
       <div class="main__welcome__container">
         <div class="main__welcome__item">
           <img class="main__welcome__img" src="src/pics/KINO-arc.webp" alt="Kino lysande båge" />
-          <a href="#"><button class="btn btn--secondary">Mer om oss</button></a>
+          <a href="about-us.html"><button class="btn btn--secondary">Mer om oss</button></a>
         </div>
 
         <div class="main__welcome__item">
           <img class="main__welcome__img" src="src/pics/KINO-bistro.webp" alt="Kino bistro" />
-          <a href="#"><button class="btn btn--secondary">Till bistro</button></a>
+          <a href="bistro.html"><button class="btn btn--secondary">Till bistro</button></a>
         </div>
 
         <div class="main__welcome__item">
@@ -264,21 +185,108 @@
 
         <div class="main__welcome__item">
           <img class="main__welcome__img" src="src/pics/KINO-street.webp" alt="Kino utsikt från gatan" />
-          <a href="#"><button class="btn btn--secondary">Evenemang hos oss</button></a>
+          <a href="eventPage.html"><button class="btn btn--secondary">Evenemang hos oss</button></a>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Lectures section -->
+  <section class="lectures happenings__section" aria-labelledby="lectures-title">
+    <h2 id="lectures-title" class="lectures__headline happening__headline">Föreläsningar & Talks</h2>
+
+    <div class="lectures__list happenings__list">
+      <article class="lecture-card happenings__card">
+        <h3 class="lecture-card__title happenings-card__title">Film och filosofi</h3>
+        <p class="lecture-card__description happenings-card__description">Ons 15 jan • 18:00</p>
+        <p class="lecture-card__description happenings-card__description">Plats: Salong 2</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="lecture-card happenings__card">
+        <h3 class="lecture-card__title happenings-card__title">Regissörssamtal</h3>
+        <p class="lecture-card__description happenings-card__description">Fre 24 jan • 19:00</p>
+        <p class="lecture-card__description happenings-card__description">Plats: Bistro</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="lecture-card happenings__card">
+        <h3 class="lecture-card__title happenings-card__title">Bakom kulisserna</h3>
+        <p class="lecture-card__description happenings-card__description">Tis 4 feb • 17:30</p>
+        <p class="lecture-card__description happenings-card__description">Plats: Foajé</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Opera section -->
+  <section class="opera happenings__section" aria-labelledby="opera-title">
+    <h2 id="opera-title" class="opera__headline happening__headline">Opera på Kino</h2>
+
+    <div class="opera__list happenings__list">
+      <article class="opera-card happenings__card">
+        <h3 class="opera-card__title happenings-card__title">Trollflöjten</h3>
+        <p class="opera-card__description happenings-card__description">Ons 15 jan • 20:00</p>
+        <p class="opera-card__description happenings-card__description">Plats: Salong 3</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="opera-card happenings__card">
+        <h3 class="opera-card__title happenings-card__title">Carmen</h3>
+        <p class="opera-card__description happenings-card__description">Ons 14 jan • 18:00</p>
+        <p class="opera-card__description happenings-card__description">Plats: Salong 2</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="opera-card happenings__card">
+        <h3 class="opera-card__title happenings-card__title">Madama Butterfly</h3>
+        <p class="opera-card__description happenings-card__description">Ons 18 jan • 18:00</p>
+        <p class="opera-card__description happenings-card__description">Plats: Salong 2</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- culture-days section -->
+  <section class="culture-days happenings__section" aria-labelledby="culture-days-title">
+    <h2 id="culture-days" class="culture-days happening__headline">Kulturdagar på Kino</h2>
+
+    <div class="culture-days__list happenings__list">
+      <article class="culture-days__card happenings__card">
+        <h3 class="culture-days__title happenings-card__title">Stora biodagen</h3>
+        <p class="culture-days__description happenings-card__description">ons 19 jan • 20:00</p>
+        <p class="culture-days__description happenings-card__description">Plats: Salong 3</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="culture-days__card happenings__card">
+        <h3 class="culture-days__title happenings-card__title">Vinterbio</h3>
+        <p class="culture-days__description happenings-card__description">ons 22 jan • 18:00</p>
+        <p class="culture-days__description happenings-card__description">Plats: Salong 2</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+
+      <article class="culture-days__card happenings__card">
+        <h3 class="culture-days__title happenings-card__title">Gamla klassiker</h3>
+        <p class="culture-days__description happenings-card__description">ons 18 jan • 18:00</p>
+        <p class="culture-days__description happenings-card__description">Plats: Salong 2</p>
+        <button class="btn happenings-card__button">Boka</button>
+      </article>
+    </div>
+  </section>
+
   <!-- This is the footer copied from index.html -->
   <footer class="footer">
     <div class="footer__content">
       <div class="footer__contact">
-        <p class="footer__contact-item"><a href="mailto:email@example.com" class="footer__link">Kontakt</a></p>
-        <p class="footer__contact-item">Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a></p>
+        <p class="footer__contact-item">
+          <a href="contact.html" class="footer__link">Kontakta oss</a>
+        </p>
+        <p class="footer__contact-item">
+          Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a>
+        </p>
         <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
       </div>
-
       <div class="footer__social-media">
         <p class="footer__social-text">Följ oss:</p>
         <a class="footer__social-icon" href="#" aria-label="Follow us on Instagram">

@@ -24,20 +24,16 @@
       object-position: center;
     }
   }
-
-  &__hero-text {
-    position: absolute;
-    color: #f3543b;
-    text-shadow: 2px 2px 2px black;
-    text-transform: uppercase;
-    font-family: var.$font-main;
-    font-size: 2.5rem;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-  }
 }
+
+.events__hero-text {
+  display: flex;
+  justify-content: center;
+  color: var.$color-btn-menu;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+}
+
 
 /* THIS IS STYLING FOR THE POPULAR EVENTS-SECTION */
 
@@ -74,8 +70,9 @@
   flex: 0 0 100%;
   max-width: 350px;
   flex-direction: column;
-  background-color: #2a1c1a;
+  background-color: #fbfbfa;
   border: solid grey 1px;
+  box-shadow: 0 0.2rem 0.5rem rgba(74, 35, 35, 0.8);
   border-radius: 0.5rem;
   overflow: hidden;
 
