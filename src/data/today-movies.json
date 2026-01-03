@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "now": true,
     "title": "Kallt Ljus",
     "genre": "Drama",
     "duration": 112,
@@ -10,11 +11,11 @@
     "tags": ["svensk", "drama", "indie"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. En stillsam berättelse om mod och val.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 2,
+    "now": true,
     "title": "Midnatt på Fyrisån",
     "genre": "Mystery",
     "duration": 104,
@@ -24,11 +25,11 @@
     "tags": ["mystery", "thriller", "natt"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. Något händer i skuggorna – och ingen vill prata om det.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 3,
+    "now": true,
     "title": "Popcorn & Poesi",
     "genre": "Romantik",
     "duration": 96,
@@ -38,11 +39,11 @@
     "tags": ["romantik", "feelgood", "bio"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. Två främlingar möts i en biosalong och allt förändras.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 4,
+    "now": true,
     "title": "Stål & Snö",
     "genre": "Action",
     "duration": 121,
@@ -52,11 +53,11 @@
     "tags": ["action", "katastrof", "tempo"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. Ett race mot tiden när staden fryser till is.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 5,
+    "now": true,
     "title": "Lilla Stjärnresan",
     "genre": "Familj",
     "duration": 88,
@@ -66,11 +67,11 @@
     "tags": ["family", "animation", "jul"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En varm film om vänskap, mod och en väldigt liten stjärna.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 6,
+    "now": true,
     "title": "Kodnamn: Eko",
     "genre": "Thriller",
     "duration": 109,
@@ -80,11 +81,11 @@
     "tags": ["thriller", "spion", "teknik"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. Ett läckta meddelande startar en kedja av farliga beslut.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 7,
+    "now": true,
     "title": "Bistrons Hemlighet",
     "genre": "Komedi",
     "duration": 101,
@@ -94,11 +95,11 @@
     "tags": ["komedi", "mat", "ensemble"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. När en kock försvinner måste alla spela med i en galen plan.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 8,
+    "now": true,
     "title": "Efter Regnet",
     "genre": "Drama",
     "duration": 118,
@@ -108,11 +109,11 @@
     "tags": ["drama", "relationer", "stark"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En historia om försoning och att börja om.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 9,
+    "now": true,
     "title": "Neonhjärtan",
     "genre": "Sci-Fi",
     "duration": 124,
@@ -122,11 +123,11 @@
     "tags": ["sci-fi", "framtid", "cyber"],
     "language": "EN",
     "description": "Lorem ipsum dolor sit amet. En stad av ljus – och en hemlighet som kan släcka allt.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   },
   {
     "id": 10,
+    "now": true,
     "title": "Uppsala Udda",
     "genre": "Dokumentär",
     "duration": 90,
@@ -136,7 +137,6 @@
     "tags": ["dokumentar", "lokalt", "kultur"],
     "language": "SV",
     "description": "Lorem ipsum dolor sit amet. En charmig dokumentär om de små historierna i en stor stad.",
-    "image": "placeholder.webp",
-    "now": true
+    "image": "placeholders/placeholder.webp"
   }
 ]
