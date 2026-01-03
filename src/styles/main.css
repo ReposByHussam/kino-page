@@ -881,6 +881,41 @@ body.page--contact {
   width: 2.5rem;
   height: 2.5rem;
 }
+.footer__submenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.footer__submenu-section {
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .footer__submenu-section {
+    display: none;
+  }
+}
+.footer__submenu-heading {
+  color: #fbfbfa;
+  padding: 0.75rem 0.75rem 0;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.footer__submenu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__submenu-item {
+  margin: 0.3rem 0;
+}
+.footer__submenu-item a {
+  color: #f3543b;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
 @media screen and (min-width: 768px) {
   .footer__content {
     flex-direction: row;
