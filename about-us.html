@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="sv" prefix="og: https://ogp.me/ns#">
+
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Kino - Uppsala</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <meta property="og:title" content="Kino - Uppsala" >
-  <meta property="og:type" content="website" >
-  <meta property="og:site_name" content="Kino" >
-  <meta property="og:locale" content="sv_SE" >
+  <meta property="og:title" content="Kino - Uppsala">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kino">
+  <meta property="og:locale" content="sv_SE">
 
   <meta property="og:description"
-        content="Lär kännas Kino i Uppsala - vår historia, vision och vad som gör oss till en biograf för filmälskare."
-    >
-  <meta property="og:url" content="https://reposbyhussam.github.io/kino-page/about-us.html" >
-  <meta property="og:image" content="https://reposbyhussam.github.io/kino-page/src/pics/KINO-about-us-hero.png" >
+    content="Lär kännas Kino i Uppsala - vår historia, vision och vad som gör oss till en biograf för filmälskare.">
+  <meta property="og:url" content="https://reposbyhussam.github.io/kino-page/about-us.html">
+  <meta property="og:image" content="https://reposbyhussam.github.io/kino-page/src/pics/KINO-about-us-hero.png">
   <meta property="og:image:alt" content="Insidan av en filmprojektor">
   <!--Roboto Google font-->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="src/styles/main.css">
   <!--placeholder for js file-->
-  <script type="module" src=""></script>
+  <script type="module" src="./src/scripts/main.js"></script>
 
 </head>
 
@@ -32,6 +32,11 @@
       <a href="./index.html">
         <img class="header__img" src="src/pics/KINO-logo.png" alt="Logo" />
       </a>
+      <button class="header__hamburger-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="header__nav">
         <ul class="header__menu-list">
           <li class="header__menu-item menu-desktop movies">
@@ -148,7 +153,8 @@
 
     <section class="about__bistro">
       <h2 class="about__bistro-section-title">Kino Bistro</h2>
-      <img src="./src/pics/KINO_about-us-bistro.jpg" alt="Cozy atmosphere with wine glasses and tableware" class="about__bistro-section-img">
+      <img src="./src/pics/KINO_about-us-bistro.jpg" alt="Cozy atmosphere with wine glasses and tableware"
+        class="about__bistro-section-img">
       <p class="about__bistro-text">Bistro kino erbjuder nordisk mat med
         internationella viner, perfekt före eller efter film. Njut av god mat,
         vin och en avslappnad atmosfär. Vi har allt du behöver
