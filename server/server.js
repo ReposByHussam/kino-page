@@ -1,6 +1,6 @@
 import express from 'express';
 import fs from 'fs/promises';
-// import renderPage from './lib/renderPage.js';
+import renderPage from './renderPage.js';
 
 const app = express();
 
