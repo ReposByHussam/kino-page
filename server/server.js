@@ -13,7 +13,7 @@ app.get('/', async (req, res) => {
     res.send(htmlText);
 });
 
-//SSR - all other pages and status 404
+//SSR - all other pages and status 404 instead of routing each page separately
 // app.get('/:page', async (req, res) => {
 //     const { page } = req.params;
 

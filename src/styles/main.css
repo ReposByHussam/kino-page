@@ -641,10 +641,6 @@ body {
   padding: 0;
 }
 
-body.page--contact {
-  background: #151313;
-}
-
 .main.main--contact {
   background: #fbfbfa;
   color: #151313;
