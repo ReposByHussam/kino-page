@@ -152,3 +152,11 @@
     }
   }
 }
+
+ .footer__submenu-item.active a,
+ .footer__link:active {
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var.$color-btn-menu-hover;
+}

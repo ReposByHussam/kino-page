@@ -13,24 +13,24 @@
         {{#each headerMenu}}
           <li class="header__menu-item {{classes}} {{#if active}}active{{/if}}">
             {{#if (eq type "dropdown")}}
-              <button class="btn-menu btn-menu--one">{{label}}</button>
+              <button class="btn-menu {{btnClass}}">{{label}}</button>
               <ul class="header__dropdown">
                 {{#each items}}
                   <li class="header__dropdown-item {{#if active}}active{{/if}}">
-                    <a href="{{link}}">{{label}}</a>
+                    <a href="{{link}}" {{#if dataRoute}}data-route="{{dataRoute}}"{{/if}}>
+                      {{label}}
+                    </a>
                   </li>
                 {{/each}}
               </ul>
+            {{else if (eq type "button")}}
+              <button class="btn-menu {{btnClass}}" {{#if link}}data-route="{{link}}"{{/if}}>
+                {{label}}
+              </button>
             {{else}}
-              {{#if link}}
-                <a href="{{link}}" class="btn-menu btn-menu--one" data-route="{{link}}">
-                  {{label}}
-                </a>
-              {{else}}
-                <button class="btn-menu btn-menu--one" data-route="{{link}}">
-                  {{label}}
-                </button>
-              {{/if}}
+              <a href="{{link}}" class="btn-menu {{btnClass}}" {{#if link}}data-route="{{link}}"{{/if}}>
+                {{label}}
+              </a>
             {{/if}}
           </li>
         {{/each}}

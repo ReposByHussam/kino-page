@@ -53,63 +53,72 @@ export const HEADER_MENU = [
         type: 'dropdown',
         label: 'Filmer idag',
         classes: 'menu-desktop movies',
+        btnClass: 'btn-menu--one',
         items: [
-            { label: 'För över 18 år', link: '#' },
-            { label: 'För hela familjen', link: '#' },
+            { label: 'För över 18 år', link: '#', id: 'over-18' },
+            { label: 'För hela familjen', link: '#', id: 'family' },
         ],
     },
     {
         type: 'dropdown',
         label: 'Kommande',
         classes: 'menu-desktop',
+        btnClass: 'btn-menu--one',
         items: [
-            { label: 'För över 18 år', link: '#' },
-            { label: 'För hela familjen', link: '#' },
+            { label: 'För över 18 år', link: '#', id: 'upcoming-18' },
+            { label: 'För hela familjen', link: '#', id: 'upcoming-family' },
         ],
     },
     {
         type: 'dropdown',
         label: 'På bio',
         classes: 'menu-desktop',
+        btnClass: 'btn-menu--one',
         items: [
-            { label: 'Bistro och mat', link: '/bistro', id: 'bistro' },
-            { label: 'Evenemang', link: '/eventPage', id: 'eventPage' },
+            { label: 'Bistro och mat', link: '/bistro', dataRoute: '/bistro', id: 'bistro' },
+            { label: 'Evenemang', link: '/eventPage', dataRoute: '/eventPage', id: 'eventPage' },
         ],
     },
     {
         type: 'dropdown',
         label: 'Mer...',
         classes: 'menu-desktop-xlarge',
+        btnClass: 'btn-menu--one',
         items: [
-            { label: 'Om oss', link: '/about-us', id: 'about-us' },
-            { label: 'Boka salen', link: '#' },
-            { label: 'Jobba hos oss', link: '#' },
-            { label: 'Köpa presentkort', link: '#' },
+            { label: 'Om oss', link: '/about-us', dataRoute: '/about-us', id: 'about-us' },
+        { label: 'Boka salen', link: '#', dataRoute: '#', id: 'book-hall' },
+        { label: 'Jobba hos oss', link: '#', dataRoute: '#', id: 'jobs' },
+        { label: 'Köpa presentkort', link: '#', dataRoute: '#', id: 'gift-cards' },
         ],
     },
     {
-        type: 'link',
+        type: 'button',
         label: 'Kontakta oss',
         link: '/contact',
+        dataRoute: '/contact',
         classes: 'menu-desktop menu-contact',
+        btnClass: 'btn-menu--one',
         id: 'contact',
     },
     {
-        type: 'link',
+        type: 'button',
         label: 'Logga in',
-        link: '#',
+        link: null,     //for future modals
         classes: 'menu-medium login',
+        btnClass: 'btn-menu--two',
     },
     {
-        type: 'link',
+        type: 'button',
         label: 'Bli medlem',
-        link: '#',
+         link: null,     //for future modals
         classes: 'menu-hide-medium',
+        btnClass: 'btn-menu--two',
     },
     {
         type: 'dropdown',
         label: 'Språk',
         classes: 'menu-medium language',
+        btnClass: 'btn-menu--language',
         items: [
             { label: 'Svenska', link: '#' },
             { label: 'Engelska', link: '#' },
@@ -118,45 +127,46 @@ export const HEADER_MENU = [
 ];
 
 //FOOTER MENU
+//each object {} in the array is a <section>
 export const FOOTER_MENU = [
     {
         heading: 'Filmer idag',
         sectionClasses: 'footer__submenu-section',
         items: [
-            { label: 'För över 18 år', link: '#' },
-            { label: 'För hela familjen', link: '#' },
+            { label: 'För över 18 år', link: '#', id: 'over-18' },
+            { label: 'För hela familjen', link: '#', id: 'family' },
         ],
     },
     {
         heading: 'Kommande',
         sectionClasses: 'footer__submenu-section',
         items: [
-            { label: 'För över 18 år', link: '#' },
-            { label: 'För hela familjen', link: '#' },
+            { label: 'För över 18 år', link: '#', id: 'upcoming-18' },
+            { label: 'För hela familjen', link: '#', id: 'upcoming-family' },
         ],
     },
     {
         heading: 'På bio',
         sectionClasses: 'footer__submenu-section',
         items: [
-            { label: 'Bistro och mat', link: '/bistro#bistro_viewmenu', id: 'bistro' },
-            { label: 'Evenemang', link: '/eventPage', id: 'eventPage' },
+            { label: 'Bistro och mat', link: '/bistro', dataRoute: '/bistro', id: 'bistro' },
+            { label: 'Evenemang', link: '/eventPage', dataRoute: '/eventPage', id: 'eventPage' },
         ],
     },
     {
         heading: 'Mer',
         sectionClasses: 'footer__submenu-section',
         items: [
-            { label: 'Om oss', link: '/about-us', id: 'about-us' },
-            { label: 'Boka salen', link: '#' },
-            { label: 'Jobba hos oss', link: '#' },
-            { label: 'Köpa presentkort', link: '#' },
+            { label: 'Om oss', link: '/about-us', dataRoute: '/about-us', id: 'about-us' },
+            { label: 'Boka salen', link: '#', dataRoute: '#', id: 'book-hall' },
+            { label: 'Jobba hos oss', link: '#', dataRoute: '#', id: 'jobs' },
+            { label: 'Köpa presentkort', link: '#', dataRoute: '#', id: 'gift-cards' },
         ],
     },
 ];
 
 //META for all pages
-const META = {
+export const META = {
     index: {
         title: 'Kino - Uppsala',
         description: 'Kino biograf i Uppsala - filmer idag,kommande filmer, bistro och evenemang, Av filmälskare för filmälskare',
@@ -164,7 +174,7 @@ const META = {
             title: 'Kino - Uppsala',
             description: 'Kino biograf i Uppsala - filmer idag,kommande filmer, bistro och evenemang, Av filmälskare för filmälskare',
             locale: 'sv_SE',
-            url: 'http://localhost:5080/',
+            url: '/',
             image: '/src/pics/KINO-logo.png',
             imageAlt: 'Kino logo',
         },
@@ -177,7 +187,7 @@ const META = {
             title: 'Kino - Om oss',
             description: 'Lär kännas Kino i Uppsala - vår historia, vision och vad som gör oss till en biograf för filmälskare.',
             locale: 'sv_SE',
-            url: 'http://localhost:5080/about-us',
+            url: '/about-us',
             image: '/src/pics/KINO-about-us-hero.png',
             imageAlt: 'Insidan av en filmprojektor',
         },
@@ -190,7 +200,7 @@ const META = {
             title: 'Bistro - Kino Uppsala',
             description: 'Välkommen till Kinos Bistro i Uppsala. En plats där filmälskare kan njuta av utsökt mat och dryck före eller efter filmen. Se menyn och njut.',
             locale: 'sv_SE',
-            url: 'http://localhost:5080/bistro',
+            url: '/bistro',
             image: '/src/pics/KINO-bistro.webp',
             imageAlt: 'interiörbild från Kinos bistro',
         },
@@ -203,7 +213,7 @@ const META = {
             title: 'Kino - Kontakt',
             description: 'Kontakta Kino biograf i Uppsala. Hitta våra kontaktuppgifter och skicka ett meddelande till oss.',
             locale: 'sv_SE',
-            url: 'http://localhost:5080/contact',
+            url: '/contact',
             image: '/src/pics/KINO-arc.webp',
             imageAlt: 'Kino entré med upplyst KINO-skylt.',
         },
@@ -216,13 +226,48 @@ const META = {
             title: 'Evenemang - Kino Uppsala',
             description: 'Upptäck kommande evenemang på Kino i Uppsala. Föreläsningar, opera och talks. Se vad som händer och boka din plats.',
             locale: 'sv_SE',
-            url: 'http://localhost:5080/eventPage',
+            url: '/eventPage',
             image: '/src/pics/KINO-event.png',
             imageAlt: 'En person i en biosalong som håller i en dödskalle.',
         },
         lang: 'sv',
     },
 }
+
+// export const WELCOME_DATA = {
+//   title: 'Välkommenn till KINO i Uppsala!',
+//   motto: 'Av filmälskare - för film älskare',
+//   items: [
+//     {
+//       image: '/src/pics/KINO-arc.webp',
+//       alt: 'Kino lysande båge',
+//       link: '/about-us',
+//       title: 'Mer om oss',
+//       text: 'Mer om oss'
+//     },
+//     {
+//       image: '/src/pics/KINO-bistro.webp',
+//       alt: 'Kino bistro',
+//       link: '/bistro',
+//       title: 'Till bistro',
+//       text: 'Till bistro'
+//     },
+//     {
+//       image: '/src/pics/KINO-cinemahall-seats.webp',
+//       alt: 'Kino biograf sal med bord',
+//       link: '#',
+//       title: 'Boka salen',
+//       text: 'Boka salen'
+//     },
+//     {
+//       image: '/src/pics/KINO-street.webp',
+//       alt: 'Kino utsikt från gatan',
+//       link: '/eventPage',
+//       title: 'Evenemang hos oss',
+//       text: 'Evenemang hos oss'
+//     }
+//   ]
+// };
 
 export default async function renderPage(page) {
     //register partials before compiling the template
@@ -244,42 +289,47 @@ export default async function renderPage(page) {
 
     //HEADER MENU processing
     const headerMenu = HEADER_MENU.map(block => {
-        if (block.type === 'dropdown') {
-            const items = block.items.map(item => ({
-                ...item,
-                active: item.id === page,
+        //create a copy of main <li>-item (=block object from HEADER_MENU)
+        const processedBlock = { ...block }; //... spread operator - copy all properties of object <li>-block from HEADER_MENU
+
+        //create a copy of <ul>-dropdown list
+        if (processedBlock.type === 'dropdown') {
+            const items = processedBlock.items.map(item => ({
+                ...item,    //copy all properties of the menu sub-item
+                active: item.id === page,   //add 'active: true' 
             }));
 
+            //if at least one sub-item in the dropdown list is active, the whole <li>-item is active
             const hasActive = items.some(i => i.active);
 
             return {
-                ...block,
+                ...processedBlock,
                 items,
                 active: hasActive,
             };
         }
 
-        if (block.type === 'link') {
+        //corresponds <button>-items of menu
+        if (processedBlock.type === 'button') {
             return {
-                ...block,
-                active: block.id === page,
+                ...processedBlock,
+                active: processedBlock.id === page, //add 'active: true' for current page
             };
         }
 
-        return block;
+        return processedBlock;
     });
 
-
     //FOOTER MENU processing
-    const footerMenu = FOOTER_MENU.map(section => {
-        const items = section.items.map(item => ({
-            ...item,
-            active: item.id === page,
+    const footerMenu = FOOTER_MENU.map(section => { //'section' - param of a callback .map(), corresponds here to <section>, represents one object from FOOTER_MENU array
+        const items = section.items.map(item => ({ //'item' - param of inner .map() callback, correspons to <li>, returns object ({item})+active, represents one menu item
+            ...item,    //spread operator ... - copy all properties from original 'item' object 
+            active: item.id === page,  // add property active: true/false
         }));
 
         return {
-            ...section,
-            items,
+            ...section, // ... - copy all properties from original 'section' object (heading, sectionClasses)
+            items, //replace old 'items' array with new processed one (including property active)
         };
     });
 

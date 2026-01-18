@@ -5,7 +5,9 @@
       <ul class="footer__submenu-list">
         {{#each items}}
           <li class="footer__submenu-item {{#if active}}active{{/if}}">
-            <a href="{{link}}">{{label}}</a>
+            <a href="{{link}}" {{#if dataRoute}}data-route="{{dataRoute}}"{{/if}}>
+              {{label}}
+            </a>
           </li>
         {{/each}}
       </ul>
@@ -15,7 +17,7 @@
   <div class="footer__content">
     <div class="footer__contact">
       <p class="footer__contact-item">
-        <a href="/contact" class="footer__link">Kontakta oss</a>
+        <a href="/contact" data-route="/contact" class="footer__link">Kontakta oss</a>
       </p>
       <p class="footer__contact-item">
         Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a>

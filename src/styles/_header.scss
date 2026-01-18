@@ -270,3 +270,19 @@
         display: block;
     }
 }
+
+//active pages
+.header__menu-item.active {
+  background-color: var.$color-btn-menu-hover; 
+}
+
+.header__menu-item.menu-medium.login.active .btn-menu,
+.header__menu-item.menu-hide-medium.active .btn-menu {
+     background-color: var.$color-btn-green-hover;
+}
+
+.header__dropdown-item.active a {
+   color: var.$color-btn-green;
+   background-color: var.$muted;
+   text-decoration: underline; 
+}

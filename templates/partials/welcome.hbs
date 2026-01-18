@@ -1,0 +1,14 @@
+{{! templates/partials/welcome.hbs }}
+<div class="main__welcome">
+  <h2 class="main__welcome__title">{{title}}</h2>
+  <p class="main__welcome__moto">{{motto}}</p>
+
+  <div class="main__welcome__container">
+    {{#each items}}
+    <div class="main__welcome__item">
+      <img class="main__welcome__img" src="{{image}}" alt="{{alt}}">
+      <a href="{{link}}" class="btn btn--secondary" title="{{title}}">{{text}}</a>
+    </div>
+    {{/each}}
+  </div>
+</div>
