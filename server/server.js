@@ -1,9 +1,14 @@
-import express from 'express';
-import renderPage from './renderPage.js';
+/*import express from 'express';
+
+import { engine } from "express-handlebars";
+import api from "./movies-backendAPI.js";
 
 const app = express();
 
 //ROUTE TO STATIC FILES
+//route to static files .use('/folderName', express.static('./folderName')) should go before dynamic routes app.get(), otherwise it'll not be read
+//'/src' - absolute route from the project root
+//'./src' - relative route from the folderName
 app.use('/src', express.static('./src'));
 
 //SSR - render layout and get it 
@@ -24,7 +29,6 @@ app.get('/', async (req, res) => {
 //         res.status(404).send('This page is not found');
 //     }
 // });
-
 
 // SSR all other pages
 app.get('/about-us', async (req, res) => {
@@ -52,36 +56,15 @@ app.use((req, res) => {
   res.status(404).send('Page is not found');
 });
 
-//FIRST SERVER SET-UP
-// app.get('/', async (req, res) => {
-//   const content = await fs.readFile('./index.html'); // get Buffer in raw bytes
-//   const html = content.toString();                  // turn to string
-//   res.send(html);                                   // send response to client
-// });
-
-// app.get('/about-us', async (req, res) => {
-//   const content = await fs.readFile('./about-us.html'); 
-//   const html = content.toString();                  
-//   res.send(html);                                   
-// });
-
-// app.get('/bistro', async (req, res)=>{
-//     const content = await fs.readFile('./bistro.html');
-//     const html = content.toString();
-//     res.send(html);
-// })
-
-// app.get('/contact', async(req, res) =>{
-//     const html = await fs.readFile('./contact.html', 'utf-8'); // utf-8 as a 2nd arguments lets avoid to write .toString()-method as it does same - converts Buffer to string
-//     res.send(html);
-// })
-
-// app.get('/eventPage', async (req, res) => {
-//     const html = await fs.readFile('./eventPage.html', 'utf8'); // utf8 alias for utf-8 (same)
-//     res.send(html);
-// })
-
 const port = 5080;
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+*/
+
+import initApp from "./app.js";
+import api from './movies-backendAPI.js';
+
+const app = initApp(api);
+
+app.listen(5080);

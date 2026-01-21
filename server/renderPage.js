@@ -1,5 +1,5 @@
 import fs from 'fs/promises'; //fs-module from Node.js library for reading files
-import Handlebars from 'handlebars'; //Handlebars-module from npm-library
+import Handlebars from 'handlebars'; //Handlebars-module from npm-library for using helpers in .hbs
 import path from 'path'; // path-module from Node.js library for working with paths
 
 Handlebars.registerHelper('eq', (a, b) => a === b); //helper-method in Handlebars for comparing
@@ -55,6 +55,12 @@ export const HEADER_MENU = [
         classes: 'menu-desktop movies',
         btnClass: 'btn-menu--one',
         items: [
+            {
+                label: 'Alla filmer',
+                link: '/movies',
+                dataRoute: '/movies',
+                id: 'movies'  //for all films
+            },
             { label: 'För över 18 år', link: '#', id: 'over-18' },
             { label: 'För hela familjen', link: '#', id: 'family' },
         ],
@@ -86,9 +92,9 @@ export const HEADER_MENU = [
         btnClass: 'btn-menu--one',
         items: [
             { label: 'Om oss', link: '/about-us', dataRoute: '/about-us', id: 'about-us' },
-        { label: 'Boka salen', link: '#', dataRoute: '#', id: 'book-hall' },
-        { label: 'Jobba hos oss', link: '#', dataRoute: '#', id: 'jobs' },
-        { label: 'Köpa presentkort', link: '#', dataRoute: '#', id: 'gift-cards' },
+            { label: 'Boka salen', link: '#', dataRoute: '#', id: 'book-hall' },
+            { label: 'Jobba hos oss', link: '#', dataRoute: '#', id: 'jobs' },
+            { label: 'Köpa presentkort', link: '#', dataRoute: '#', id: 'gift-cards' },
         ],
     },
     {
@@ -110,7 +116,7 @@ export const HEADER_MENU = [
     {
         type: 'button',
         label: 'Bli medlem',
-         link: null,     //for future modals
+        link: null,     //for future modals
         classes: 'menu-hide-medium',
         btnClass: 'btn-menu--two',
     },
@@ -133,6 +139,12 @@ export const FOOTER_MENU = [
         heading: 'Filmer idag',
         sectionClasses: 'footer__submenu-section',
         items: [
+            {
+                label: 'Alla filmer',
+                link: '/movies',
+                dataRoute: '/movies',
+                id: 'movies'
+            },
             { label: 'För över 18 år', link: '#', id: 'over-18' },
             { label: 'För hela familjen', link: '#', id: 'family' },
         ],
@@ -232,44 +244,36 @@ export const META = {
         },
         lang: 'sv',
     },
+    //rendered films
+    movies: {
+        title: 'Alla filmer - Kino Uppsala',
+        description: 'Se alla filmer som visas på Kino biograf i Uppsala',
+        og: {
+            title: 'Alla filmer - Kino Uppsala',
+            description: 'Se alla filmer som visas på Kino biograf i Uppsala',
+            locale: 'sv_SE',
+            url: '/movies',
+            image: '/src/pics/KINO-logo.png',
+            imageAlt: 'Kino logo',
+        },
+        lang: 'sv',
+    },
+    movie: {
+        title: 'Film - Kino Uppsala',
+        description: 'Information om filmen på Kino biograf i Uppsala',
+        og: {
+            title: 'Film - Kino Uppsala',
+            description: 'Information om filmen på Kino biograf i Uppsala',
+            locale: 'sv_SE',
+            url: '/movies',
+            image: '/src/pics/KINO-logo.png',
+            imageAlt: 'Film poster',
+        },
+        lang: 'sv',
+    }
 }
 
-// export const WELCOME_DATA = {
-//   title: 'Välkommenn till KINO i Uppsala!',
-//   motto: 'Av filmälskare - för film älskare',
-//   items: [
-//     {
-//       image: '/src/pics/KINO-arc.webp',
-//       alt: 'Kino lysande båge',
-//       link: '/about-us',
-//       title: 'Mer om oss',
-//       text: 'Mer om oss'
-//     },
-//     {
-//       image: '/src/pics/KINO-bistro.webp',
-//       alt: 'Kino bistro',
-//       link: '/bistro',
-//       title: 'Till bistro',
-//       text: 'Till bistro'
-//     },
-//     {
-//       image: '/src/pics/KINO-cinemahall-seats.webp',
-//       alt: 'Kino biograf sal med bord',
-//       link: '#',
-//       title: 'Boka salen',
-//       text: 'Boka salen'
-//     },
-//     {
-//       image: '/src/pics/KINO-street.webp',
-//       alt: 'Kino utsikt från gatan',
-//       link: '/eventPage',
-//       title: 'Evenemang hos oss',
-//       text: 'Evenemang hos oss'
-//     }
-//   ]
-// };
-
-export default async function renderPage(page) {
+export default async function renderPage(page, extraData = {}) { //extraData = {} - object rendered by API
     //register partials before compiling the template
     await registerPartials();
 
@@ -278,7 +282,7 @@ export default async function renderPage(page) {
     const templateText = templateBuf.toString();
     const template = Handlebars.compile(templateText);
 
-    //read content of the page (main)
+    //read content of the page (<main>)
     let mainContent = '';
     try {
         const contentBuf = await fs.readFile(`./content/${page}.hbs`, 'utf-8'); //utf-8 instead of .toString()
@@ -286,6 +290,12 @@ export default async function renderPage(page) {
     } catch (err) {
         throw new Error(`Page "${page}" is not found`);
     }
+
+      //Compile content/movies.hbs with extraData from API
+    const contentTemplate = Handlebars.compile(mainContent);
+    const compiledMainContent = contentTemplate({
+        ...extraData,  
+    });
 
     //HEADER MENU processing
     const headerMenu = HEADER_MENU.map(block => {
@@ -333,31 +343,22 @@ export default async function renderPage(page) {
         };
     });
 
-    // //render Menu with class Active
-    // const headerMenu = MENU.map((item => ({
-    //     label: item.label,
-    //     link: item.link,
-    //     active: item.id === page,
-    // })));
-    // const footerMenu = MENU.map((item) => ({
-    //     label: item.label,
-    //     link: item.link,
-    //     active: item.id === page,
-    // }));
-
     //processing META-data for a page
     const meta = META[page] || META['index']; //[] search dynamically for the variable's 'page' keys, otherwise show meta-data for index-page
 
     //gather all data for page-template, render html
-    const htmlText = template({
+    const templateData = {
         headerMenu,
         footerMenu,
-        main: mainContent,
+        main: compiledMainContent,
         title: meta.title,
         description: meta.description,
         og: meta.og,
         lang: meta.lang,
-    });
+        ...extraData  // // unpacking { movies: [...] }
+    };
 
+    const htmlText = template(templateData);
+    
     return htmlText;
 }
