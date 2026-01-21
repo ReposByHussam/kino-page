@@ -12,50 +12,12 @@
   <!--FILMS TODAY SECTION FOR CARDS-->
   <section class="main__filmsToday">
     <h2 class="main__filmsContainer__heading">Filmer idag</h2>
+    <p>Här kan du se alla filmer som visas idag. Klicka på knappen nedan för att utforska.</p>
+    <ul>
 
-    <div class="main__filmsContainer">
-      <article class="card movieCard">
-        <h3 class="movieCard__title">Film namn</h3>
-        <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-        <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-        <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-        <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
-        <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Assumenda, iure.</p>
-        <img src="/src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
-        <button class="btn btn--secondary movieCard__button">Läs mer</button>
-        <button class="btn btn-menu--one movieCard__button">Boka</button>
-      </article>
+      {{> movies-list}}
 
-      <article class="card movieCard">
-        <h3 class="movieCard__title">Film namn</h3>
-        <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-        <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-        <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-        <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
-        <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Assumenda, iure.</p>
-        <img src="/src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
-        <button class="btn btn--secondary movieCard__button">Läs mer</button>
-        <button class="btn btn-menu--one movieCard__button">Boka</button>
-      </article>
-
-      <article class="card movieCard">
-        <h3 class="movieCard__title">Film namn</h3>
-        <p class="movieCard__item"><strong>Genre:</strong> fantasy</p>
-        <p class="movieCard__item"><strong>Tid:</strong> 90 min</p>
-        <p class="movieCard__item"><strong>Åldersgräns:</strong> 13 år +</p>
-        <p class="movieCard__item"><strong>När:</strong> 3 februari - 20 maj</p>
-        <p class="movieCard__item"><strong>Beskrivning:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Assumenda, iure.</p>
-        <img src="/src/pics/KINO-movie-poster.webp" class="movieCard__img" alt="film poster">
-        <button class="btn btn--secondary movieCard__button">Läs mer</button>
-        <button class="btn btn-menu--one movieCard__button">Boka</button>
-      </article>
-    </div>
-
-
-    <a href="#" class="btn btn--primary" title="Alla aktuella filmer">Alla aktuella filmer</a>
+      <a href="/movies" class="btn btn--primary" title="Alla aktuella filmer">Alla aktuella filmer</a>
   </section>
 
   <!--WELCOME SECTION-->
@@ -82,7 +44,8 @@
 
       <div class="main__welcome__item">
         <img class="main__welcome__img" src="/src/pics/KINO-street.webp" alt="Kino utsikt från gatan">
-        <a href="/eventPage" data-route="/eventPage" class="btn btn--secondary" title="Evenemang hos oss">Evenemang hos oss</a>
+        <a href="/eventPage" data-route="/eventPage" class="btn btn--secondary" title="Evenemang hos oss">Evenemang hos
+          oss</a>
       </div>
     </div>
   </div>

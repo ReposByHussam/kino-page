@@ -1,0 +1,64 @@
+<style>
+  /* styles for page /movies */
+  .main__movies {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .main .main__movies .main__filmsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+.main .main__movies .main__filmsContainer::before,
+.main .main__movies .main__filmsContainer::after {
+    content: none; 
+}
+
+main .main__movies .movieCard {
+    align-items: stretch;
+}
+
+.main .main__movies .movieCard__button {
+  margin-top: auto;
+}
+
+</style>
+
+<main class="main">
+  <section class="main__movies">
+    <h2 class="main__movies__heading">Alla filmer idag</h2>
+    <p class="main__movies__text">Här kan du se alla filmer som visas på vår biograf.</p>
+
+    {{#if movies.length}}
+    <div class="main__filmsContainer">
+      {{#each movies}}
+      <article class="card movieCard">
+        <h3 class="movieCard__title">{{this.title}}</h3>
+
+        {{!-- {{#if this.intro}}
+        <p class="movieCard__item">
+          <strong>Beskrivning:</strong> {{this.intro}}
+        </p>
+        {{/if}} --}}
+
+        {{#if this.image}}
+        <img src="{{this.image.url}}" class="movieCard__img" alt="{{this.title}} poster">
+        {{/if}}
+
+        <a href="/movies/{{this.id}}" class="btn btn--secondary movieCard__button">
+          Läs mer
+        </a>
+
+        {{!-- <button class="btn btn-menu--one movieCard__button">Boka</button> --}}
+      </article>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="main__movies__text">Inga filmer tillgängliga för tillfället.</p>
+    {{/if}}
+
+    <a href="/" class="main__movies__button btn btn--primary">Tillbaka till startsidan</a>
+  </section>
+</main>
