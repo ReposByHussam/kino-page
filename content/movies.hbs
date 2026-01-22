@@ -11,19 +11,28 @@
     justify-content: flex-start;
   }
 
-.main .main__movies .main__filmsContainer::before,
-.main .main__movies .main__filmsContainer::after {
-    content: none; 
-}
+  .main .main__movies .main__filmsContainer::before,
+  .main .main__movies .main__filmsContainer::after {
+    content: none;
+  }
 
-main .main__movies .movieCard {
+  main .main__movies .movieCard {
     align-items: stretch;
-}
+    transform: scale(0.9);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.9);
+  }
 
-.main .main__movies .movieCard__button {
-  margin-top: auto;
-}
+  main .main__movies .movieCard:hover,
+  main .main__movies .movieCard:focus-visible {
+    transform: scale(1);
+    filter: brightness(1);
+  }
 
+  /* stick button to card bottom*/
+  .main .main__movies .movieCard__button {
+    margin-top: auto;
+  }
 </style>
 
 <main class="main">
@@ -37,12 +46,6 @@ main .main__movies .movieCard {
       <article class="card movieCard">
         <h3 class="movieCard__title">{{this.title}}</h3>
 
-        {{!-- {{#if this.intro}}
-        <p class="movieCard__item">
-          <strong>Beskrivning:</strong> {{this.intro}}
-        </p>
-        {{/if}} --}}
-
         {{#if this.image}}
         <img src="{{this.image.url}}" class="movieCard__img" alt="{{this.title}} poster">
         {{/if}}
@@ -51,7 +54,6 @@ main .main__movies .movieCard {
           Läs mer
         </a>
 
-        {{!-- <button class="btn btn-menu--one movieCard__button">Boka</button> --}}
       </article>
       {{/each}}
     </div>

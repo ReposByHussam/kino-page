@@ -1,3 +1,12 @@
+<style>
+.main .main__filmsContainer__list a {
+color: #821818;
+}
+.main .main__filmsContainer__list a:hover {
+color: #f3543b;
+}
+</style>
+
 <main class="main">
   <section class="main__video">
     <div class="main__video__container">
@@ -13,11 +22,12 @@
   <section class="main__filmsToday">
     <h2 class="main__filmsContainer__heading">Filmer idag</h2>
     <p>Här kan du se alla filmer som visas idag. Klicka på knappen nedan för att utforska.</p>
-    <ul>
+    <ul class="main__filmsContainer__list">
 
       {{> movies-list}}
 
-      <a href="/movies" class="btn btn--primary" title="Alla aktuella filmer">Alla aktuella filmer</a>
+    </ul>
+    <a href="/movies" class="btn btn--primary" title="Alla aktuella filmer">Alla aktuella filmer</a>
   </section>
 
   <!--WELCOME SECTION-->
