@@ -21,5 +21,8 @@
   "devDependencies": {
     "concurrently": "^9.2.1",
     "sass": "^1.97.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
