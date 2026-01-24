@@ -1,9 +1,9 @@
 import { describe, expect, test } from '@jest/globals'; //JEST testing utilities received by 'npm install jest'
 import request from 'supertest';  //SUPERTEST - HTTP testing library for simulating requests to Express app received by 'npm i supertest'
-import initApp from './app.js';
+import initApp from '../server/app.js';
 
 //mocking JSON-data structure from API from the side server (e.g. plankton-app-xhkom.ondigitalocean.app/api/movies)
-const mockApi = {
+const rawMockApi = {
   loadMovie: async (id) => {
     return {
       "data": {
@@ -30,7 +30,7 @@ const mockApi = {
           "attributes": {
             "title": "The Godfather",
             "imdbId": "tt0068646",
-            "intro": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\n\n",
+            "intro": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\n\n", //'/n' = new line
             "image": {
               "url": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_.jpg"
             },
@@ -54,16 +54,36 @@ const mockApi = {
           }
         },
       ],
-      "meta": {
+      "meta": {   // pagination meta-data (not necessary for the test)
         "pagination": {
-          "page": 1,
-          "pageSize": 25,
-          "pageCount": 1,
-          "total": 11
+          "page": 1,      // current page number (starts from 1)
+          "pageSize": 25, //number of items on the page
+          "pageCount": 1, //total number of pages available
+          "total": 11     //total number of items 
         }
       }
     }
   },
+};
+
+//copy of function flattenMovieObject from movies-backendAPI.js to transform API response structure (moves attributes from nested object to root level)
+const createMockBackendAPI = () => {
+  const flattenMovieObject = (movie) => ({
+    id: movie.id,
+    ...movie.attributes
+  });
+  
+  return {
+    loadMovie: async (id) => {
+      const response = await rawMockApi.loadMovie(id);
+      return flattenMovieObject(response.data);
+    },
+    
+    loadMovies: async () => {
+      const response = await rawMockApi.loadMovies();
+      return response.data.map(flattenMovieObject);
+    }
+  };
 };
 
 //INTEGRATION TEST (varifies if movie data from API side server are rendered on my site page)
@@ -71,11 +91,12 @@ const mockApi = {
 //test() - defines a single test case wit description (1st argument) and function (2nd argument)
 describe('Movie list page', () => {
   test('lists movies from API', async () => {
+    const mockApi = createMockBackendAPI();
     const app = initApp(mockApi);
 
 //request(app) - SUPERTEST creates a test HTTP-client for HTTP-request that interacts with Express 'app'
     const response = await request(app)
-      .get('/') // GET request to the start page
+      .get('/movies') // GET request to the start page
       .expect('Content-Type', /html/) //varify whether response is HTML
       .expect(200); //HTTP status 200 (OK)
 
