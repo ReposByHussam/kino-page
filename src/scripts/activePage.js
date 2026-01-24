@@ -7,15 +7,15 @@ export function activateCurrentPage() {
     document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
         
-        //remove (#) from the link to compare
+        //compare 1st part of the link bistro.html#bistro_viewmenu (before #)
         const cleanHref = href.split('#')[0];
         
         //compare path
         if (cleanHref.includes(currentPage) || 
             (currentPage === 'index' && (href === '/' || href === './' || href === 'index.html'))) {
             
-            //find parent <li> (for header and footer)
-            const parentLi = link.closest('li');
+            //find closest parent (<li>) (for header and footer)
+            const parentLi = link.closest('li'); //.closest() takes a selector as a param
             if (parentLi) {
                 parentLi.classList.add('active');
                 
@@ -39,5 +39,6 @@ export function activateCurrentPage() {
         }
     });
 }
-//auto calling when html-page loaded
+
+//run menu activation when html-page loaded (parsesd w/t images, styles etc)
 document.addEventListener('DOMContentLoaded', activateCurrentPage);
