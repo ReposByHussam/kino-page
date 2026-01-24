@@ -6,19 +6,19 @@ const API_BASE = 'https://plankton-app-xhkom.ondigitalocean.app/api';
 async function loadMovies() {
   const res = await fetch(API_BASE + '/movies');
   const payload = await res.json();
-  return payload.data.map(flattenMovie);
+  return payload.data.map(flattenMovieObject);
 }
 
 //function for fetching a single film from API by id e.g. https://plankton-app-xhkom.ondigitalocean.app/api/movies/1
 async function loadMovie(id) {
   const res = await fetch(API_BASE + '/movies/' + id);
   const payload = await res.json();
-  return flattenMovie(payload.data);
+  return flattenMovieObject(payload.data);
 }
 
 //correct function for processing JSON-data from Digital Ocean server for integration test
 //transform API response structure (moves attributes from nested object to root level)
-function flattenMovie(movie) {
+function flattenMovieObject(movie) {
   return {
     id: movie.id,
     ...movie.attributes,  //spread all attributes to top level

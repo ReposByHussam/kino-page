@@ -2,9 +2,9 @@ import fs from 'fs/promises'; //fs-module from Node.js library for reading files
 import Handlebars from 'handlebars'; //Handlebars-module from npm-library for using helpers in .hbs
 import path from 'path'; // path-module from Node.js library for working with paths
 
-Handlebars.registerHelper('eq', (a, b) => a === b); //helper-method in Handlebars for comparing
-
 // function to load partials from folder templates/partials/
+Handlebars.registerHelper('eq', (a, b) => a === b); 
+
 async function registerPartials() {
     // 1. Create path to the folder with partials templates/partials/
     const partialsDir = path.resolve('templates/partials');
@@ -359,6 +359,6 @@ export default async function renderPage(page, extraData = {}) { //extraData = {
     };
 
     const htmlText = template(templateData);
-    
+
     return htmlText;
 }

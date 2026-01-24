@@ -1,9 +1,9 @@
 import express from "express";
 //import { engine } from "express-handlebars"; //engine-module that integrates Handlebars to Express for HTML-templates when content is rendered dynamically (e.g. via API)
-import renderPage from './renderPage.js';
-import api from "./movies-backendAPI.js";
+import renderPage from "./renderPage.js";
 
-export default function initApp(moviesAPI) {
+//with 'export default' variable can be imported to other file w/t {}: initApp instead of {initApp}
+export default function initApp(api) {
     const app = express();
 
     //1) ROUTE TO STATIC FILES
@@ -16,7 +16,7 @@ export default function initApp(moviesAPI) {
     // SSR - start page
     app.get('/', async (req, res) => {
         try {
-            const movies = await moviesAPI.loadMovies();
+            const movies = await api.loadMovies();
             const htmlText = await renderPage('index', { movies }); //{movies} - object with data from API-JSON
             res.send(htmlText);
         } catch (error) {
@@ -50,7 +50,7 @@ export default function initApp(moviesAPI) {
     // All movies (cards)
     app.get("/movies", async (req, res) => {
         try {
-            const movies = await moviesAPI.loadMovies();
+            const movies = await api.loadMovies();
             const htmlText = await renderPage("movies", { movies });
             res.send(htmlText);
             //for the list (not cards), but with content/movies-list.hbs instead of content/movies.hbs
@@ -64,7 +64,7 @@ export default function initApp(moviesAPI) {
     //One movie page by Id
     app.get("/movies/:movieId", async (req, res) => {
         try {
-            const movie = await moviesAPI.loadMovie(req.params.movieId);
+            const movie = await api.loadMovie(req.params.movieId);
             const htmlText = await renderPage("movie", { movie });
             res.send(htmlText);
         } catch (error) {
