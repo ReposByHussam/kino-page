@@ -2,13 +2,12 @@
   /* styles for page /movies */
   .main__movies {
     text-align: center;
-    padding: 2rem;
   }
 
   .main .main__movies .main__filmsContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .main .main__movies .main__filmsContainer::before,
@@ -21,6 +20,15 @@
     transform: scale(0.9);
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: brightness(0.9);
+    margin-inline: 0;
+  }
+
+  /*size 769-839px 2 cards in row*/
+  @media screen and (min-width: 769px) and (max-width: 839px) {
+    .main .main__movies .movieCard {
+      max-width: calc(50% - 0.5rem);
+      margin: 0;
+    }
   }
 
   main .main__movies .movieCard:hover,
@@ -32,6 +40,12 @@
   /* stick button to card bottom*/
   .main .main__movies .movieCard__button {
     margin-top: auto;
+  }
+
+  /*size 600-760 for header menu to be over cards*/
+  .header {
+    position: relative;
+    z-index: 100;
   }
 </style>
 
