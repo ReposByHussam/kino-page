@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{TITLE}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <a href="/">
+          <img class="header__img" src="/src/pics/KINO-logo.png" alt="Logo" />
+        </a>
+
+        <button class="header__hamburger-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="header__nav">
+          <ul class="header__menu-list">
+            <li class="header__menu-item menu-desktop movies">
+              <a class="btn-menu btn-menu--one" href="/movies">Filmer</a>
+            </li>
+            <li class="header__menu-item menu-desktop">
+              <a class="btn-menu btn-menu--one" href="/movies">Kommande</a>
+            </li>
+            <li class="header__menu-item menu-desktop">
+              <a class="btn-menu btn-menu--one" href="/eventPage.html">På bio</a>
+            </li>
+            <li class="header__menu-item menu-desktop menu-contact">
+              <a class="btn-menu btn-menu--one" href="/contact.html">Kontakta Oss</a>
+            </li>
+            <li class="header__menu-item menu-medium login">
+              <button class="btn-menu btn-menu--two">Logga in</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    {{BODY}}
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__contact">
+          <p class="footer__contact-item">
+            <a href="/contact.html" class="footer__link">Kontakta oss</a>
+          </p>
+          <p class="footer__contact-item">Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a></p>
+          <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
