@@ -641,10 +641,6 @@ body {
   padding: 0;
 }
 
-body.page--contact {
-  background: #151313;
-}
-
 .main.main--contact {
   background: #fbfbfa;
   color: #151313;
@@ -1198,6 +1194,14 @@ body.page--contact {
     -ms-flex-item-align: center;
         align-self: center;
   }
+}
+
+.footer__submenu-item.active a,
+.footer__link:active {
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #b67272;
 }
 
 html {
@@ -2021,4 +2025,18 @@ body {
   .language {
     display: block;
   }
+}
+.header__menu-item.active {
+  background-color: #b67272;
+}
+
+.header__menu-item.menu-medium.login.active .btn-menu,
+.header__menu-item.menu-hide-medium.active .btn-menu {
+  background-color: #c5f198;
+}
+
+.header__dropdown-item.active a {
+  color: #9cc177;
+  background-color: #5a504b;
+  text-decoration: underline;
 }

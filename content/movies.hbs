@@ -1,0 +1,80 @@
+<style>
+  /* styles for page /movies */
+  .main__movies {
+    text-align: center;
+  }
+
+  .main .main__movies .main__filmsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main .main__movies .main__filmsContainer::before,
+  .main .main__movies .main__filmsContainer::after {
+    content: none;
+  }
+
+  main .main__movies .movieCard {
+    align-items: stretch;
+    transform: scale(0.9);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.9);
+    margin-inline: 0;
+  }
+
+  /*size 769-839px 2 cards in row*/
+  @media screen and (min-width: 769px) and (max-width: 839px) {
+    .main .main__movies .movieCard {
+      max-width: calc(50% - 0.5rem);
+      margin: 0;
+    }
+  }
+
+  main .main__movies .movieCard:hover,
+  main .main__movies .movieCard:focus-visible {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  /* stick button to card bottom*/
+  .main .main__movies .movieCard__button {
+    margin-top: auto;
+  }
+
+  /*size 600-760 for header menu to be over cards*/
+  .header {
+    position: relative;
+    z-index: 100;
+  }
+</style>
+
+<main class="main">
+  <section class="main__movies">
+    <h2 class="main__movies__heading">Alla filmer idag</h2>
+    <p class="main__movies__text">Här kan du se alla filmer som visas på vår biograf.</p>
+
+    {{#if movies.length}}
+    <div class="main__filmsContainer">
+      {{#each movies}}
+      <article class="card movieCard">
+        <h3 class="movieCard__title">{{this.title}}</h3>
+
+        {{#if this.image}}
+        <img src="{{this.image.url}}" class="movieCard__img" alt="{{this.title}} poster">
+        {{/if}}
+
+        <a href="/movies/{{this.id}}" class="btn btn--secondary movieCard__button">
+          Läs mer
+        </a>
+
+      </article>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="main__movies__text">Inga filmer tillgängliga för tillfället.</p>
+    {{/if}}
+
+    <a href="/" class="main__movies__button btn btn--primary">Tillbaka till startsidan</a>
+  </section>
+</main>

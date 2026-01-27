@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Grupparbeta KINO grupp B",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch --no-source-map src/styles/main.scss src/styles/main.css"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "sass": "sass --watch --no-source-map src/styles/main.scss src/styles/main.css",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,15 @@
   "homepage": "https://github.com/ReposByHussam/kino-page#readme",
   "devDependencies": {
     "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
     "sass": "^1.97.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.3",
+    "handlebars": "^4.7.8",
+    "jest": "^30.2.0",
+    "node-fetch": "^3.3.2",
+    "supertest": "^7.2.2"
   }
 }

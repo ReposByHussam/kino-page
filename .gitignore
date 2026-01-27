@@ -1,4 +1,12 @@
 
 main.css.map
-node_modules/
+node_modules
 *.css.map
+
+# Jest coverage reports (generated automatically)
+coverage/
+*.lcov
+.jest-cache/
+.jest/
+# Optional: test reports
+test-results/

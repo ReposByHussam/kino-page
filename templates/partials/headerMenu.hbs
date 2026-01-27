@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header__content">
+    <a href="/">
+      <img class="header__img" src="/src/pics/KINO-logo.png" alt="Logo" />
+    </a>
+    <button class="header__hamburger-menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="header__nav">
+      <ul class="header__menu-list">
+        {{#each headerMenu}}
+          <li class="header__menu-item {{classes}} {{#if active}}active{{/if}}">
+            {{#if (eq type "dropdown")}}
+              <button class="btn-menu {{btnClass}}">{{label}}</button>
+              <ul class="header__dropdown">
+                {{#each items}}
+                  <li class="header__dropdown-item {{#if active}}active{{/if}}">
+                    <a href="{{link}}" {{#if dataRoute}}data-route="{{dataRoute}}"{{/if}}>
+                      {{label}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{else if (eq type "button")}}
+              <button class="btn-menu {{btnClass}}" {{#if link}}data-route="{{link}}"{{/if}}>
+                {{label}}
+              </button>
+            {{else}}
+              <a href="{{link}}" class="btn-menu {{btnClass}}" {{#if link}}data-route="{{link}}"{{/if}}>
+                {{label}}
+              </a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+  </div>
+</header>

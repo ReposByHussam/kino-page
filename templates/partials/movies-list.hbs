@@ -1,0 +1,10 @@
+<ul class="main__filmsContainer__list">
+    {{#each movies}}
+    {{ movie.title }}
+    <li>
+        <a href="/movies/{{this.id}}">
+            {{this.title}}
+        </a>
+    </li>
+    {{/each}}
+</ul>
