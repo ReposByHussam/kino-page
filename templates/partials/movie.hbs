@@ -1,0 +1,76 @@
+<section id="reviews" style="margin-top:24px;">
+  <h2>Recensioner</h2>
+
+  <div id="reviewsList">Laddar recensioner...</div>
+
+  <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+    <button id="prevReviews" type="button" disabled>Föregående</button>
+    <span id="reviewsPageInfo"></span>
+    <button id="nextReviews" type="button" disabled>Nästa</button>
+  </div>
+</section>
+
+<script>
+  // Film-id från servern (vi skickar in movieId i renderPage sen)
+  const movieId = "{{movieId}}";
+
+  const listEl = document.getElementById("reviewsList");
+  const prevBtn = document.getElementById("prevReviews");
+  const nextBtn = document.getElementById("nextReviews");
+  const infoEl = document.getElementById("reviewsPageInfo");
+
+  let page = 1;
+  const pageSize = 5;
+
+  async function loadReviews() {
+    if (!movieId) {
+      listEl.textContent = "Kunde inte hitta film-id.";
+      return;
+    }
+
+    listEl.textContent = "Laddar recensioner...";
+
+    try {
+      const res = await fetch(`/api/movies/${movieId}/reviews?page=${page}&pageSize=${pageSize}`);
+      const data = await res.json();
+
+      const reviews = data.reviews || [];
+      const pg = data.pagination || {};
+
+      if (reviews.length === 0) {
+        listEl.innerHTML = "<p>Inga recensioner ännu.</p>";
+      } else {
+        listEl.innerHTML = reviews.map(r => `
+          <article style="border:1px solid #ddd; padding:10px; border-radius:8px; margin-bottom:10px;">
+            <div><strong>${r.name}</strong> – betyg: <strong>${r.rating ?? "-"}</strong></div>
+            <div style="margin-top:6px;">${(r.comment || "").toString()}</div>
+          </article>
+        `).join("");
+      }
+
+      const pageCount = pg.pageCount ?? page;
+      infoEl.textContent = `Sida ${pg.page ?? page} av ${pageCount}`;
+
+      prevBtn.disabled = page <= 1;
+      nextBtn.disabled = page >= pageCount;
+
+    } catch (e) {
+      console.error(e);
+      listEl.textContent = "Kunde inte ladda recensioner.";
+    }
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (page > 1) {
+      page--;
+      loadReviews();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    page++;
+    loadReviews();
+  });
+
+  loadReviews();
+</script>
