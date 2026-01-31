@@ -83,7 +83,7 @@ export default function initApp(api) {
             const screenings = await apiScreenings.loadScreeningsByMovieId(movieId);
 
             // 2. filter to get only upcoming movies
-            const upcomingScreenings = apiScreenings.getUpcomingScreenings(screenings);
+            const upcomingScreenings = apiScreenings.getUpcomingScreeningsMoviePage(screenings);
 
             // 3.  JSON HTTP-respons 200=OK
             res.status(200).json({
@@ -91,6 +91,7 @@ export default function initApp(api) {
                 data: upcomingScreenings
             });
         } catch (error) {
+            console.error("ERROR:", error);
             res.status(500).json({
                 success: false,
                 error: "Kunde inte ladda visningar"

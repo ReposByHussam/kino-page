@@ -14,8 +14,7 @@ async function loadScreeningsByMovieId(movieId) {
     const url = `https://plankton-app-xhkom.ondigitalocean.app/api/screenings?filters[movie]=${movieId}&populate=movie&sort=start_time:asc`;
     // 1. filters[movie]=${movieId} -> filter screenings by movie ID
     // 2. populate=movie -> include movie's details in response 
-    // 3. sort=start_time:asc -> sort by screening date (ascending= earliest first)
-
+    // 3. sort=start_time:asc -> sort by screening date (ascending= earliest first)  
     const response = await fetch(url);
     const payload = await response.json();
 

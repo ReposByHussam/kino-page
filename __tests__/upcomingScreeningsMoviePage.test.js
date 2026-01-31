@@ -24,8 +24,8 @@ describe('getUpcomingScreeningsMoviePage()', () => {
 
     // set up MOCK TIME instead of real 'const now = new Date()' in tests
     beforeEach(() => {
-        jest.useFakeTimers(); // tnable Jest fake timers
-        // set fixed date/time for all tests in this describe block
+        jest.useFakeTimers(); // enable Jest fake timers
+        // set FAKE (MOCH) fixed date/time for all tests in this describe block
         jest.setSystemTime(new Date('2026-03-17T14:00:00Z'));
     });
 
@@ -58,6 +58,7 @@ describe('getUpcomingScreeningsMoviePage()', () => {
         expect(result[1].id).toBe(3);   //id 3 is 2nd in  array of screenings
         //.toBe() - for comparing primitives
     });
+
     // Test 4: returns empty array when all screenings are in the past
     it('returns empty array when all screenings are in the past', () => {
         const mockScreenings = [
@@ -70,6 +71,22 @@ describe('getUpcomingScreeningsMoviePage()', () => {
         expect(result).toEqual([]); 
     });
 
+});
+
+// // Test 5: screenings sorted by ascending
+it('returns screenings sorted by start_time ascending', () => {
+    const mockScreenings = [
+        mockScreening(1, { start_time: '2026-03-18T10:00:00.000Z' }), // upcoming ("tomorrow"), later
+        mockScreening(2, { start_time: '2026-03-17T17:00:00.000Z' }), // upcoming (same date, later time)
+    ];
+
+    const result = getUpcomingScreeningsMoviePage(mockScreenings);
+
+    // upcoming screenings in ascending order:
+    // first screening id 2 (17/03 17:00), then id 1 (18/03 10:00)
+    expect(result).toHaveLength(2);
+    expect(result[0].id).toBe(2);   //id 2 earlier
+    expect(result[1].id).toBe(1);   //id 1 later
 });
 
 function mockScreening(id = 1, attributes = {}) {
