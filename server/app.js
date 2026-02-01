@@ -3,12 +3,12 @@ import express from "express";
 import renderPage from "./renderPage.js";
 import apiScreenings from "./apiScreenings.js";
 
-//middleware to parse JSON bodies
-app.use(express.json());
-
 //with 'export default' variable can be imported to other file w/t {}: initApp instead of {initApp}
 export default function initApp(api) {
   const app = express();
+
+  //Allow Express to parse JSON in request body fromm fetch()
+  app.use(express.json());
 
   //1) ROUTE TO STATIC FILES
   //route to static files .use('/folderName', express.static('./folderName')) should go before dynamic routes app.get(), otherwise it'll not be read
