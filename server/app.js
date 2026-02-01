@@ -103,11 +103,6 @@ export default function initApp(api) {
     }
   });
 
-  //FALLBACK for STATUS 404 msg
-  app.use((req, res) => {
-    res.status(404).send("Page is not found");
-  });
-
   app.post("/api/movies/:movieId/reviews", async (req, res) => {
     const movieId = Number(req.params.movieId);
     const author =
@@ -142,5 +137,11 @@ export default function initApp(api) {
         .json({ error: "Kunde inte spara recensionen, försök igen senare." });
     }
   });
+
+  //FALLBACK for STATUS 404 msg
+  app.use((req, res) => {
+    res.status(404).send("Page is not found");
+  });
+
   return app;
 }
