@@ -1,5 +1,5 @@
 export function setupReviewForm() {
-  const form = document.querySelector("#review-form");
+  const form = document.querySelector("#review__form");
   if (!form) return;
 
   const messageEl = document.querySelector("#review-message");

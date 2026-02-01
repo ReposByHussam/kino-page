@@ -48,6 +48,10 @@
     color: #f3543b;
     font-weight: bold;
   }
+
+  .movieCard__button {
+    margin: 1.5rem 0;
+  }
 </style>
 
 <main class="main">
@@ -78,18 +82,30 @@
     {{/if}}
     <button class="btn btn-menu--one movieCard__button">Boka</button>
 
-    <section class="review-section" aria-labelledby="review-heading">
-      <h2 id="review-heading">Skriv en recension</h2>
-      <p id="review-form__message" role="status" aria-live="polite"></p>
-      <form id="review-form" data-movie-id="{{movie.id}}">
-        <div class="review-field">
-          <label for="review-author"><strong>Namn</strong></label>
-          <input id="review-author" name="author" type="text" required />
+    <section
+      class="review-section contact__formwrap"
+      aria-labelledby="review-heading"
+    >
+      <h2 id="review-heading" class="contact__form-title">Skriv en recension</h2>
+      <p id="review__form" role="status" aria-live="polite"></p>
+      <form id="review-form" class="contact__form" data-movie-id="{{movie.id}}">
+        <div class="review-field contact__field">
+          <label for="review-author" class="contact__label"><strong
+            >Namn</strong></label>
+          <input
+            class="contact__input"
+            id="review-author"
+            name="author"
+            type="text"
+            required
+          />
         </div>
 
-        <div class="review-field">
-          <label for="review-rating"><strong>Ge ett Betyg mellan 0 - 5</strong></label>
+        <div class="contact__field review-field">
+          <label class="contact__label" for="review-rating"><strong>Ge ett Betyg
+              mellan 0 - 5</strong></label>
           <input
+            class="contact__input"
             id="review-rating"
             name="rating"
             type="number"
@@ -100,12 +116,19 @@
           />
         </div>
 
-        <div class="review-field">
-          <label for="review-comment"><strong>Skriv vad du tyckte om filmen</strong></label>
-          <textarea id="review-comment" name="comment" rows="4"></textarea>
+        <div class="contact__field review-field">
+          <label class="contact__label" for="review-comment"><strong>Skriv vad
+              du tyckte om filmen</strong></label>
+          <textarea
+            class="contact__area"
+            id="review-comment"
+            name="comment"
+            rows="4"
+          ></textarea>
         </div>
 
-        <button class="btn btn--primary" type="submit">Skicka recension</button>
+        <button class="contact__submit btn btn--primary" type="submit">Skicka
+          recension</button>
       </form>
     </section>
 
