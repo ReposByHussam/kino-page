@@ -108,5 +108,39 @@ export default function initApp(api) {
     res.status(404).send("Page is not found");
   });
 
+  app.post("/api/movies/:movieId/reviews", async (req, res) => {
+    const movieId = Number(req.params.movieId);
+    const author =
+      typeof req.body?.author === "string" ? req.body.author.trim() : "";
+    const comment =
+      typeof req.body?.comment === "string" ? req.body.comment.trim() : "";
+    const rating = Number(req.body?.rating);
+
+    if (!Number.isFinite(movieId) || movieId <= 0) {
+      return res.status(400).json({ error: "Ogiltigt film-ID" });
+    }
+    if (!author) {
+      return res.status(400).json({ error: "Du måste ange ett namn." });
+    }
+    if (!Number.isFinite(rating) || rating < 0 || rating > 5) {
+      return res
+        .status(400)
+        .json({ error: "Betyget måste vara ett nummer mellan 0 och 5." });
+    }
+    try {
+      const created = await api.createReview({
+        movieId,
+        author,
+        rating,
+        comment,
+      });
+      return res.status(201).json({ created });
+    } catch (error) {
+      console.error("Error creating review:", error);
+      return res
+        .status(502)
+        .json({ error: "Kunde inte spara recensionen, försök igen senare." });
+    }
+  });
   return app;
 }
