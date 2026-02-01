@@ -1,17 +1,17 @@
 import fetch from "node-fetch"; //HTTP-request module for Node.js (not available in browser)
 
-const API_BASE = 'https://plankton-app-xhkom.ondigitalocean.app/api';
+const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 
 //function for fetching all movies from API https://plankton-app-xhkom.ondigitalocean.app/api/movies
 async function loadMovies() {
-  const res = await fetch(API_BASE + '/movies');
+  const res = await fetch(API_BASE + "/movies");
   const payload = await res.json();
   return payload.data.map(flattenMovieObject);
 }
 
 //function for fetching a single film from API by id e.g. https://plankton-app-xhkom.ondigitalocean.app/api/movies/1
 async function loadMovie(id) {
-  const res = await fetch(API_BASE + '/movies/' + id);
+  const res = await fetch(API_BASE + "/movies/" + id);
   const payload = await res.json();
   return flattenMovieObject(payload.data);
 }
@@ -21,8 +21,25 @@ async function loadMovie(id) {
 function flattenMovieObject(movie) {
   return {
     id: movie.id,
-    ...movie.attributes,  //spread all attributes to top level
+    ...movie.attributes, //spread all attributes to top level
   };
+}
+
+//Create Review in the CMS (POST /review)
+async function createReview({ movieId, author, rating, comment }) {
+  const res = await fetch(API_BASE + "/reviews", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      data: { movie: movieId, author, rating, comment },
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`CMS CreateReview failed: ${res.statusText} ${text}`);
+  }
+  const payload = await res.json();
+  return { id: payload.data.id, ...payload.data?.attributes };
 }
 
 //prepare for exporting functions as en API-object to api.js
@@ -31,7 +48,8 @@ function flattenMovieObject(movie) {
 const api = {
   loadMovie,
   loadMovies,
+  createReview,
 };
 
-//pass variable api (object) to server.js 
+//pass variable api (object) to server.js
 export default api;
