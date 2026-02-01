@@ -52,18 +52,18 @@
 
 <main class="main">
   <article class="movie-page">
-    <h1 class="movieCard__title">{{ movie.title }}</h1>
+    <h1 class="movieCard__title">{{movie.title}}</h1>
 
     <div class="movieCard__item">
       <strong>Beskrivning:</strong>
       <div class="intro">
-        {{{ movie.intro }}}
+        {{{movie.intro}}}
       </div>
     </div>
 
-    {{#if movie.image }}
-    <img src="{{ movie.image.url }}" class="movieCard__img">
-    {{/if }}
+    {{#if movie.image}}
+      <img src="{{movie.image.url}}" class="movieCard__img" />
+    {{/if}}
 
     <!-- container for screenings with dynamic loading via API -->
     <div class="screenings-list">
@@ -72,7 +72,42 @@
 
       </div>
     </div>
-     <button class="btn btn-menu--one movieCard__button">Boka</button>
+    <button class="btn btn-menu--one movieCard__button">Boka</button>
+    {{#if movie.image}}
+      <img src="{{movie.image.url}}" class="movieCard__img" />
+    {{/if}}
+    <button class="btn btn-menu--one movieCard__button">Boka</button>
+
+    <section class="review-section" aria-labelledby="review-heading">
+      <h2 id="review-heading">Skriv en recension</h2>
+      <p id="review-form__message" role="status" aria-live="polite"></p>
+      <form id="review-form" data-movie-id="{{movie.id}}">
+        <div class="review-field">
+          <label for="review-author"><strong>Namn</strong></label>
+          <input id="review-author" name="author" type="text" required />
+        </div>
+
+        <div class="review-field">
+          <label for="review-rating"><strong>Ge ett Betyg mellan 0 - 5</strong></label>
+          <input
+            id="review-rating"
+            name="rating"
+            type="number"
+            min="0"
+            max="5"
+            step="1"
+            required
+          />
+        </div>
+
+        <div class="review-field">
+          <label for="review-comment"><strong>Skriv vad du tyckte om filmen</strong></label>
+          <textarea id="review-comment" name="comment" rows="4"></textarea>
+        </div>
+
+        <button class="btn btn--primary" type="submit">Skicka recension</button>
+      </form>
+    </section>
 
   </article>
   <div class="movie-page-buttons">
