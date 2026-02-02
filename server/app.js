@@ -1,6 +1,7 @@
 import express from "express";
 //import { engine } from "express-handlebars"; //engine-module that integrates Handlebars to Express for HTML-templates when content is rendered dynamically (e.g. via API)
 import renderPage from "./renderPage.js";
+import apiScreenings from "./apiScreenings.js";
 
 //with 'export default' variable can be imported to other file w/t {}: initApp instead of {initApp}
 export default function initApp(api) {
@@ -70,6 +71,31 @@ export default function initApp(api) {
         } catch (error) {
             console.error(`Error loading movie ${req.params.movieId}:`, error);
             res.status(404).send("Film hittades inte");
+        }
+    });
+
+    //endpoint for upcomiming screenings on a movie page
+    app.get('/api/movies/:movieId/screenings', async (req, res) => {
+        try {
+            const movieId = req.params.movieId;
+
+            // 1. all screenings for movie by Id
+            const screenings = await apiScreenings.loadScreeningsByMovieId(movieId);
+
+            // 2. filter to get only upcoming movies
+            const upcomingScreenings = apiScreenings.getUpcomingScreeningsMoviePage(screenings);
+
+            // 3.  JSON HTTP-respons 200=OK
+            res.status(200).json({
+                success: true,
+                data: upcomingScreenings
+            });
+        } catch (error) {
+            console.error("ERROR:", error);
+            res.status(500).json({
+                success: false,
+                error: "Kunde inte ladda visningar"
+            });
         }
     });
 

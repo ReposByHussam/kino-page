@@ -18,6 +18,36 @@
   .movie-page-buttons {
     justify-self: center;
   }
+
+  /*styles for container with upcoming screenings*/
+  .screenings-list {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
+  .screening-item {
+    border: 1px solid #b67272;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    background-color: white;
+    text-align: left;
+  }
+
+  .screening-time {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .screening-room {
+    color: #666;
+    font-style: italic;
+  }
+
+  .error {
+    color: #f3543b;
+    font-weight: bold;
+  }
 </style>
 
 <main class="main">
@@ -34,7 +64,15 @@
     {{#if movie.image }}
     <img src="{{ movie.image.url }}" class="movieCard__img">
     {{/if }}
-    <button class="btn btn-menu--one movieCard__button">Boka</button>
+
+    <!-- container for screenings with dynamic loading via API -->
+    <div class="screenings-list">
+      <h2>Kommande visningar</h2>
+      <div id="screenings-container" data-movie-id="{{movie.id}}">
+
+      </div>
+    </div>
+     <button class="btn btn-menu--one movieCard__button">Boka</button>
 
   </article>
   <div class="movie-page-buttons">
