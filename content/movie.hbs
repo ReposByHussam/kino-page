@@ -50,7 +50,17 @@
   }
 
   .movieCard__button {
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 5rem 0;
+  }
+  #review-message {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #9cc177;
+  }
+  #review-form {
+    margin-top: 1.5rem;
+    text-align: left;
   }
 </style>
 
@@ -87,8 +97,13 @@
       aria-labelledby="review-heading"
     >
       <h2 id="review-heading" class="contact__form-title">Skriv en recension</h2>
-      <p id="review__form" role="status" aria-live="polite"></p>
-      <form id="review-form" class="contact__form" data-movie-id="{{movie.id}}">
+
+      <form
+        id="review-form"
+        class="contact__form"
+        data-movie-id="{{movie.id}}"
+        novalidate
+      >
         <div class="review-field contact__field">
           <label for="review-author" class="contact__label"><strong
             >Namn</strong></label>
@@ -120,15 +135,21 @@
           <label class="contact__label" for="review-comment"><strong>Skriv vad
               du tyckte om filmen</strong></label>
           <textarea
-            class="contact__area"
+            class="contact__area contact__input"
             id="review-comment"
             name="comment"
             rows="4"
           ></textarea>
         </div>
+        <p
+          id="review-message"
+          class="review-message"
+          role="status"
+          aria-live="polite"
+        ></p>
 
-        <button class="contact__submit btn btn--primary" type="submit">Skicka
-          recension</button>
+        <button class="contact__submit" type="submit">Skicka recension</button>
+
       </form>
     </section>
 
