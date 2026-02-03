@@ -5,11 +5,29 @@ import apiScreenings from "./apiScreenings.js";
 export default function initApp(api) {
   const app = express();
 
-  // Jag servar statiska filer här (css, bilder, JS osv)
+  //Allow Express to parse JSON in request body fromm fetch()
+  app.use(express.json());
+
+  //1) ROUTE TO STATIC FILES
+  //route to static files .use('/folderName', express.static('./folderName')) should go before dynamic routes app.get(), otherwise it'll not be read
+  //'/src' - absolute route from the project root
+  //'./src' - relative route from the folderName
   app.use("/src", express.static("./src"));
 
-  // Jag behöver den här för att kunna ta emot JSON i POST senare (reviews)
-  app.use(express.json());
+  //2) DYNAMIC ROUTES: SSR - render layout and get it
+  // SSR - start page
+  app.get("/", async (req, res) => {
+    try {
+      const movies = await api.loadMovies();
+      const htmlText = await renderPage("index", { movies }); //{movies} - object with data from API-JSON
+      res.send(htmlText);
+    } catch (error) {
+      console.error("Error loading movies:", error);
+      const htmlText = await renderPage("index", { movies: [] }); //if { movies } empty
+      res.send(htmlText);
+    }
+  });
+
 
   // CMS (Strapi) – härifrån hämtas recensionerna
   const CMS_ORIGIN = "https://plankton-app-xhkom.ondigitalocean.app";
@@ -47,18 +65,7 @@ export default function initApp(api) {
     return Math.min(max, Math.max(min, n));
   }
 
-  // Startsidan (SSR)
-  app.get("/", async (req, res) => {
-    try {
-      const movies = await api.loadMovies();
-      const htmlText = await renderPage("index", { movies });
-      res.send(htmlText);
-    } catch (error) {
-      console.error("Error loading movies:", error);
-      const htmlText = await renderPage("index", { movies: [] });
-      res.send(htmlText);
-    }
-  });
+
 
   // Endpoint för kommande visningar på filmsidan
   app.get("/api/movies/:movieId/screenings", async (req, res) => {
@@ -174,6 +181,41 @@ export default function initApp(api) {
     }
   });
 
+app.post("/api/movies/:movieId/reviews", async (req, res) => {
+    const movieId = Number(req.params.movieId);
+    const author =
+      typeof req.body?.author === "string" ? req.body.author.trim() : "";
+    const comment =
+      typeof req.body?.comment === "string" ? req.body.comment.trim() : "";
+    const rating = Number(req.body?.rating);
+
+    if (!Number.isFinite(movieId) || movieId <= 0) {
+      return res.status(400).json({ error: "Ogiltigt film-ID" });
+    }
+    if (!author) {
+      return res.status(400).json({ error: "Du måste ange ett namn." });
+    }
+    if (!Number.isFinite(rating) || !Number.isInteger(rating) || rating < 0 || rating > 5) {
+      return res
+        .status(400)
+        .json({ error: "Betyget måste vara ett heltal mellan 0 och 5." });
+    }
+    try {
+      const created = await api.createReview({
+        movieId,
+        author,
+        rating,
+        comment,
+      });
+      return res.status(201).json({ created });
+    } catch (error) {
+      console.error("Error creating review:", error);
+      return res
+        .status(502)
+        .json({ error: "Kunde inte spara recensionen, försök igen senare." });
+    }
+  });
+
   // Fallback (måste ligga sist) – om ingen route matchar
   app.use((req, res) => {
     res.status(404).send("Page is not found");
@@ -181,3 +223,4 @@ export default function initApp(api) {
 
   return app;
 }
+
