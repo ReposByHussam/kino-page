@@ -73,6 +73,46 @@ export default function initApp(api) {
         }
     });
 
+    app.get("/api/popular-movies", async (req, res) => {
+        try {
+            const popularMovies = await api.loadPopularMovies();
+            res.json(popularMovies);
+        }
+        catch (error) {
+            console.error("Error loading popular movies:", error);
+            res.status(500).json("Kunde inte hitta populära filmer");
+        }
+    });
+
+    app.get("/api/movies/:id/reviews", async (req, res) => {
+        const movieId = req.params.id;
+        const page = Number(req.query.page || 1);
+        const pageSize = 5;
+
+        try {
+            const payload = await api.loadReviewsByMovie(movieId, page, pageSize);
+
+            const reviews = payload.data.map(r => ({
+                id: r.id,
+                rating: r.attributes.rating,
+                comment: r.attributes.comment,
+                author: r.attributes.author,
+                createdAt: r.attributes.createdAt,
+                verified: r.attributes.verified,
+              
+            }));
+
+            res.json({
+                reviews,
+                pagination: payload.meta.pagination,
+            });
+        } 
+        catch (error){
+            console.log(error)
+            res.status(500).json({error: "Could not load reviews"});
+        }
+    });
+
     //FALLBACK for STATUS 404 msg
     app.use((req, res) => {
         res.status(404).send('Page is not found');
