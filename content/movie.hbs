@@ -1,5 +1,4 @@
 <style>
-  /*styles for /movie/:id page*/
   .movie-page {
     text-align: center;
     padding: 2rem;
@@ -19,7 +18,17 @@
     justify-self: center;
   }
 
-  /*styles for container with upcoming screenings*/
+  /* Reviews block (from your branch) */
+  .reviews {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  /* Styles for container with upcoming screenings (from main) */
   .screenings-list {
     margin: 2rem 0;
     padding: 1rem;
@@ -50,7 +59,7 @@
   }
 
   .movieCard__button {
-    margin: 1.5rem 0 5rem 0;
+    margin: 1.5rem 0 2rem 0;
   }
   #review-message {
     margin-bottom: 1rem;
@@ -76,17 +85,17 @@
     </div>
 
     {{#if movie.image}}
-      <img src="{{movie.image.url}}" class="movieCard__img" />
+      <img src="{{movie.image.url}}" class="movieCard__img" alt="{{movie.title}}">
     {{/if}}
 
-    <!-- container for screenings with dynamic loading via API -->
+ 
+
+    <!-- Container for screenings with dynamic loading via API -->
     <div class="screenings-list">
       <h2>Kommande visningar</h2>
-      <div id="screenings-container" data-movie-id="{{movie.id}}">
-
-      </div>
+      <div id="screenings-container" data-movie-id="{{movie.id}}"></div>
     </div>
-    <button class="btn btn-menu--one movieCard__button">Boka</button>
+      <button class="btn btn-menu--one movieCard__button">Boka</button>
     <!-- Review form -->
     <section
       class="review-section contact__formwrap"
@@ -150,9 +159,15 @@
     </section>
 
   </article>
+
+  <section class="reviews">
+    <div id="reviews" data-movie-id="{{movie.id}}"></div>
+  </section>
+
+  <script type="module" src="/src/scripts/reviews.js"></script>
+
   <div class="movie-page-buttons">
     <a href="/" class="btn btn--primary">Tillbaka till startsidan</a>
     <a href="/movies" class="btn btn--primary">Tillbaka till alla filmer</a>
   </div>
-
 </main>
