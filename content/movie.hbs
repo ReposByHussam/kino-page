@@ -1,5 +1,4 @@
 <style>
-  /*styles for /movie/:id page*/
   .movie-page {
     text-align: center;
     padding: 2rem;
@@ -18,28 +17,157 @@
   .movie-page-buttons {
     justify-self: center;
   }
+
+  /* Reviews block (from your branch) */
+  .reviews {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  /* Styles for container with upcoming screenings (from main) */
+  .screenings-list {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
+  .screening-item {
+    border: 1px solid #b67272;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    background-color: white;
+    text-align: left;
+  }
+
+  .screening-time {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .screening-room {
+    color: #666;
+    font-style: italic;
+  }
+
+  .error {
+    color: #f3543b;
+    font-weight: bold;
+  }
+
+  .movieCard__button {
+    margin: 1.5rem 0 2rem 0;
+  }
+  #review-message {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #9cc177;
+  }
+  #review-form {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
 </style>
 
 <main class="main">
   <article class="movie-page">
-    <h1 class="movieCard__title">{{ movie.title }}</h1>
+    <h1 class="movieCard__title">{{movie.title}}</h1>
 
     <div class="movieCard__item">
       <strong>Beskrivning:</strong>
       <div class="intro">
-        {{{ movie.intro }}}
+        {{{movie.intro}}}
       </div>
     </div>
 
-    {{#if movie.image }}
-    <img src="{{ movie.image.url }}" class="movieCard__img">
-    {{/if }}
-    <button class="btn btn-menu--one movieCard__button">Boka</button>
+    {{#if movie.image}}
+      <img src="{{movie.image.url}}" class="movieCard__img" alt="{{movie.title}}">
+    {{/if}}
+
+ 
+
+    <!-- Container for screenings with dynamic loading via API -->
+    <div class="screenings-list">
+      <h2>Kommande visningar</h2>
+      <div id="screenings-container" data-movie-id="{{movie.id}}"></div>
+    </div>
+      <button class="btn btn-menu--one movieCard__button">Boka</button>
+    <!-- Review form -->
+    <section
+      class="review-section contact__formwrap"
+      aria-labelledby="review-heading"
+    >
+      <h2 id="review-heading" class="contact__form-title">Skriv en recension</h2>
+
+      <form
+        id="review-form"
+        class="contact__form"
+        data-movie-id="{{movie.id}}"
+        novalidate
+      >
+        <div class="review-field contact__field">
+          <label for="review-author" class="contact__label"><strong
+            >Namn</strong></label>
+          <input
+            class="contact__input"
+            id="review-author"
+            name="author"
+            type="text"
+            required
+          />
+        </div>
+
+        <div class="contact__field review-field">
+          <label class="contact__label" for="review-rating"><strong>Ge ett Betyg
+              mellan 0 - 5</strong></label>
+          <input
+            class="contact__input"
+            id="review-rating"
+            name="rating"
+            type="number"
+            min="0"
+            max="5"
+            step="1"
+            required
+          />
+        </div>
+
+        <div class="contact__field review-field">
+          <label class="contact__label" for="review-comment"><strong>Skriv vad
+              du tyckte om filmen</strong></label>
+          <textarea
+            class="contact__area contact__input"
+            id="review-comment"
+            name="comment"
+            rows="4"
+          ></textarea>
+        </div>
+        <p
+          id="review-message"
+          class="review-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <button class="contact__submit" type="submit">Skicka recension</button>
+
+      </form>
+    </section>
 
   </article>
+
+  <section class="reviews">
+    <div id="reviews" data-movie-id="{{movie.id}}"></div>
+  </section>
+
+  <script type="module" src="/src/scripts/reviews.js"></script>
+
   <div class="movie-page-buttons">
     <a href="/" class="btn btn--primary">Tillbaka till startsidan</a>
     <a href="/movies" class="btn btn--primary">Tillbaka till alla filmer</a>
   </div>
-
 </main>

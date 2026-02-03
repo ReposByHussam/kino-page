@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+     "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "sass": "sass --watch --no-source-map src/styles/main.scss src/styles/main.css",
     "start": "node server/server.js",
