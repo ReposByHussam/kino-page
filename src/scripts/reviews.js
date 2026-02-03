@@ -1,9 +1,9 @@
 // src/scripts/reviews.js
-// Recensioner på filmsidan: 5 per sida + nästa/föregående
+// Jag visar recensioner på filmsidan: 5 per sida + nästa/föregående-knappar
 
 const PAGE_SIZE = 5;
 
-// Hämta film-id (från data-attribute eller från URL)
+// Jag försöker hitta film-id (först från data-attribute, annars från URL:en)
 function getMovieId() {
   const container = document.querySelector("#reviews");
   const fromData = container?.dataset?.movieId;
@@ -13,9 +13,9 @@ function getMovieId() {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
-// Gör om svaret till ett format vi alltid kan jobba med
+// Jag normaliserar svaret så jag kan jobba med samma format oavsett API-struktur
 function normalizeResponse(json) {
-  // Vårt eget API: { reviews: [...], pagination: {...} }
+  // Vårt API-format: { reviews: [...], pagination: {...} }
   if (json && Array.isArray(json.reviews)) {
     const p = json.pagination || {};
     const page = Number(p.page || 1);
@@ -49,7 +49,7 @@ function normalizeResponse(json) {
     };
   }
 
-  // Om någon råkar skicka en array
+  // Om jag råkar få en array direkt så gör jag den kompatibel
   if (Array.isArray(json)) {
     return {
       reviews: json,
@@ -60,10 +60,11 @@ function normalizeResponse(json) {
     };
   }
 
+  // Sista fallback: tomt men stabilt format
   return { reviews: [], page: 1, pageSize: PAGE_SIZE, pageCount: 1, total: 0 };
 }
 
-// Skydd mot att någon matar in HTML i kommentaren
+// Jag skyddar mig mot att någon försöker stoppa in HTML i texten
 function escapeHtml(str = "") {
   return String(str)
     .replaceAll("&", "&amp;")
@@ -78,7 +79,7 @@ function renderStars(rating) {
   return "★".repeat(r) + "☆".repeat(5 - r);
 }
 
-// Skapa UI om den inte finns
+// Jag ser till att UI finns (skapar om det inte redan finns)
 function ensureUi() {
   const container = document.querySelector("#reviews");
   if (!container) return null;
@@ -115,9 +116,11 @@ function ensureUi() {
   return { list, status, prevBtn, nextBtn, pageLabel };
 }
 
-// Hämtar recensioner via vår egen server (inte CMS direkt)
+// Jag hämtar recensioner via vår server (inte direkt från CMS)
 async function fetchReviews(movieId, page) {
-  const url = `/api/movies/${encodeURIComponent(movieId)}/reviews?page=${page}&pageSize=${PAGE_SIZE}`;
+  const url = `/api/movies/${encodeURIComponent(
+    movieId
+  )}/reviews?page=${page}&pageSize=${PAGE_SIZE}`;
 
   const res = await fetch(url, { headers: { Accept: "application/json" } });
 
@@ -131,6 +134,7 @@ async function fetchReviews(movieId, page) {
   return res.json();
 }
 
+// Jag renderar själva listan med recensioner i DOM:en
 function renderReviews(ui, reviews) {
   if (!reviews.length) {
     ui.list.innerHTML = `<p style="margin:0;">Inga recensioner ännu.</p>`;
@@ -156,6 +160,7 @@ function renderReviews(ui, reviews) {
     .join("");
 }
 
+// Jag uppdaterar knappar + sidinfo så pagination känns tydlig
 function updatePaginationUi(ui, page, pageCount, total) {
   ui.pageLabel.textContent = `Sida ${page} av ${pageCount} (${total} st)`;
 
@@ -166,6 +171,7 @@ function updatePaginationUi(ui, page, pageCount, total) {
   ui.nextBtn.style.opacity = ui.nextBtn.disabled ? "0.5" : "1";
 }
 
+// Jag laddar data + renderar, och hanterar fel snyggt
 async function loadAndRender(ui, movieId, state) {
   ui.status.textContent = "Laddar recensioner...";
   ui.status.style.color = "";
@@ -174,7 +180,7 @@ async function loadAndRender(ui, movieId, state) {
     const json = await fetchReviews(movieId, state.page);
     const { reviews, page, pageCount, total } = normalizeResponse(json);
 
-    // Spara vad servern säger (så vi inte gissar)
+    // Jag litar på serverns pagination-värden (så jag inte gissar)
     state.page = page;
     state.pageCount = pageCount;
 
@@ -195,6 +201,7 @@ async function loadAndRender(ui, movieId, state) {
   }
 }
 
+// Jag startar allt när sidan är klar
 document.addEventListener("DOMContentLoaded", () => {
   const ui = ensureUi();
   if (!ui) return;
@@ -222,5 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Jag laddar första sidan direkt
   loadAndRender(ui, movieId, state);
 });

@@ -1,20 +1,21 @@
 import express from "express";
 import renderPage from "./renderPage.js";
+import apiScreenings from "./apiScreenings.js";
 
 export default function initApp(api) {
   const app = express();
 
-  // statiska filer (css, bilder, js osv)
+  // Jag servar statiska filer här (css, bilder, JS osv)
   app.use("/src", express.static("./src"));
 
-  // behövs när vi senare vill ta emot JSON i POST (reviews)
+  // Jag behöver den här för att kunna ta emot JSON i POST senare (reviews)
   app.use(express.json());
 
-  // CMS (Strapi)
+  // CMS (Strapi) – härifrån hämtas recensionerna
   const CMS_ORIGIN = "https://plankton-app-xhkom.ondigitalocean.app";
   const CMS_REVIEWS_URL = `${CMS_ORIGIN}/api/reviews`;
 
-  // liten helper för att hämta JSON
+  // Min lilla helper: hämtar JSON och ger bra fel om något strular
   async function fetchJson(url) {
     const r = await fetch(url, { headers: { Accept: "application/json" } });
     const text = await r.text();
@@ -39,14 +40,14 @@ export default function initApp(api) {
     return json;
   }
 
-  // gör om query-värden till rimliga heltal
+  // Jag gör om query-parametrar till rimliga heltal (så ingen kan krascha med konstiga värden)
   function clampInt(value, fallback, { min = 1, max = 999 } = {}) {
     const n = Number.parseInt(value, 10);
     if (Number.isNaN(n)) return fallback;
     return Math.min(max, Math.max(min, n));
   }
 
-  // startsidan (SSR)
+  // Startsidan (SSR)
   app.get("/", async (req, res) => {
     try {
       const movies = await api.loadMovies();
@@ -59,7 +60,33 @@ export default function initApp(api) {
     }
   });
 
-  // vanliga sidor (SSR)
+  // Endpoint för kommande visningar på filmsidan
+  app.get("/api/movies/:movieId/screenings", async (req, res) => {
+    try {
+      const movieId = req.params.movieId;
+
+      // 1) Jag hämtar alla visningar för filmens id
+      const screenings = await apiScreenings.loadScreeningsByMovieId(movieId);
+
+      // 2) Sen plockar jag bara ut de som är i framtiden (kommande visningar)
+      const upcomingScreenings =
+        apiScreenings.getUpcomingScreeningsMoviePage(screenings);
+
+      // 3) Skickar tillbaka som JSON till frontend
+      res.status(200).json({
+        success: true,
+        data: upcomingScreenings,
+      });
+    } catch (error) {
+      console.error("ERROR:", error);
+      res.status(500).json({
+        success: false,
+        error: "Kunde inte ladda visningar",
+      });
+    }
+  });
+
+  // Vanliga sidor (SSR)
   app.get("/about-us", async (req, res) => {
     res.send(await renderPage("about-us"));
   });
@@ -76,7 +103,7 @@ export default function initApp(api) {
     res.send(await renderPage("eventPage"));
   });
 
-  // alla filmer (SSR)
+  // Lista alla filmer (SSR)
   app.get("/movies", async (req, res) => {
     try {
       const movies = await api.loadMovies();
@@ -87,7 +114,7 @@ export default function initApp(api) {
     }
   });
 
-  // en film (SSR)
+  // En specifik film (SSR)
   app.get("/movies/:movieId", async (req, res) => {
     try {
       const movie = await api.loadMovie(req.params.movieId);
@@ -98,12 +125,12 @@ export default function initApp(api) {
     }
   });
 
-  // API som frontend kan fetcha efter att sidan laddats
-  // ex: /api/movies/1/reviews?page=1&pageSize=5
+  // Reviews-API som frontend hämtar efter att sidan laddats
+  // Ex: /api/movies/1/reviews?page=1&pageSize=5
   app.get("/api/movies/:movieId/reviews", async (req, res) => {
     const movieId = req.params.movieId;
 
-    // vi kör max 5 per sida enligt kravet
+    // Kravet är max 5 per sida, så jag låser pageSize till 5
     const page = clampInt(req.query.page, 1, { min: 1, max: 9999 });
     const pageSize = clampInt(req.query.pageSize, 5, { min: 1, max: 5 });
 
@@ -112,7 +139,7 @@ export default function initApp(api) {
       params.set("filters[movie]", movieId);
       params.set("pagination[page]", String(page));
       params.set("pagination[pageSize]", String(pageSize));
-      params.set("sort[0]", "createdAt:desc"); // nyast först
+      params.set("sort[0]", "createdAt:desc"); // jag vill visa nyast först
 
       const url = `${CMS_REVIEWS_URL}?${params.toString()}`;
       const json = await fetchJson(url);
@@ -120,7 +147,7 @@ export default function initApp(api) {
       const items = Array.isArray(json?.data) ? json.data : [];
       const pg = json?.meta?.pagination || {};
 
-      // gör datan lite enklare för frontend
+      // Jag mappar om datan till ett enklare format så frontend slipper hålla på med Strapi-strukturen
       const reviews = items.map((item) => {
         const a = item?.attributes || {};
         return {
@@ -147,7 +174,7 @@ export default function initApp(api) {
     }
   });
 
-  // fallback
+  // Fallback (måste ligga sist) – om ingen route matchar
   app.use((req, res) => {
     res.status(404).send("Page is not found");
   });

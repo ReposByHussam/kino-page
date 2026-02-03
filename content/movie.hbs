@@ -18,6 +18,7 @@
     justify-self: center;
   }
 
+  /* Reviews block (from your branch) */
   .reviews {
     max-width: 900px;
     margin: 2rem auto 0;
@@ -25,6 +26,36 @@
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 10px;
+  }
+
+  /* Styles for container with upcoming screenings (from main) */
+  .screenings-list {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
+  .screening-item {
+    border: 1px solid #b67272;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    background-color: white;
+    text-align: left;
+  }
+
+  .screening-time {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .screening-room {
+    color: #666;
+    font-style: italic;
+  }
+
+  .error {
+    color: #f3543b;
+    font-weight: bold;
   }
 </style>
 
@@ -44,6 +75,12 @@
     {{/if}}
 
     <button class="btn btn-menu--one movieCard__button">Boka</button>
+
+    <!-- Container for screenings with dynamic loading via API -->
+    <div class="screenings-list">
+      <h2>Kommande visningar</h2>
+      <div id="screenings-container" data-movie-id="{{movie.id}}"></div>
+    </div>
   </article>
 
   <section class="reviews">
