@@ -216,6 +216,44 @@ app.post("/api/movies/:movieId/reviews", async (req, res) => {
     }
   });
 
+  // Rating-API: frontend fetches this AFTER page load
+app.get("/api/movies/:id/rating", async (req, res) => {
+  try {
+    const movieId = req.params.id;
+    const params = new URLSearchParams();
+    //Gör en ny querystring
+    params.set("filters[movie]", String(movieId)); //Gör querystring till ?filters[movie]=movieId
+    const url = `${CMS_REVIEWS_URL}?${params.toString()}`;
+    const json = await fetchJson(url);
+    const reviews = Array.isArray(json?.data) ? json.data : [];
+    let rating = null; //Startvärde för rating
+    let source = null;
+    if (reviews.length >= 5) {
+      let total = 0;
+      for (const review of reviews) {
+        total += review.attributes.rating;
+      }
+      rating = Math.round((total / reviews.length) * 10) / 10;
+      source = "cms";
+    } else {
+      const movieUrl = `${CMS_ORIGIN}/api/movies/${movieId}`;
+      const movieJson = await fetchJson(movieUrl);
+      const imdbId = movieJson?.data?.attributes?.imdbId;
+      //För att skicka request till omdbapi.com
+      const OMDB_API_KEY = process.env.OMDB_API_KEY;
+      const omdbUrl = `http://www.omdbapi.com/?i=${imdbId}&apikey=${OMDB_API_KEY}`;
+      const omdbJson = await fetchJson(omdbUrl);
+      rating = Number(omdbJson?.imdbRating) || null;
+      source = "imdb";
+    }
+    res.json({ movieId, reviewCount: reviews.length, rating: rating, source: source });
+  } catch (error) {
+    console.error("Couldn't fetch reviews of movies", error);
+    res.status(502).json({ error: 'Kunde inte hämta aktuella recensioner' });
+  }
+});
+
+
   // Fallback (måste ligga sist) – om ingen route matchar
   app.use((req, res) => {
     res.status(404).send("Page is not found");
