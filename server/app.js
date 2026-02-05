@@ -1,6 +1,7 @@
 import express from "express";
 import renderPage from "./renderPage.js";
 import apiScreenings from "./apiScreenings.js";
+import { getScreenings } from './getUpcomingScreenings.js';
 
 export default function initApp(api) {
   const app = express();
@@ -214,6 +215,20 @@ app.post("/api/movies/:movieId/reviews", async (req, res) => {
         .status(502)
         .json({ error: "Kunde inte spara recensionen, försök igen senare." });
     }
+  });    
+  app.get('/api/upcoming-screenings', async (req, res) => {
+      try {
+          const screenings = await getScreenings();
+          res.status(200).json({
+              data: screenings,
+          });
+      } catch (err) {
+          res.status(500).json({
+              error: {
+                  message: 'Failed to load upcoming screenings',
+              },
+          });
+      }
   });
 
   // Fallback (måste ligga sist) – om ingen route matchar
