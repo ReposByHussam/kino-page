@@ -1,4 +1,6 @@
-import { loadAllScreenings } from './apiScreenings.js';
+import apiScreenings from './apiScreenings.js';
+
+const { loadAllScreenings } = apiScreenings;
 
 const UPCOMING_LIMITS = Object.freeze({
   MAX_DAYS: 5,
