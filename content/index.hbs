@@ -5,6 +5,38 @@ color: #821818;
 .main .main__filmsContainer__list a:hover {
 color: #f3543b;
 }
+  
+.upcoming-screenings__list {
+  margin: 2rem 0;
+  padding: 4rem;
+}
+
+.upcoming-screenings__day {
+  border: 1px solid #b67272;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  background-color: white;
+  text-align: left;
+}
+
+.upcoming-screenings__date {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-screenings__screening {
+  color: #666;
+  font-style: italic;
+  list-style: none;
+}
+
+.empty, .error {
+    color: #f3543b;
+    font-weight: bold;
+    text-align: center;
+}
 </style>
 
 <main class="main">
@@ -118,5 +150,7 @@ color: #f3543b;
     </div>
 
     <a href="#" class="btn btn--primary" title="Alla kommande filmer">Alla kommande filmer</a>
+    <h2>Kommande visningar</h2>
+    <div class="upcoming-screenings__list"></div>
   </section>
 </main>
