@@ -38,4 +38,6 @@ async function loadRating() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadRating);
+export function setupMovieRating() {
+  document.addEventListener("DOMContentLoaded", loadRating);
+}
