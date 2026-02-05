@@ -76,6 +76,10 @@
 <main class="main">
   <article class="movie-page">
     <h1 class="movieCard__title">{{movie.title}}</h1>
+    <p>
+      Betyg:
+      <span id="movie-rating" data-movie-id="{{movie.id}}">Laddar betyg…</span>
+    </p>
 
     <div class="movieCard__item">
       <strong>Beskrivning:</strong>
@@ -165,6 +169,8 @@
   </section>
 
   <script type="module" src="/src/scripts/reviews.js"></script>
+  <script type="module" src="/src/scripts/ratings.js"></script>
+  
 
   <div class="movie-page-buttons">
     <a href="/" class="btn btn--primary">Tillbaka till startsidan</a>
