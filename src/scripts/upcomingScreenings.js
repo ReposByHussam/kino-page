@@ -3,6 +3,8 @@ export function setupUpcomingScreenings() {
     const container = document.querySelector('.upcoming-screenings__list');
     if (!container) return;
 
+    showMessage(container, 'Laddar...', 'loading');
+    
     try {
       const { data: days } = await fetchJSON('/api/upcoming-screenings');
 
