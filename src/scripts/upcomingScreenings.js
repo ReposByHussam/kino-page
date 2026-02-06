@@ -9,13 +9,17 @@ export function setupUpcomingScreenings() {
       const { data: days } = await fetchJSON('/api/upcoming-screenings');
 
       if (!days || !days.length) {
-        showMessage(container, 'Inga kommande visningar', 'empty');
+        showMessage(container, 'Inga visningar för de kommande fem dagarna', 'empty');
         return;
       }
 
       container.textContent = '';
-      container.appendChild(renderUpcomingScreenings(days));
+      const rendered = renderUpcomingScreenings(days);
 
+      if (rendered) {
+        container.appendChild(rendered);
+      }
+      
     } catch (err) {
       console.error('Failed to render screenings:', err);
       showMessage(
@@ -47,10 +51,13 @@ function renderUpcomingScreenings(days) {
   const container = document.createElement('div');
 
   days.forEach(day => {
-    container.appendChild(renderDay(day));
+    const dayEl = renderDay(day);
+    if (dayEl) {                   
+      container.appendChild(dayEl);  
+    }
   });
-
-  return container;
+  
+  return container.childElementCount ? container : null;
 }
 
 function renderDay(day) {
@@ -65,7 +72,10 @@ function renderDay(day) {
   dayEl.appendChild(h3);
 
   day.screenings.forEach(screening => {
-    dayEl.appendChild(renderScreening(screening));
+    const screeningEl = renderScreening(screening);
+    if (screeningEl) {
+      dayEl.appendChild(screeningEl);
+    }
   });
 
   return dayEl;
