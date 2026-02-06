@@ -36,7 +36,7 @@ async function registerPartials() {
 export const HEADER_MENU = [
   {
     type: "dropdown",
-    label: "Filmer idag",
+    label: "Aktuella filmer",
     classes: "menu-desktop movies",
     btnClass: "btn-menu--one",
     items: [
