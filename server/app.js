@@ -2,6 +2,8 @@ import express from "express";
 import renderPage from "./renderPage.js";
 import apiScreenings from "./apiScreenings.js";
 import { getScreenings } from './getUpcomingScreenings.js';
+import { getMovieRating } from "./getMovieRating.js";
+import "dotenv/config";
 
 export default function initApp(api) {
   const app = express();
