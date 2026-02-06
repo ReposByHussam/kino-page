@@ -1,4 +1,5 @@
 import fetch from "node-fetch"; //HTTP-request module for Node.js (not available in browser)
+import getPopularMovies from "./popularMovies.js";
 
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 
@@ -14,6 +15,40 @@ async function loadMovie(id) {
   const res = await fetch(API_BASE + "/movies/" + id);
   const payload = await res.json();
   return flattenMovieObject(payload.data);
+}
+
+async function loadPopularMovies() {
+  const movies = await loadMovies();
+  const ratings = await loadRatigs();
+
+  const now = Date.now();
+  const recentRatings = getPopularMovies(movies, ratings, now);
+  return recentRatings;
+}
+
+async function loadRatigs() {
+  const res = await fetch(API_BASE + "/reviews");
+  const payload = await res.json();
+
+  console.log("FULL FIRST REVIEW:", payload.data[0]);
+
+  return payload.data.map(review => ({
+    id: review.id,
+    ...review.attributes,
+  }));
+}
+
+async function loadReviewsByMovie(movieId, page = 1, pageSize = 5) {
+  const params = new URLSearchParams();
+  params.set("filters[movie]", String(movieId));
+  params.set("pagination[page]", String(page));
+  params.set("pagination[pageSize]", String(pageSize));
+
+  const res = await fetch(`${API_BASE}/reviews?${params.toString()}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load all reviews (${res.status})`);
+  }
+  return res.json();
 }
 
 //correct function for processing JSON-data from Digital Ocean server for integration test
@@ -48,6 +83,9 @@ async function createReview({ movieId, author, rating, comment }) {
 const api = {
   loadMovie,
   loadMovies,
+  loadPopularMovies,
+  loadRatigs,
+  loadReviewsByMovie,
   createReview,
 };
 
