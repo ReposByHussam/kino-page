@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import getUpcomingScreeningsMoviePage from "./getUpcomingScreeningsMoviePage.js";
 
 async function loadAllScreenings() {
-    const response = await fetch('https://plankton-app-xhkom.ondigitalocean.app/api/screenings');
+    const response = await fetch('https://plankton-app-xhkom.ondigitalocean.app/api/screenings?pagination[pageSize]=100');
     const payload = await response.json();
 
     return payload.data;

@@ -5,6 +5,8 @@ import { setupHamburgerMenu } from "./hamburgerMenu.js";
 import { activateCurrentPage } from "./activePage.js";
 import { setupReviewForm } from "./reviewForm.js";
 import { setupMovieScreenings } from "./moviePageScreenings.js";
+import { setupUpcomingScreenings } from './upcomingScreenings.js';
+
 
 setupReviewForm();
 setupRouting();
@@ -13,3 +15,4 @@ setupBookTableModal();
 setupHamburgerMenu();
 activateCurrentPage();
 setupMovieScreenings();
+setupUpcomingScreenings();
