@@ -231,6 +231,23 @@ app.post("/api/movies/:movieId/reviews", async (req, res) => {
       }
   });
 
+  //Endpoint för att hämta enskild films betyg
+  app.get('/api/movies/:id/rating', async (req, res) => {
+    try {
+      const movieId = req.params.id;
+      const result = await getMovieRating(movieId, fetchJson, CMS_ORIGIN);
+
+      res.json({
+        movieId,
+        ...result,
+      });
+
+    } catch (error) {
+      console.error("Couldn't fetch reviews of movies", error);
+      res.status(502).json({ error: 'Kunde inte hämta aktuella betyg' });
+    }
+  });
+
   // Fallback (måste ligga sist) – om ingen route matchar
   app.use((req, res) => {
     res.status(404).send("Page is not found");

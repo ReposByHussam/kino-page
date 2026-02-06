@@ -10,3 +10,6 @@ coverage/
 .jest/
 # Optional: test reports
 test-results/
+
+# .env
+.env
