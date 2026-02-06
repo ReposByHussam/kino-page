@@ -133,13 +133,15 @@ export default function initApp(api) {
         }
     });
 
+    //popular movies api fetch by frontend after the page load
+    //returns up to 5 movies based on average ratings from last 30 days
     app.get("/api/popular-movies", async (req, res) => {
         try {
             const popularMovies = await api.loadPopularMovies();
             res.json(popularMovies);
         } catch (error) {
-            console.error("Error loading popular movies:", error);
-            res.status(500).json("Kunde inte hitta populära filmer");
+            console.error(error);
+            res.status(500).json({ error: "Could not load popular movies" });
         }
     });
 

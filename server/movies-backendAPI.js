@@ -17,25 +17,28 @@ async function loadMovie(id) {
   return flattenMovieObject(payload.data);
 }
 
-async function loadPopularMovies() {
-  const movies = await loadMovies();
-  const ratings = await loadRatigs();
+//function to fetch all reviews from the CMS
+async function loadAllReviews() {
+  const res = await fetch(`${API_BASE}/reviews?populate=movie`);
+  if (!res.ok) {
+    throw new Error(`Failed to load reviews (${res.status})`);
+  }
 
-  const now = Date.now();
-  const recentRatings = getPopularMovies(movies, ratings, now);
-  return recentRatings;
-}
-
-async function loadRatigs() {
-  const res = await fetch(API_BASE + "/reviews");
   const payload = await res.json();
 
-  console.log("FULL FIRST REVIEW:", payload.data[0]);
-
-  return payload.data.map(review => ({
-    id: review.id,
-    ...review.attributes,
+  return payload.data.map(r => ({
+    movie: r.attributes.movie.data.id,
+    rating: r.attributes.rating,
+    createdAt: r.attributes.createdAt,
   }));
+}
+
+//returns the most popular movies based on ratings
+async function loadPopularMovies() {
+  const movies = await loadMovies();
+  const reviews = await loadAllReviews();
+
+  return getPopularMovies(movies, reviews);
 }
 
 async function loadReviewsByMovie(movieId, page = 1, pageSize = 5) {
@@ -84,9 +87,9 @@ const api = {
   loadMovie,
   loadMovies,
   loadPopularMovies,
-  loadRatigs,
   loadReviewsByMovie,
   createReview,
+  loadAllReviews,
 };
 
 //pass variable api (object) to server.js
