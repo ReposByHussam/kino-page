@@ -28,8 +28,9 @@ export async function getMovieRating(movieId, fetchJson, CMS_ORIGIN) {
     const movieUrl = `${CMS_ORIGIN}/api/movies/${movieId}`;
     const movieJson = await fetchJson(movieUrl);
 
-    const imdbId = movieJson?.data?.attributes?.imdbId;
-
+    const imdbId = movieJson?.data?.attributes?.imdbId; 
+    
+    //Ovan hämtar vi IMDB-id då detta behövs för att kunna hämta info från omdb
     //För att skicka request till omdbapi.com http://www.omdbapi.com/?apikey=[yourkey]&
     
     const OMDB_API_KEY = process.env.OMDB_API_KEY;
