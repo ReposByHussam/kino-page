@@ -200,3 +200,48 @@ export async function loadMovieScreenings() {
   ...
 }
 
+
+
+# PART 4 - Movie Reviews (list + pagination)
+
+## Server API Endpoint
+### Reviews for a movie
+GET /api/movies/:movieId/reviews  
+Returns reviews for a single movie with server-side pagination.
+
+### Request
+Method: GET
+
+Endpoint: /api/movies/:movieId/reviews
+
+Query parameters:
+- page (default: 1)
+- pageSize (max: 5)
+
+Example Request:
+```curl -X GET "http://localhost:5080/api/movies/1/reviews?page=1&pageSize=5"```
+
+
+## Response
+### 200 OK
+Returns a JSON object with `reviews` and `pagination`.
+
+Example Response:
+```json
+{
+  "reviews": [
+    {
+      "id": 123,
+      "name": "Iman",
+      "rating": 5,
+      "comment": "Great movie!",
+      "createdAt": "2026-02-02T19:10:00.000Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "pageSize": 5,
+    "pageCount": 2,
+    "total": 7
+  }
+}
