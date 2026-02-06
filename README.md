@@ -22,6 +22,7 @@ Ytterligare test (/__tests__/movies.test.js) : verifierar att filmtitlar visas k
 
 
 # Upcoming Screenings API
+
 ## Domain Objects
 ### Screening
 Represents a single movie screening event.
@@ -32,6 +33,8 @@ Example:
 
 ### Grouped Screenings
 Screenings grouped by day.
+
+`date` is a date string representing a day in Europe/Stockholm timezone.
 
 Example:
 
@@ -48,10 +51,15 @@ Example:
 
 ## API Endpoint
 ### Upcoming Screenings
+
 ### Request
 Method: GET
 
 Endpoint: /api/upcoming-screenings
+
+“Upcoming” is determined using the Stockholm timezone.
+
+Screenings are grouped by calendar day (Stockholm time).
 
 Example Request (cURL):
 
@@ -59,7 +67,12 @@ Example Request (cURL):
 
 ### Response
 #### 200 OK
-Returns a JSON array of GroupedScreenings.
+
+Returns a JSON object containing a data array of GroupedScreenings.
+
+If no upcoming screenings are found, an empty array is returned.
+
+Days are sorted by date ascending.
 
 Example Response:
 ```{
