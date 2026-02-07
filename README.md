@@ -199,6 +199,8 @@ export async function loadMovieScreenings() {
   const response = await fetch(`/api/movies/${movieId}/screenings`);
   ...
 }
+
+  
 # PART 4 - Movie Reviews (list + pagination)
 
 ## Server API Endpoint
@@ -241,3 +243,122 @@ Example Response:
     "total": 7
   }
 }
+```
+# PART 4.1 - Review section with no page reload
+This part allows for the ability so submit a movie review from the movie detail page (/movies:id) without reloading the page, using the browsers fetch() API. 
+
+#### What the user can do
+On a movie detail page, the user can submit:
+- Name (Author)
+- Rating (integer 0-5)
+- Comment (optional)
+
+The form is submitted asynchronously and shows a status message in the UI. 
+
+## Server API endpoin
+#### Create Review
+Method: POST
+
+#### Endpoint: /api/movies/:movieId/reviews
+This endpoint validates the review data on the server and then forwards it to the CMS. 
+
+#### Validation rules
+- movieId MUST be a valid number (>0)
+- author IS required and trimmed using trim()
+- rating MUST be an integer between 0 - 5
+- comment is optional and trimmed
+
+#### Responses
+201 created (Success)
+```
+{
+  "created": {
+    "id": 123,
+    "author": "Hadji",
+    "rating": 5,
+    "comment": "Great movie!"
+  }
+}
+```
+#### 400 bad request (validation error)
+
+```
+{ "error": "Betyget måste vara ett heltal mellan 0 och 5." }
+```
+
+#### 502 Bad GateWay (CMS error / newtork error)
+
+```
+{ "error": "Kunde inte spara recensionen, försök igen senare." }
+```
+
+#### Server implementation
+Route handler in server/app.js
+```
+app.post("/api/movies/:movieId/reviews", async (req, res) => {...}
+   
+```
+ 
+  ## CMS integration
+  The server forwards review creation to the CMS
+
+  This implementation can be seen in movies-backendAPI.js:
+  async function createReview({ movieId, author, rating, comment }) {
+  ...
+  // POST to Strapi /reviews using Strapi format: { data: {...} }
+}
+
+The request body uses strapi's required format, which is:
+```
+{
+  "data": {
+    "movie": 1,
+    "author": "Hadji",
+    "rating": 5,
+    "comment": "Great movie!"
+  }
+}
+```
+
+## Frontend, Client side fetch
+The review form is seen on the movie page which is in the content/movie.hbs and submitted without reload. 
+
+#### Example: 
+
+```
+<form id="review-form" data-movie-id="{{movie.id}}">
+  <input name="author" />
+  <input name="rating" type="number" min="0" max="5" step="1" />
+  <textarea name="comment"></textarea>
+  <p id="review-message" aria-live="polite"></p>
+  <button type="submit">Skicka recension</button>
+</form>
+```
+
+#### JavaScript Implementation
+In reviewForm.js, i have created a function that: 
+- Prevent default form submit
+- Reads form values with FormData
+- Sens POST request via fetch:
+
+  ```
+  await fetch(`/api/movies/${movieId}/reviews`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ author, rating, comment }),});
+
+
+
+- Displays status message in #review-message
+- Resets the form on sucess by using form.reset()
+
+## How to Verify (Proof of and no reload)
+1. Start server: npm start
+2. Open a movie page
+3. Submit a review
+4. Confirm:
+   - The page does not reload
+   - #review-message updates, for example: "skickar" and "tack!..."
+5. DevTools
+   - You should see a request POST: /api/movies/:id/reviews
+   - Stauts 201 on sucess, 400 on validation errors.
