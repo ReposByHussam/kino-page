@@ -123,6 +123,62 @@ Rendering Example:
 </div>
 
 
+## PART 2 – Popular Movies (Top 5)
+
+This part implements the functionality for displaying the most popular movies on the start page, based on user ratings.
+
+The list is loaded client-side using the browser’s fetch() API after the page has rendered and is not server-side rendered.
+
+### Requirements
+- Maximum five movies are returned
+- Only ratings from the last 30 days are included
+- Movies without any ratings from the last 30 days are excluded
+- All calculation logic is implemented on the server
+- The logic is verified using unit tests with mocked data
+
+### Server API Endpoint
+Get popular movies
+
+**Method:** GET  
+**Endpoint:** `/api/popular-movies`
+
+### Response – 200 OK
+Returns an array of popular movies sorted by average rating (highest first).
+
+**Example response:**
+```json
+[
+  {
+    "id": 8,
+    "title": "Pulp Fiction",
+    "averageRating": 4.6
+  },
+  {
+    "id": 3,
+    "title": "The Matrix",
+    "averageRating": 4.2
+  }
+]
+
+If no movies match the criteria, an empty array is returned.
+
+Server-side logic
+
+The calculation logic is implemented on the server in server/popularMovies.js as a pure function.
+
+The server:
+- Loads movies and reviews from the CMS
+- Filters ratings to the last 30 days
+- Calculates average rating per movie
+- Returns a maximum of five movies
+
+Testing
+
+The logic is tested using unit tests with mocked data.
+
+Tests are run with:
+npm test
+
 
 # PART 3 -Upcoming Movie Screenings
 

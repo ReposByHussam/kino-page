@@ -8,6 +8,7 @@
      "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "sass": "sass --watch --no-source-map src/styles/main.scss src/styles/main.css",
+    "dev": "nodemon server/server.js",
     "build": "sass --no-source-map src/styles/main.scss src/styles/main.css",
     "start": "node server/server.js"
   },
@@ -33,6 +34,7 @@
     "handlebars": "^4.7.8",
     "jest": "^30.2.0",
     "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.11",
     "supertest": "^7.2.2"
   }
 }
