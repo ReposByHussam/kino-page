@@ -34,6 +34,18 @@ export async function getMovieRating(movieId, fetchJson, CMS_ORIGIN) {
     //För att skicka request till omdbapi.com http://www.omdbapi.com/?apikey=[yourkey]&
     
     const OMDB_API_KEY = process.env.OMDB_API_KEY;
+
+    //Return if the OMDB_API_KEY can't be found
+    if (!OMDB_API_KEY){
+
+      return {
+        rating: null,
+        source: "imdb",
+        reviewCount: reviews.length,
+        error: "OMDB_API_KEY is missing"
+      };
+    }
+
     const omdbUrl = `http://www.omdbapi.com/?i=${imdbId}&apikey=${OMDB_API_KEY}`;
     const omdbJson = await fetchJson(omdbUrl);
 
