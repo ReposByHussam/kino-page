@@ -199,7 +199,52 @@ export async function loadMovieScreenings() {
   const response = await fetch(`/api/movies/${movieId}/screenings`);
   ...
 }
-# PART 4 - Review section with no page reload
+
+  
+# PART 4 - Movie Reviews (list + pagination)
+
+## Server API Endpoint
+### Reviews for a movie
+GET /api/movies/:movieId/reviews  
+Returns reviews for a single movie with server-side pagination.
+
+### Request
+Method: GET
+
+Endpoint: /api/movies/:movieId/reviews
+
+Query parameters:
+- page (default: 1)
+- pageSize (max: 5)
+
+Example Request:
+```curl -X GET "http://localhost:5080/api/movies/1/reviews?page=1&pageSize=5"```
+
+## Response
+### 200 OK
+Returns a JSON object with `reviews` and `pagination`.
+
+Example Response:
+```json
+{
+  "reviews": [
+    {
+      "id": 123,
+      "name": "Iman",
+      "rating": 5,
+      "comment": "Great movie!",
+      "createdAt": "2026-02-02T19:10:00.000Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "pageSize": 5,
+    "pageCount": 2,
+    "total": 7
+  }
+}
+```
+# PART 4.1 - Review section with no page reload
 This part allows for the ability so submit a movie review from the movie detail page (/movies:id) without reloading the page, using the browsers fetch() API. 
 
 #### What the user can do
@@ -250,45 +295,9 @@ This endpoint validates the review data on the server and then forwards it to th
 #### Server implementation
 Route handler in server/app.js
 ```
-app.post("/api/movies/:movieId/reviews", async (req, res) => {
-    const movieId = Number(req.params.movieId);
-    const author =
-      typeof req.body?.author === "string" ? req.body.author.trim() : "";
-    const comment =
-      typeof req.body?.comment === "string" ? req.body.comment.trim() : "";
-    const rating = Number(req.body?.rating);
-
-    if (!Number.isFinite(movieId) || movieId <= 0) {
-      return res.status(400).json({ error: "Ogiltigt film-ID" });
-    }
-    if (!author) {
-      return res.status(400).json({ error: "Du måste ange ett namn." });
-    }
-    if (!Number.isFinite(rating) || !Number.isInteger(rating) || rating < 0 || rating > 5) {
-      return res
-        .status(400)
-        .json({ error: "Betyget måste vara ett heltal mellan 0 och 5." });
-    }
-    try {
-      const created = await api.createReview({
-        movieId,
-        author,
-        rating,
-        comment,
-      });
-      return res.status(201).json({ created });
-    } catch (error) {
-      console.error("Error creating review:", error);
-      return res
-        .status(502)
-        .json({ error: "Kunde inte spara recensionen, försök igen senare." });
-    }
-  });
+app.post("/api/movies/:movieId/reviews", async (req, res) => {...}
+   
 ```
-
-  - Reads values from req.params and req.body
-  - Performs validation, this includes egde cases as well
-  - Calls on api.CreateReview() to forward the review to the CMS.
  
   ## CMS integration
   The server forwards review creation to the CMS
@@ -353,5 +362,3 @@ In reviewForm.js, i have created a function that:
 5. DevTools
    - You should see a request POST: /api/movies/:id/reviews
    - Stauts 201 on sucess, 400 on validation errors.
-
-  
