@@ -418,3 +418,80 @@ In reviewForm.js, i have created a function that:
 5. DevTools
    - You should see a request POST: /api/movies/:id/reviews
    - Stauts 201 on sucess, 400 on validation errors.
+¨
+
+## PART 6 – movie rating from CMS or IMDB
+
+### GET /api/movies/:id/rating
+
+### Description
+Gets rating for a specific movie.
+
+The rating is calculated using the following logic:
+- If a movie has **five or more reviews** in CMS, the average rating is calculated from those reviews.
+- If a movie has **fewer than five reviews** in CMS, the rating is fetched from **IMDB** via **OMDB API**.
+
+All logic is performed on the **server**.  
+The frontend only receives finished data from this endpoint.
+
+---
+
+### URL example
+
+GET /api/movies/2/rating
+
+#### External data sources used for this endpoint:
+
+CMS (Strapi)
+- /api/reviews?filters[movie]=:id //To filter the amount of reviews for a specific movie
+- /api/movies/:id //To get the imdbId which is needed for OMDB-API
+
+OMDB-API
+- `http://www.omdbapi.com/?i=${imdbId}&apikey=${OMDB_API_KEY}`;
+- Gets IMDB-grade if the amount of CMS-reviews is fewer than five
+
+### Example response from CMS-source
+{
+  "movieId": "2",
+  "rating": 2.9,
+  "source": "cms",
+  "reviewCount": 15
+}
+
+Example response from IMDB
+{
+  "movieId": "13",
+  "rating": 7.4,
+  "source": "imdb",
+  "reviewCount": 1
+}
+
+### Description of information provided:
+1. movieId, type = String, the specific movie-ID
+2. rating, type = Number, the average rating for the specific movie
+3. source, type = String, “cms” or “imdb”
+4. reviewCount, type = Number, the amount of reviews in CMS
+
+### Error handling
+If the rating for a movie cannot be fetched from the source, the following response is returned:
+
+{
+  "error": "Kunde inte hämta aktuella betyg"
+}
+
+HTTP status code: 502
+
+### Environmental variables
+To enable IMDB-fallback, the following environmental variable is required:
+
+OMDB_API_KEY=<your_api_key>
+
+This variable is loaded via process.env and is not stored in the source code or the git repository
+
+---
+
+
+
+
+
+
