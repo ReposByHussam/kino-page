@@ -135,6 +135,18 @@ export default function initApp(api) {
     }
   });
 
+  //popular movies api fetch by frontend after the page load
+  //returns up to 5 movies based on average ratings from last 30 days
+  app.get("/api/popular-movies", async (req, res) => {
+    try {
+      const popularMovies = await api.loadPopularMovies();
+      res.json(popularMovies);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Could not load popular movies" });
+    }
+  });
+
   // Reviews-API som frontend hämtar efter att sidan laddats
   // Ex: /api/movies/1/reviews?page=1&pageSize=5
   app.get("/api/movies/:movieId/reviews", async (req, res) => {
@@ -184,7 +196,7 @@ export default function initApp(api) {
     }
   });
 
-app.post("/api/movies/:movieId/reviews", async (req, res) => {
+  app.post("/api/movies/:movieId/reviews", async (req, res) => {
     const movieId = Number(req.params.movieId);
     const author =
       typeof req.body?.author === "string" ? req.body.author.trim() : "";
@@ -217,20 +229,21 @@ app.post("/api/movies/:movieId/reviews", async (req, res) => {
         .status(502)
         .json({ error: "Kunde inte spara recensionen, försök igen senare." });
     }
-  });    
+  });
+
   app.get('/api/upcoming-screenings', async (req, res) => {
-      try {
-          const screenings = await getScreenings();
-          res.status(200).json({
-              data: screenings,
-          });
-      } catch (err) {
-          res.status(500).json({
-              error: {
-                  message: 'Failed to load upcoming screenings',
-              },
-          });
-      }
+    try {
+      const screenings = await getScreenings();
+      res.status(200).json({
+        data: screenings,
+      });
+    } catch (err) {
+      res.status(500).json({
+        error: {
+          message: 'Failed to load upcoming screenings',
+        },
+      });
+    }
   });
 
   //Endpoint för att hämta enskild films betyg

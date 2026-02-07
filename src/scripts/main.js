@@ -5,8 +5,8 @@ import { setupHamburgerMenu } from "./hamburgerMenu.js";
 import { activateCurrentPage } from "./activePage.js";
 import { setupReviewForm } from "./reviewForm.js";
 import { setupMovieScreenings } from "./moviePageScreenings.js";
-import { setupUpcomingScreenings } from './upcomingScreenings.js';
-
+import { setupUpcomingScreenings } from "./upcomingScreenings.js";
+import { setupPopularMovies } from "./popularMovies.js";
 
 setupReviewForm();
 setupRouting();
@@ -16,3 +16,4 @@ setupHamburgerMenu();
 activateCurrentPage();
 setupMovieScreenings();
 setupUpcomingScreenings();
+setupPopularMovies();
