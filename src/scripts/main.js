@@ -7,6 +7,8 @@ import { setupReviewForm } from "./reviewForm.js";
 import { setupMovieScreenings } from "./moviePageScreenings.js";
 import { setupUpcomingScreenings } from "./upcomingScreenings.js";
 import { setupPopularMovies } from "./popularMovies.js";
+import { setupMovieRating } from "./movierating.js";
+
 
 setupReviewForm();
 setupRouting();
@@ -17,3 +19,4 @@ activateCurrentPage();
 setupMovieScreenings();
 setupUpcomingScreenings();
 setupPopularMovies();
+setupMovieRating();
