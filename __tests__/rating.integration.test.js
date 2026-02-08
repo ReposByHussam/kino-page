@@ -1,57 +1,87 @@
 import { describe, expect, test, jest, beforeEach } from "@jest/globals";
 import request from "supertest";
 import initApp from "../server/app.js";
-import { getMovieRating as realGetMovieRating } from "../server/getMovieRating.js";
+import { getMovieRating } from "../server/getMovieRating.js";
+import { response } from "express";
 
-// Mock getMovieRating as we are only testing route handling
+/* Removing jest.mock requirement to test and circumvent the ESM require and import/export incompatiblity and error
+
+Mock getMovieRating as we are only testing route handling
 jest.mock("../server/getMovieRating.js", () => ({
   getMovieRating: jest.fn(),
 }));
+//removing jest.mock because of ESM module errors.
 
 import { getMovieRating } from "../server/getMovieRating.js";
 
+*/
+
 describe("GET /api/movies/:id/rating (integration)", () => {
-  const mockApi = {
-    loadMovies: async () => [],
-    loadMovie: async () => ({}),
-    createReview: async () => ({}),
-  };
 
-  let app;
+  //TEST 1 
+  test('returns rating from mock API', async () => {
+    const mockApi = {
+      loadMovies: async () => [],
+      loadMovie: async () => ({}),
+      getMovieRating: async () => ({
+        rating: 5.0,
+        source: 'mock',
+        reviewcount: 10
+      }),
+      createReview: async () => ({})
+    };
 
-  beforeEach(() => {
+  const app = initApp(mockApi);
+
+  /*beforeEach(() => {
     app = initApp(mockApi);
     jest.clearAllMocks();
-  });
+  });*/
 
-  test("returns 502 if getMovieRating throws", async () => {
-    getMovieRating.mockRejectedValueOnce(new Error("boom"));
+  const response = await request(app)
+  .get('/api/movies/8/rating')
+  .expect(200);
 
-    const res = await request(app)
-      .get("/api/movies/8/rating")
-      .expect(502);
-
-    expect(res.body.error).toMatch(/aktuella betyg/i);
-  });
-
-  test("returns rating JSON for valid movie id (cms path)", async () => {
-    getMovieRating.mockResolvedValueOnce({
-      rating: 4.2,
-      source: "cms",
-      reviewCount: 7,
+  expect(response.body.rating).toBe(5.0);
+        expect(response.body.source).toBe("mock");
     });
 
+  //TEST 2
+  test('returns 502 if getMovieRating throws', async () => {
+    const mockApi = {
+      loadMovies: async () => [],
+      loadMovie: async () => ({}),
+      createReview: async () => ({}),
+      getMovieRating: async () => {
+        throw new Error("Database connection failed");
+    }};
+
+    const app = initApp(mockApi);
+
+    const response = await request(app)
+      .get('/api/movies/8/rating')
+      .expect(502); // Expect 502 Bad Gateway
+
+    // Check that the error message matches what your app.js returns
+    expect(response.body.error).toMatch(/Kunde inte hämta aktuella betyg/i);
+  });
+
+  //TEST 3
+  test("returns rating JSON for valid movie id (cms path)", async () => {
+    const mockApi = {
+      loadMovies: async () => [],
+      loadMovie: async () => ({}),
+      createReview: async () => ({}),
+      getMovieRating: async () => ({
+        rating: 4.2,
+        source: "cms",
+        reviewCount: 7,
+      })};
+    const app = initApp(mockApi);
     const res = await request(app)
       .get("/api/movies/8/rating")
       .expect("Content-Type", /json/)
       .expect(200);
-
-    // route passes movieId as string from request params.id
-    expect(getMovieRating).toHaveBeenCalledWith(
-      "8",
-      expect.any(Function),
-      expect.any(String)
-    );
 
     expect(res.body).toEqual({
       movieId: "8",
@@ -61,26 +91,29 @@ describe("GET /api/movies/:id/rating (integration)", () => {
     });
   });
 
+  //TEST 4
   test("returns rating JSON for valid movie id (imdb path)", async () => {
-    getMovieRating.mockResolvedValueOnce({
-      rating: 8.9,
+    const mockApi = {
+      loadMovies: async () => [],
+      loadMovie: async () => ({}),
+      createReview: async () => ({}),
+      getMovieRating: async () => ({
+        rating: 6.7,
+        source: "imdb",
+        reviewCount: 2,
+      })};
+    const app = initApp(mockApi);
+    const res = await request(app)
+      .get("/api/movies/5/rating")
+      .expect("Content-Type", /json/)
+      .expect(200);
+
+    expect(res.body).toEqual({
+      movieId: "5",
+      rating: 6.7,
       source: "imdb",
       reviewCount: 2,
     });
-
-    const res = await request(app)
-      .get("/api/movies/5/rating")
-      .expect(200);
-
-    expect(getMovieRating).toHaveBeenCalledWith(
-      "5",
-      expect.any(Function),
-      expect.any(String)
-    );
-
-    expect(res.body.movieId).toBe("5");
-    expect(res.body.rating).toBe(8.9);
-    expect(res.body.source).toBe("imdb");
-    expect(res.body.reviewCount).toBe(2);
   });
+
 });
