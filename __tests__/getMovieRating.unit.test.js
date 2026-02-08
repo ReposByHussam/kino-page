@@ -32,7 +32,7 @@ describe("getMovieRating - CMS path", () => {
 
 describe("getMovieRating - IMDB path", () => {
   it("Returns rating from IMDB IF there are less than five reviews", async () => {
-
+    process.env.OMDB_API_KEY = "fake-test-key"; //added fake key to test
     const fakeFetchJson = async (url) => {
 
       if (url.includes("/api/reviews")) {
