@@ -486,8 +486,16 @@ To enable IMDB-fallback, the following environmental variable is required:
 
 OMDB_API_KEY=<your_api_key>
 
-This variable is loaded via process.env and is not stored in the source code or the git repository
 
+This variable is loaded via process.env and is not stored in the source code or the git repository. An example file .env.example is available in the repo. Please ask Leo or Nabeel for API key if you do not have one. 
+
+Frontend Implementation
+
+The rating is fetched asynchronously after the page load (DOMContentLoaded).
+
+The script looks for a DOM element with id="movie-rating" and data-movie-id="...".
+
+It updates the UI to show the rating and source (e.g., "7.8 (imdb)").
 ---
 
 

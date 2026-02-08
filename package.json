@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-     "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "sass": "sass --watch --no-source-map src/styles/main.scss src/styles/main.css",
     "dev": "nodemon server/server.js",
@@ -29,6 +29,7 @@
     "sass": "^1.97.0"
   },
   "dependencies": {
+    "dotenv": "^17.2.4",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.3",
     "handlebars": "^4.7.8",
