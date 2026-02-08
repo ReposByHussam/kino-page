@@ -2,7 +2,8 @@ import express from "express";
 import renderPage from "./renderPage.js";
 import apiScreenings from "./apiScreenings.js";
 import { getScreenings } from './getUpcomingScreenings.js';
-import { getMovieRating } from "./getMovieRating.js";
+// testing to see if i can remove the need for jest.mock which is currently showing errors due to ESM mistmatch 
+// import { getMovieRating } from "./getMovieRating.js";
 import "dotenv/config";
 
 export default function initApp(api) {
@@ -250,7 +251,7 @@ export default function initApp(api) {
   app.get('/api/movies/:id/rating', async (req, res) => {
     try {
       const movieId = req.params.id;
-      const result = await getMovieRating(movieId, fetchJson, CMS_ORIGIN);
+      const result = await api.getMovieRating(movieId, fetchJson, CMS_ORIGIN); //use function from api object instead of static import in beginning of page
 
       res.json({
         movieId,

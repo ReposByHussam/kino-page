@@ -76,7 +76,10 @@
 <main class="main">
   <article class="movie-page">
     <h1 class="movieCard__title">{{movie.title}}</h1>
-
+    <p>
+      Betyg:
+      <span id="movie-rating" data-movie-id="{{movie.id}}">Laddar betyg…</span>
+    </p>
     <div class="movieCard__item">
       <strong>Beskrivning:</strong>
       <div class="intro">

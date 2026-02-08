@@ -11,5 +11,4 @@ coverage/
 # Optional: test reports
 test-results/
 
-# .env
-.env
+# .env removed from gitignore so teammates can check to approve PR
