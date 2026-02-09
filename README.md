@@ -160,6 +160,9 @@ Returns an array of popular movies sorted by average rating (highest first).
   }
 ]
 
+
+```
+
 If no movies match the criteria, an empty array is returned.
 
 Server-side logic
