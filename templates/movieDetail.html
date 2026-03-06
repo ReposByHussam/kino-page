@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kino - Filmdetaljer</title>
+  <link rel="stylesheet" href="src/styles/main.css">
+  <script type="module" src="./src/scripts/main.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__content">
+      <a href="./index.html" aria-label="Start">
+        <img class="header__img" src="src/pics/KINO-logo.png" alt="Logo">
+      </a>
+
+      <button class="header__hamburger-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header__nav">
+        <ul class="header__menu-list">
+          <li class="header__menu-item menu-desktop movies">
+            <button class="btn-menu btn-menu--one" type="button">Filmer idag</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one" type="button">Kommande</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">För över 18 år</a></li>
+              <li class="header__dropdown-item"><a href="#">För hela familjen</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop">
+            <button class="btn-menu btn-menu--one" type="button">På bio</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="./bistro.html" data-route="./bistro.html">Bistro och mat</a></li>
+              <li class="header__dropdown-item"><a href="./eventPage.html">Evenemang</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop-xlarge">
+            <button class="btn-menu btn-menu--one" type="button">Mer...</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Om oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Boka salen</a></li>
+              <li class="header__dropdown-item"><a href="#">Jobba hos oss</a></li>
+              <li class="header__dropdown-item"><a href="#">Köpa presentkort</a></li>
+            </ul>
+          </li>
+
+          <li class="header__menu-item menu-desktop menu-contact">
+            <button class="btn-menu btn-menu--one" data-route="./contact.html" type="button">Kontakta Oss</button>
+          </li>
+
+          <li class="header__menu-item menu-medium login">
+            <button class="btn-menu btn-menu--two" type="button">Logga in</button>
+          </li>
+
+          <li class="header__menu-item menu-hide-medium">
+            <button class="btn-menu btn-menu--two" type="button">Bli medlem</button>
+          </li>
+
+          <li class="header__menu-item menu-medium language">
+            <button class="btn-menu btn-menu--language" type="button">Språk</button>
+            <ul class="header__dropdown">
+              <li class="header__dropdown-item"><a href="#">Svenska</a></li>
+              <li class="header__dropdown-item"><a href="#">Engelska</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section style="max-width: 1100px; margin: 0 auto; padding: 24px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <a href="./index.html" class="btn btn--secondary" style="text-decoration:none;">Tillbaka</a>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="btn btn--secondary" style="cursor:default;">Ålder: 13+</span>
+          <span class="btn btn--secondary" style="cursor:default;">Längd: 90 min</span>
+          <span class="btn btn--secondary" style="cursor:default;">Genre: Drama</span>
+        </div>
+      </div>
+
+      <h1 style="margin-top: 18px;">Filmtitel</h1>
+      <p style="max-width: 70ch;">
+        Kort beskrivning av filmen. Här står en sammanfattning som hjälper användaren att förstå handlingen.
+      </p>
+
+      <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; margin-top: 18px;">
+        <div>
+          <img src="src/pics/KINO-movie-poster.webp" alt="Film poster" style="width:100%; height:auto; border-radius: 8px;">
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div class="card" style="padding: 16px;">
+            <h2 style="margin-top:0;">Boka biljetter</h2>
+            <p style="margin: 0 0 8px 0;">Välj datum och tid, sedan går du vidare till platser och betalning.</p>
+
+            <label for="date" style="display:block; margin-top:10px;">Datum</label>
+            <input id="date" type="date" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;">
+
+            <label for="time" style="display:block; margin-top:10px;">Tid</label>
+            <select id="time" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;">
+              <option>17:30</option>
+              <option>19:00</option>
+              <option>20:30</option>
+            </select>
+
+            <button class="btn btn-menu--one" type="button" style="margin-top:12px; width:100%;">Boka</button>
+          </div>
+
+          <div class="card" style="padding: 16px;">
+            <h2 style="margin-top:0;">Info</h2>
+            <ul style="margin:0; padding-left:18px;">
+              <li>Språk: Svenska</li>
+              <li>Text: Engelska</li>
+              <li>Salong: 1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__contact">
+        <p class="footer__contact-item">
+          <a href="contact.html" class="footer__link">Kontakta oss</a>
+        </p>
+        <p class="footer__contact-item">
+          Telefon: <a href="tel:+18-XXXXX" class="footer__link">018-XXXXX</a>
+        </p>
+        <p class="footer__contact-item">Adress: XXXXX, Uppsala</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
