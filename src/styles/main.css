@@ -1664,3 +1664,12 @@ body {
   background-color: #5a504b;
   text-decoration: underline;
 }
+.movieCard__button.btn--secondary {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.movieCard {
+  overflow: visible !important;
+  height: auto !important;
+}
