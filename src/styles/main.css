@@ -1789,3 +1789,12 @@ body {
   line-height: 1.5;
   word-break: break-word;
 }
+
+.page-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page-layout main {
+  flex: 1;
+}
