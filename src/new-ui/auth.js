@@ -90,7 +90,7 @@ function initSignup() {
     const fullName = normalize(form.fullName?.value);
     const username = normalize(form.username?.value);
     const email = normalize(form.email?.value);
-    const password = normalize(form.password?.value);
+    const password = form.password?.value ?? "";//remove normalisation as it can change users password
 
     const emailOk = isValidEmail(email);
     const pw = passwordScore(password);
@@ -154,7 +154,7 @@ function initLogin() {
     form.classList.add("was-validated");
 
     const username = normalize(form.username?.value);
-    const password = normalize(form.password?.value);
+    const password = form.password?.value ?? "";//remove normalisation as it can change users password
 
     if (!username || !password) {
       setMsg(msg, "Fyll i användarnamn och lösenord.", false);
