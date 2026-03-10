@@ -63,18 +63,38 @@ function initSignup() {
   const pwInput = document.getElementById("password");
   const pwBar = document.getElementById("pwBar");
   const pwLabel = document.getElementById("pwLabel");
+  const pwRules = document.getElementById("pwRules");
 
   function updatePwUi() {
-    const pw = normalize(pwInput?.value);
-    const { score } = passwordScore(pw);
-    const ui = scoreToUi(score);
+  const pw = pwInput?.value ?? "";
+  const { score, lengthOk, upperOk, lowerOk, numberOk, symbolOk } = passwordScore(pw);
+  const ui = scoreToUi(score);
 
-    if (pwBar) {
-      pwBar.className = `progress-bar ${ui.className}`;
-      pwBar.style.width = `${ui.width}%`;
-    }
-    if (pwLabel) pwLabel.textContent = ui.label;
+  if (pwBar) {
+    pwBar.className = `progress-bar ${ui.className}`;
+    pwBar.style.width = `${ui.width}%`;
   }
+  if (pwLabel) pwLabel.textContent = ui.label;
+//reuse passwordscore to update password rules UI
+  if (pwRules) {
+    const ruleMap = {
+      length: lengthOk,
+      upper: upperOk,
+      lower: lowerOk,
+      number: numberOk,
+      symbol: symbolOk,
+    };
+
+    pwRules.querySelectorAll("li").forEach(li => {
+      const key = li.getAttribute("data-rule");
+      const ok = key && ruleMap[key];
+
+      li.classList.toggle("text-success", !!ok);
+      li.classList.toggle("text-muted", !ok);
+    });
+  }
+}
+ 
 
   if (pwInput) {
     pwInput.addEventListener("input", updatePwUi);
