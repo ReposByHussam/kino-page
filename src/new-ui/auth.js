@@ -63,18 +63,38 @@ function initSignup() {
   const pwInput = document.getElementById("password");
   const pwBar = document.getElementById("pwBar");
   const pwLabel = document.getElementById("pwLabel");
+  const pwRules = document.getElementById("pwRules");
 
   function updatePwUi() {
-    const pw = normalize(pwInput?.value);
-    const { score } = passwordScore(pw);
-    const ui = scoreToUi(score);
+  const pw = pwInput?.value ?? "";
+  const { score, lengthOk, upperOk, lowerOk, numberOk, symbolOk } = passwordScore(pw);
+  const ui = scoreToUi(score);
 
-    if (pwBar) {
-      pwBar.className = `progress-bar ${ui.className}`;
-      pwBar.style.width = `${ui.width}%`;
-    }
-    if (pwLabel) pwLabel.textContent = ui.label;
+  if (pwBar) {
+    pwBar.className = `progress-bar ${ui.className}`;
+    pwBar.style.width = `${ui.width}%`;
   }
+  if (pwLabel) pwLabel.textContent = ui.label;
+//reuse passwordscore to update password rules UI
+  if (pwRules) {
+    const ruleMap = {
+      length: lengthOk,
+      upper: upperOk,
+      lower: lowerOk,
+      number: numberOk,
+      symbol: symbolOk,
+    };
+
+    pwRules.querySelectorAll("li").forEach(li => {
+      const key = li.getAttribute("data-rule");
+      const ok = key && ruleMap[key];
+
+      li.classList.toggle("text-success", !!ok);
+      li.classList.toggle("text-muted", !ok);
+    });
+  }
+}
+ 
 
   if (pwInput) {
     pwInput.addEventListener("input", updatePwUi);
@@ -85,12 +105,20 @@ function initSignup() {
     e.preventDefault();
     setMsg(msg, "", true);
 
+//use built in HTML5 validations before our validations
+    if (!form.checkValidity()) {
+    form.classList.add("was-validated");
+    return;
+  }
+
     form.classList.add("was-validated");
 
     const fullName = normalize(form.fullName?.value);
     const username = normalize(form.username?.value);
     const email = normalize(form.email?.value);
-    const password = normalize(form.password?.value);
+    const password = form.password?.value ?? "";//remove normalisation as it can change users password
+    const passwordConfirm = form.passwordConfirm?.value ?? "";//confirm password field
+
 
     const emailOk = isValidEmail(email);
     const pw = passwordScore(password);
@@ -110,6 +138,12 @@ function initSignup() {
       setMsg(msg, "Välj ett starkare lösenord (minst 8 tecken, stora/små bokstäver, siffra och symbol).", false);
       return;
     }
+    if (password !== passwordConfirm) {
+      setMsg(msg, "Lösenorden matchar inte.", false);
+      return;
+    }//chck if password and confirm password match while submitting form
+
+
 
     const users = getUsers();
 
@@ -151,10 +185,15 @@ function initLogin() {
     e.preventDefault();
     setMsg(msg, "", true);
 
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      return;
+    }
+
     form.classList.add("was-validated");
 
     const username = normalize(form.username?.value);
-    const password = normalize(form.password?.value);
+    const password = form.password?.value ?? "";//remove normalisation as it can change users password
 
     if (!username || !password) {
       setMsg(msg, "Fyll i användarnamn och lösenord.", false);
