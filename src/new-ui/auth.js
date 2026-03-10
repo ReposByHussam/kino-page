@@ -105,6 +105,12 @@ function initSignup() {
     e.preventDefault();
     setMsg(msg, "", true);
 
+//use built in HTML5 validations before our validations
+    if (!form.checkValidity()) {
+    form.classList.add("was-validated");
+    return;
+  }
+
     form.classList.add("was-validated");
 
     const fullName = normalize(form.fullName?.value);
@@ -178,6 +184,11 @@ function initLogin() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     setMsg(msg, "", true);
+
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      return;
+    }
 
     form.classList.add("was-validated");
 
