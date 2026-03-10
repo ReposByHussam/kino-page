@@ -91,6 +91,8 @@ function initSignup() {
     const username = normalize(form.username?.value);
     const email = normalize(form.email?.value);
     const password = form.password?.value ?? "";//remove normalisation as it can change users password
+    const passwordConfirm = form.passwordConfirm?.value ?? "";//confirm password field
+
 
     const emailOk = isValidEmail(email);
     const pw = passwordScore(password);
@@ -110,6 +112,12 @@ function initSignup() {
       setMsg(msg, "Välj ett starkare lösenord (minst 8 tecken, stora/små bokstäver, siffra och symbol).", false);
       return;
     }
+    if (password !== passwordConfirm) {
+      setMsg(msg, "Lösenorden matchar inte.", false);
+      return;
+    }//chck if password and confirm password match while submitting form
+
+
 
     const users = getUsers();
 
