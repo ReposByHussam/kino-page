@@ -152,12 +152,14 @@ h2 {
   height: 2.5em;
   margin-block: 0.5em;
 }
-.main__filmsToday, .main__filmsUpcoming {
+.main__filmsToday,
+.main__filmsUpcoming {
   display: flex;
   flex-direction: column;
 }
 .main__filmsToday h2,
-.main__filmsToday a, .main__filmsUpcoming h2,
+.main__filmsToday a,
+.main__filmsUpcoming h2,
 .main__filmsUpcoming a {
   align-self: center;
 }
@@ -181,7 +183,8 @@ h2 {
 .main__filmsContainer:active {
   cursor: grabbing;
 }
-.main__filmsContainer::before, .main__filmsContainer::after {
+.main__filmsContainer::before,
+.main__filmsContainer::after {
   content: "";
   flex: 0 0 2rem;
 }
@@ -428,7 +431,10 @@ h2 {
   border-radius: 14px;
   padding: 1.25rem 1.25rem 1.1rem;
   position: relative;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
 }
 
 .happenings__card::before {
@@ -534,14 +540,16 @@ body {
   gap: 1.15rem;
   align-items: start;
 }
-.contact__info, .contact__formwrap {
+.contact__info,
+.contact__formwrap {
   background: #151313;
   color: #fbfbfa;
   border-radius: 1.5rem;
   padding: 1.5rem;
   box-shadow: 3.5px 7px 7px hsla(0, 0%, 19%, 0.39);
 }
-.contact__info-title, .contact__form-title {
+.contact__info-title,
+.contact__form-title {
   margin: 0 0 1rem;
   color: #f3543b;
   text-transform: uppercase;
@@ -578,7 +586,8 @@ body {
   font-weight: 700;
   color: #9cc177;
 }
-.contact__input, .contact__textarea {
+.contact__input,
+.contact__textarea {
   border-radius: 0.25rem;
   border: 2px solid transparent;
   padding: 0.85rem 0.9rem;
@@ -586,14 +595,16 @@ body {
   font-size: 1rem;
   outline: none;
 }
-.contact__input:focus-visible, .contact__textarea:focus-visible {
+.contact__input:focus-visible,
+.contact__textarea:focus-visible {
   border-color: #9cc177;
 }
 .contact__textarea {
   resize: vertical;
   min-height: 8rem;
 }
-.contact__submit, .contact__btn {
+.contact__submit,
+.contact__btn {
   margin-top: 0.25rem;
   width: 100%;
   height: 2.5rem;
@@ -608,7 +619,8 @@ body {
   font-size: 1.25rem;
   font-family: "Roboto", sans-serif;
 }
-.contact__submit:hover, .contact__btn:hover {
+.contact__submit:hover,
+.contact__btn:hover {
   border-color: #9cc177;
   color: #9cc177;
 }
@@ -623,7 +635,8 @@ body {
   color: #9cc177;
   font-weight: 700;
 }
-.contact__input--invalid, .contact__textarea--invalid {
+.contact__input--invalid,
+.contact__textarea--invalid {
   border-color: #f3543b;
 }
 @media screen and (min-width: 768px) {
@@ -632,10 +645,12 @@ body {
     align-items: start;
     gap: 1.5rem;
   }
-  .contact__info, .contact__formwrap {
+  .contact__info,
+  .contact__formwrap {
     padding: 2rem;
   }
-  .contact__input, .contact__textarea {
+  .contact__input,
+  .contact__textarea {
     font-size: 1.05rem;
   }
 }
@@ -652,7 +667,8 @@ body {
   .contact__subtitle {
     font-size: 1.25rem;
   }
-  .contact__submit, .contact__btn {
+  .contact__submit,
+  .contact__btn {
     height: 3rem;
     font-size: 1.35rem;
   }
@@ -737,7 +753,8 @@ body {
     justify-content: flex-start;
   }
 }
-.about__cinema-title, .about__bistro-title {
+.about__cinema-title,
+.about__bistro-title {
   color: #f3543b;
   font-size: 1.5rem;
   font-weight: bold;
@@ -754,7 +771,8 @@ body {
   padding: 0;
   line-height: 1.7;
 }
-.about__cinema-img, .about__bistro-img {
+.about__cinema-img,
+.about__bistro-img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -799,7 +817,8 @@ body {
   justify-content: center;
   gap: 1rem;
 }
-.about__se-meny, .about__boka-bord {
+.about__se-meny,
+.about__boka-bord {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1071,7 +1090,12 @@ body {
   }
 }
 
-.bistro_section, .bistro_menu, .bistro_gallery, .bistro_book-table, .bistro_description, .bistro_info {
+.bistro_section,
+.bistro_menu,
+.bistro_gallery,
+.bistro_book-table,
+.bistro_description,
+.bistro_info {
   max-width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
@@ -1194,7 +1218,9 @@ body {
   padding: 0.8rem 1.2rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
 }
 .bistro_book-table .bistro_book-table__btn:hover {
   transform: translateY(-1px);
@@ -1246,10 +1272,13 @@ body {
   object-fit: cover;
   display: block;
   transform: scale(1.05);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
   filter: brightness(0.8);
 }
-.bistro_gallery .bistro_gallery-item:hover img, .bistro_gallery .bistro_gallery-item:focus-visible img {
+.bistro_gallery .bistro_gallery-item:hover img,
+.bistro_gallery .bistro_gallery-item:focus-visible img {
   transform: scale(1.2);
   filter: brightness(1);
 }
@@ -1672,4 +1701,100 @@ body {
 .movieCard {
   overflow: visible !important;
   height: auto !important;
+}
+
+.auth-page.auth-page * {
+  font-family: "Roboto", sans-serif;
+}
+.kino-auth-card {
+  border: none;
+  border-radius: 12px;
+  background: #f7f4ef;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #cfcfcf !important;
+  min-height: 48px;
+  background-color: #fbfbfa !important;
+  color: #151313 !important;
+}
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+}
+.auth-card-fix {
+  border: none !important;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: #151313;
+}
+.auth-password-box {
+  background-color: #fbfbfa;
+  border: 2px solid rgba(156, 193, 119, 0.25);
+  border-radius: 1rem;
+  padding: 1rem 1rem 0.85rem;
+  margin-top: 2rem;
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.12);
+}
+
+.auth-password-box__title {
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  color: #821818;
+  font-size: 1rem;
+}
+
+.auth-password-box__progress {
+  background-color: #e8e8e8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.auth-password-box__strength {
+  color: #151313;
+  font-weight: 700;
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+.auth-password-box__rules {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #151313;
+  line-height: 1.6;
+}
+
+.auth-password-box__rules li {
+  margin-bottom: 0.2rem;
+}
+.profile-info-block {
+  background-color: #fbfbfa;
+  border-radius: 0.85rem;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.08);
+}
+
+.profile-label {
+  font-weight: 700;
+  color: #821818;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.profile-value {
+  color: #151313;
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.page-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page-layout main {
+  flex: 1;
 }
